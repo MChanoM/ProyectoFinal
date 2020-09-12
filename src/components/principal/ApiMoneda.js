@@ -6,19 +6,20 @@ const ApiMoneda = (props) => {
   const [dataMoneda, setDataMoneda] = useState({});
 
   const consultarApi = async () => {
-    console.log("cargando datos de la moneda");
+    
     const apiKey = "a118443cd2201aab4bc8";
     const querrySet = "USD_ARS,EUR_ARS";
     const urlApi = `https://free.currconv.com/api/v7/convert?q=${querrySet}&compact=ultra&apiKey=${apiKey}`;
 
     if (props.test === false) {
       try {
+        // console.log("cargando datos de la moneda");
         const respuesta = await fetch(urlApi);
         // console.log(respuesta);
         const resultado = await respuesta.json();
         resultado.EUR_ARS = parseFloat(resultado.EUR_ARS).toFixed(2);
         resultado.USD_ARS = parseFloat(resultado.USD_ARS).toFixed(2);
-        console.log(resultado);
+        // console.log(resultado);
         setDataMoneda(resultado);
       } catch (error) {
         console.log(error);
