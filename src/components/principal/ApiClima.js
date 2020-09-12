@@ -1,0 +1,82 @@
+import React, { useState, useEffect } from "react";
+import { Image, Row, Col } from "react-bootstrap";
+
+const ApiClima = (props) => {
+  const [dataClima, setDataClima] = useState({});
+
+  const consultarApi = async () => {
+    // console.log("cargando datos del clima");
+
+    const apiKey = "cbfc2a6863dc350ddf2cfab27a09762d";
+    const pais = "AR";
+    const ciudad = "San Miguel de Tucuman";
+    const urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${apiKey}&units=metric`;
+
+    if (props.test === false) {
+      try {
+        //response
+        const respuesta = await fetch(urlApi);
+        const resultado = await respuesta.json();
+        // console.log(resultado);
+        setDataClima(resultado);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      let resultado = {
+        name: "Testeo Ciudad",
+        main: { temp: 15, temp_max: 10, temp_min: 20, feels_like: 16 },
+        weather: [{ icon: "04d" }],
+      };
+      setDataClima(resultado);
+    }
+  };
+
+  useEffect(() => {
+    consultarApi();
+  }, []);
+
+  return (
+    <Row className="d-flex">
+      <Col xs={7} md={5} lg={3}>
+        <Image
+          className="logoClima"
+          src={`http://openweathermap.org/img/wn/${
+            dataClima.main === undefined ? "" : dataClima.weather[0].icon
+          }@2x.png`}
+          alt="icon-clima"
+        />
+      </Col>
+      <Col xs={5} md={7} lg={9}>
+        <Row>
+          <p className="mt-3 extrasClima">{dataClima.name}</p>
+        </Row>
+        <Row>
+          <div className="d-flex justify-content-between">
+            <h5 className="mr-2 tempClima">
+              {dataClima.main === undefined ? "" : dataClima.main.temp}°C
+            </h5>
+            <p className="mr-2 extrasClima">
+              ST {dataClima.main === undefined ? "" : dataClima.main.feels_like}
+              °C
+            </p>
+            <small>
+              <p className="mr-2 extrasClima">
+                Max{" "}
+                {dataClima.main === undefined ? "" : dataClima.main.temp_max}°C
+              </p>
+            </small>
+            <small>
+              <p className="extrasClima">
+                Min{" "}
+                {dataClima.main === undefined ? "" : dataClima.main.temp_min}°C
+              </p>
+            </small>
+          </div>
+        </Row>
+      </Col>
+    </Row>
+  );
+};
+
+export default ApiClima;

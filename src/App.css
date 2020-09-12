@@ -1,0 +1,52 @@
+.logoClima{
+    width: 100px;    
+}
+
+.moneda{
+    font-size: 30px;
+}
+
+.euro{
+    margin-right:50px;
+}
+
+.desc{
+    font-weight: bold;
+    margin-right: 8px;
+    font-size:15px;
+}
+
+/* // Medium devices (tablets, 768px and 992px) */
+@media only screen and (max-width: 767px){
+.extrasClima{
+display:none;
+}
+
+.logoClima{
+    width: 50px;
+    margin-left:20px;
+}
+
+.tempClima{
+    margin-top: 13px;
+      
+}
+
+.moneda{
+    font-size: 15px;
+}
+.euro{
+    margin-right:10px;
+}
+
+.desc{
+    font-weight: bold;
+    font-size:10px;
+    border:red 1px solid;
+    border-radius: 10%;
+    padding: 2px;
+    background-color: red;
+    color: white;
+
+}
+}
