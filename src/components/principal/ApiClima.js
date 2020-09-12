@@ -38,11 +38,9 @@ const ApiClima = (props) => {
 
   return (
     <Fragment>
-     
-        <p className="tituloClimaMin">{dataClima.name}</p>
-     
-      <Row className="d-flex">
-        <Col xs={7} md={5} lg={3}>
+      <p className="tituloClimaMin text-center">{dataClima.name}</p>
+      <Row>
+        <Col xs={7} md={6} lg={6} className="d-flex justify-content-end">
           <Image
             className="logoClima"
             src={`http://openweathermap.org/img/wn/${
@@ -51,11 +49,16 @@ const ApiClima = (props) => {
             alt="icon-clima"
           />
         </Col>
-        <Col xs={5} md={7} lg={9}>
+        <Col xs={5} md={6} lg={6}>
           <Row>
-            <p className="mt-3 extrasClima">{dataClima.name}</p>
+            <h5 className="mr-2 tempClimaMin">
+              {dataClima.main === undefined ? "" : dataClima.main.temp}°C
+            </h5>
           </Row>
-          <Row>
+          <Row className="d-flex justify-content-start">
+            <p className="mt-3 extrasClima nombreCiudad">{dataClima.name}</p>
+          </Row>
+          <Row className="d-flex justify-content-start">
             <div className="d-flex justify-content-between">
               <h5 className="mr-2 tempClima">
                 {dataClima.main === undefined ? "" : dataClima.main.temp}°C

@@ -9,7 +9,7 @@ const ApiHeader = () => {
   const [test,setTest] = useState(true);
   
   return (
-    <Container>
+    <Container fluid>
       <Row className="bg-info text-light d-flex align-items-center">
         <Col>
           <ApiMoneda test={test}></ApiMoneda>

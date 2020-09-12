@@ -34,7 +34,7 @@ const ApiMoneda = (props) => {
   }, []);
 
   return (
-    <Row className="d-flex justify-content-center align-items-center mt-3">
+    <Row className="d-flex justify-content-start align-items-center mt-3">
       <div className="d-flex align-items-center euro">
         <p className="desc">EURO</p>
        <p className="moneda"> {dataMoneda.EUR_ARS}</p>
