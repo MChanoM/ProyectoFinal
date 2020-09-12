@@ -10,7 +10,7 @@ const ApiHeader = () => {
   
   return (
     <Container>
-      <Row className="border d-flex align-items-center">
+      <Row className="bg-info text-light d-flex align-items-center">
         <Col>
           <ApiMoneda test={test}></ApiMoneda>
         </Col>

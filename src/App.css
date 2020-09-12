@@ -1,52 +1,67 @@
-.logoClima{
-    width: 100px;    
+.logoClima {
+  width: 100px;
 }
 
-.moneda{
-    font-size: 30px;
+.moneda {
+  font-size: 30px;
 }
 
-.euro{
-    margin-right:50px;
+.euro {
+  margin-right: 50px;
 }
 
-.desc{
-    font-weight: bold;
-    margin-right: 8px;
-    font-size:15px;
+.desc {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 15px;
 }
+
+
 
 /* // Medium devices (tablets, 768px and 992px) */
-@media only screen and (max-width: 767px){
-.extrasClima{
-display:none;
-}
+@media only screen and (max-width: 767px) {
+  .extrasClima {
+    display: none;
+  }
 
-.logoClima{
+  .logoClima {
     width: 50px;
-    margin-left:20px;
-}
+    margin-left: 40px;
+  }
 
-.tempClima{
+  .tempClima {
     margin-top: 13px;
-      
-}
+  }
 
-.moneda{
+  .moneda {
     font-size: 15px;
-}
-.euro{
-    margin-right:10px;
-}
+  }
+  .euro {
+    margin-right: 10px;
+  }
 
-.desc{
+  .desc {
     font-weight: bold;
-    font-size:10px;
-    border:red 1px solid;
+    font-size: 10px;
+    border: black 1px solid;
     border-radius: 10%;
     padding: 2px;
-    background-color: red;
+    background-color: black;
     color: white;
+  }
 
+  .tituloClimaMin {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    margin-left: 35px;
+  }
 }
+
+
+@media only screen and (min-width: 768px) {
+
+    .tituloClimaMin {
+        display: none;
+      }
 }

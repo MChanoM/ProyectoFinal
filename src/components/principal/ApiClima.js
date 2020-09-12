@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Image, Row, Col } from "react-bootstrap";
 
 const ApiClima = (props) => {
@@ -24,7 +24,7 @@ const ApiClima = (props) => {
       }
     } else {
       let resultado = {
-        name: "Testeo Ciudad",
+        name: "San Miguel de Tucuman",
         main: { temp: 15, temp_max: 10, temp_min: 20, feels_like: 16 },
         weather: [{ icon: "04d" }],
       };
@@ -37,45 +37,53 @@ const ApiClima = (props) => {
   }, []);
 
   return (
-    <Row className="d-flex">
-      <Col xs={7} md={5} lg={3}>
-        <Image
-          className="logoClima"
-          src={`http://openweathermap.org/img/wn/${
-            dataClima.main === undefined ? "" : dataClima.weather[0].icon
-          }@2x.png`}
-          alt="icon-clima"
-        />
-      </Col>
-      <Col xs={5} md={7} lg={9}>
-        <Row>
-          <p className="mt-3 extrasClima">{dataClima.name}</p>
-        </Row>
-        <Row>
-          <div className="d-flex justify-content-between">
-            <h5 className="mr-2 tempClima">
-              {dataClima.main === undefined ? "" : dataClima.main.temp}°C
-            </h5>
-            <p className="mr-2 extrasClima">
-              ST {dataClima.main === undefined ? "" : dataClima.main.feels_like}
-              °C
-            </p>
-            <small>
+    <Fragment>
+     
+        <p className="tituloClimaMin">{dataClima.name}</p>
+     
+      <Row className="d-flex">
+        <Col xs={7} md={5} lg={3}>
+          <Image
+            className="logoClima"
+            src={`http://openweathermap.org/img/wn/${
+              dataClima.main === undefined ? "" : dataClima.weather[0].icon
+            }@2x.png`}
+            alt="icon-clima"
+          />
+        </Col>
+        <Col xs={5} md={7} lg={9}>
+          <Row>
+            <p className="mt-3 extrasClima">{dataClima.name}</p>
+          </Row>
+          <Row>
+            <div className="d-flex justify-content-between">
+              <h5 className="mr-2 tempClima">
+                {dataClima.main === undefined ? "" : dataClima.main.temp}°C
+              </h5>
               <p className="mr-2 extrasClima">
-                Max{" "}
-                {dataClima.main === undefined ? "" : dataClima.main.temp_max}°C
+                ST{" "}
+                {dataClima.main === undefined ? "" : dataClima.main.feels_like}
+                °C
               </p>
-            </small>
-            <small>
-              <p className="extrasClima">
-                Min{" "}
-                {dataClima.main === undefined ? "" : dataClima.main.temp_min}°C
-              </p>
-            </small>
-          </div>
-        </Row>
-      </Col>
-    </Row>
+              <small>
+                <p className="mr-2 extrasClima">
+                  Max{" "}
+                  {dataClima.main === undefined ? "" : dataClima.main.temp_max}
+                  °C
+                </p>
+              </small>
+              <small>
+                <p className="extrasClima">
+                  Min{" "}
+                  {dataClima.main === undefined ? "" : dataClima.main.temp_min}
+                  °C
+                </p>
+              </small>
+            </div>
+          </Row>
+        </Col>
+      </Row>
+    </Fragment>
   );
 };
 
