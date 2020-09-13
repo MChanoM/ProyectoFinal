@@ -6,9 +6,9 @@
   font-size: 75px;
 }
 
-.punto{
-    font-size: 75px;
-    color: red;
+.punto {
+  font-size: 75px;
+  color: red;
 }
 
 /* FOOTER */
@@ -40,7 +40,7 @@
 }
 
 .twitter {
-    width: 36px;
+  width: 36px;
   height: 36px;
   border-radius: 20%;
   color: #fff;
