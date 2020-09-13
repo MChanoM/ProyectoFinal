@@ -4,7 +4,6 @@ import { Container, Carousel, Card, Button } from "react-bootstrap";
 const PaginaInicio = () => {
   return (
     <Container className="text-center">
-      <h1>News Pro</h1>
       <hr />
       <div className="row">
         <div className="col-sm-12 col-md-6">

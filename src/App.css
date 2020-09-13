@@ -1,0 +1,67 @@
+/* Titulo */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap");
+
+.titulo {
+  font-family: "Noto Serif", serif;
+  font-size: 75px;
+}
+
+.punto{
+    font-size: 75px;
+    color: red;
+}
+
+/* FOOTER */
+.position {
+  /* position: fixed; */
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+}
+.tituloFooter {
+  font-family: "Noto Serif", serif;
+  font-size: 50px;
+  color: white;
+}
+
+.piePagina {
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+/* REDES SOCIALES */
+.facebook {
+  width: 36px;
+  height: 36px;
+  border-radius: 20%;
+  color: #fff;
+  background: #3b5998;
+}
+
+.twitter {
+    width: 36px;
+  height: 36px;
+  border-radius: 20%;
+  color: #fff;
+  background: #00acee;
+}
+
+.instagram {
+  width: 36px;
+  height: 36px;
+  border-radius: 20%;
+  /* border-radius: 40px; */
+  color: #fff;
+  line-height: 30px;
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
