@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PaginaInicio from './components/principal/PaginaInicio';
+import EditarNoticia from './components/abm/abmNoticias/EditarNoticia';
 
 function App () {
     return (
         <div>
-            <PaginaInicio></PaginaInicio>
+            <EditarNoticia></EditarNoticia>
             
         </div>
     )
