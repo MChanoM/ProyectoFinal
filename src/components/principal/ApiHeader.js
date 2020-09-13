@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import ApiClima from "./ApiClima";
-import ApiMoneda from "./ApiMoneda";
+import ApiClima from "./apis/ApiClima";
+import ApiMoneda from "./apis/ApiMoneda";
 
 
 const ApiHeader = () => {
