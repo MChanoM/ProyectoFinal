@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Col, Row, Nav, Badge } from "react-bootstrap";
+import AgregarNoticia from './abmNoticias/AgregarNoticia';
 
 const PaginaAdmin = () => {
   return (
