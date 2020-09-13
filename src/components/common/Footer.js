@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faInstagram,
-  faTwitter,
+  faTwitter
 } from "@fortawesome/free-brands-svg-icons";
 import Button from "react-bootstrap/Button";
 

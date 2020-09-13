@@ -6,6 +6,7 @@ import PaginaInicio from './components/principal/PaginaInicio';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ApiHeader from './components/principal/ApiHeader';
+import EditarNoticia from './components/abm/abmNoticias/EditarNoticia';
 
 function App () {
     return (
@@ -14,6 +15,8 @@ function App () {
             <ApiHeader></ApiHeader>
             <PaginaInicio></PaginaInicio>
             <Footer></Footer>
+            <EditarNoticia></EditarNoticia>
+            
         </div>
     )
 }

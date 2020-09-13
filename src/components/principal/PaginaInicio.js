@@ -5,14 +5,6 @@ const PaginaInicio = () => {
   return (
     <Container className="text-center">
       <hr />
-      <div className="row">
-        <div className="col-sm-12 col-md-6">
-          <p>INFORMACION API MONEDAS</p>
-        </div>
-        <div className="col-sm-12 col-md-6">
-          <p>INFORMAION API CLIMA</p>
-        </div>
-      </div>
       <hr className="mb-4" />
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-4 mb-2">
