@@ -44,7 +44,8 @@
   }
 
   .moneda {
-    font-size: 13px;
+    font-size: 18px;
+    margin-right: 8px;
   }
   .euro {
     margin-left: 20px;
@@ -60,6 +61,7 @@
     background-color: black;
     color: white;
   }
+
 
 }
 
