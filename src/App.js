@@ -10,11 +10,7 @@ function App () {
         <div>
             <Header></Header>
             <PaginaInicio></PaginaInicio>
-<<<<<<< HEAD
-=======
             <Footer></Footer>
-            
->>>>>>> 09bd7b7c117f6b5740d434d4d43b7ca2411f9a39
         </div>
     )
 }
