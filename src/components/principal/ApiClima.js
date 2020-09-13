@@ -72,7 +72,7 @@ const ApiClima = (props) => {
               <p className="nombreCiudad">{dataClima.name}</p>
             </Row>
             <Row className="d-flex justify-content-center mr-5">
-              <div className="d-flex justify-content-between align-items-baseline">
+              <div className="d-flex justify-content-between align-items-baseline extrasClima">
                 <h5 className="mr-2 tempClima">
                   {dataClima.main === undefined ? "" : dataClima.main.temp}°C
                 </h5>

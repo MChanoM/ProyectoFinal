@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import ApiClima from "./ApiClima";
 import ApiMoneda from "./ApiMoneda";
@@ -10,7 +10,7 @@ const ApiHeader = () => {
   const test = true;
   
   return (
-    <Container fluid>
+    <Container fluid >
       <Row className="bg-info text-light d-flex align-items-center">
         <Col>
           <ApiMoneda test={test}></ApiMoneda>
