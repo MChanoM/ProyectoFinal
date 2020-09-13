@@ -4,6 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Logo from "../../img/logo-sbg.png";
+// import {NavLink} from 'react-router-dom';
 // import Collapse from "react-bootstrap/Collapse";
 
 const Header = () => {
@@ -24,10 +25,10 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#link">Actualidad</Nav.Link>
-            <Nav.Link href="#link">Espectáculos</Nav.Link>
-            <Nav.Link href="#link">Tecnología</Nav.Link>
-            <Nav.Link href="#link">Deportes</Nav.Link>
+            <NavLink exact={true} to="#" className="nav-link">Actualidad</NavLink>
+            <NavLink exact={true} to="#" className="nav-link">Espectáculos</NavLink>
+            <NavLink exact={true} to="#" className="nav-link">Tecnología</NavLink>
+            <NavLink exact={true} to="#" className="nav-link">Deportes</NavLink>
             <NavDropdown title="Otras Categorías" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Politica</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
@@ -43,6 +44,9 @@ const Header = () => {
           <Button variant="outline-info">Ingresar</Button>
         </Navbar.Collapse>
       </Navbar>
+      <div className="container">
+          <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
+      </div>
     </div>
   );
 };
