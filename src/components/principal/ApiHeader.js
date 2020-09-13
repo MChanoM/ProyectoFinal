@@ -6,7 +6,8 @@ import ApiMoneda from "./ApiMoneda";
 
 const ApiHeader = () => {
 
-  const [test,setTest] = useState(true);
+  // modo testing
+  const test = true;
   
   return (
     <Container fluid>
