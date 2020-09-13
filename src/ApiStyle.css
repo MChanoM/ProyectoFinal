@@ -1,0 +1,89 @@
+.moneda {
+  font-size: 30px;
+}
+
+.euro {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.desc {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 15px;
+}
+
+.logoClima {
+  width: 100px;
+}
+
+.tempClima {
+    font-size: 20px;
+}
+
+.sensTerm{
+  font-weight:bold;
+}
+
+/* // Medium devices (tablets, 768px and 992px) */
+@media only screen and (max-width: 768px) {
+
+
+  .logoClima {
+    width: 50px;
+  }
+
+  .apiClimaMax {
+    display: none;
+  }
+
+  .apiClimaMin {
+    display: block;
+  }
+
+  .ciudadClima {
+    font-size: 12px;
+    margin-top: 7px;
+    margin-bottom: -9px;
+  }
+
+  .moneda {
+    font-size: 13px;
+  }
+  .euro {
+    margin-left: 20px;
+    margin-right: 7px;
+  }
+
+  .desc {
+    font-weight: bold;
+    font-size: 10px;
+    border: black 1px solid;
+    border-radius: 10%;
+    padding: 2px;
+    background-color: black;
+    color: white;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  .apiClimaMin {
+    display: none;
+  }
+
+  .apiClimaMax {
+    display: block;
+    
+  }
+
+  .tituloClimaMin {
+    display: none;
+  }
+
+  
+  .nombreCiudad {
+    margin-top:10px;  
+  }
+
+}
