@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./App.css";
 import "./ApiStyle.css";
@@ -10,6 +9,7 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import ApiHeader from "./components/principal/ApiHeader";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
 
 
 function App() {

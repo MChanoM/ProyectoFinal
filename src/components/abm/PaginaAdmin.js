@@ -1,8 +1,37 @@
-import React from "react";
-import { Container, Col, Row, Nav, Badge } from "react-bootstrap";
-import AgregarNoticia from './abmNoticias/AgregarNoticia';
+import React, { useState } from "react";
+import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ListaNoticias from "./abmNoticias/ListaNoticias";
+import ListaCategorias from "./abmCategorias/ListaCategorias";
+import Spinner from "../common/Spinner";
 
 const PaginaAdmin = () => {
+  const [opc, setOpc] = useState("cat");
+  const [loader, setLoader] = useState(false);
+
+  const handleOpc = (opcion) => {
+    setTimeout(() => {
+      setOpc(opcion);
+      setLoader(false);
+    }, 2000);
+  };
+
+  const cargarOpcion = () => {
+    if (loader === true) {
+      return (
+      
+      <Spinner></Spinner>
+      
+      );
+    } else {
+      if (opc === "cat") {
+        return <ListaCategorias></ListaCategorias>;
+      } else {
+        return <ListaNoticias></ListaNoticias>;
+      }
+    }
+  };
+
   return (
     <div>
       <Container fluid>
@@ -17,28 +46,47 @@ const PaginaAdmin = () => {
       </Container>
       <Container>
         <Row className="my-3">
-          <h5 className="ml-5 lead">Bienvenidos USUARIO,</h5>
+          <h5 className="ml-1 lead">Bienvenidos NOMBRE DE USUARIO,</h5>
         </Row>
+        <hr></hr>
         <Row>
           <Nav variant="pills" defaultActiveKey="/admin">
             <Nav.Item>
-              <Nav.Link className="btn btn-info" href="/admin">Categorias</Nav.Link>
+              <Button
+                className="btn btn-info"
+                onClick={() => {
+                  handleOpc("cat");
+                  setLoader(true);
+                }}
+              >
+                Categorias
+              </Button>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link className="btn btn-info" eventKey="link-1">Noticias</Nav.Link>
+              <Button
+                className="btn btn-info"
+                onClick={() => {
+                  handleOpc("not");
+                  setLoader(true);
+                }}
+              >
+                Noticias
+              </Button>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link className="btn btn-info text-dark" eventKey="disabled" disabled>
+              <Button className="btn btn-info" disabled>
                 Usuarios
-              </Nav.Link>
+              </Button>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link className="btn btn-info text-dark" eventKey="disabled" disabled>
+              <Button className="btn btn-info" disabled>
                 Metricas
-              </Nav.Link>
+              </Button>
             </Nav.Item>
           </Nav>
         </Row>
+        <hr></hr>
+        <Row className="d-flex justify-content-center">{cargarOpcion()}</Row>
       </Container>
     </div>
   );
