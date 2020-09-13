@@ -6,7 +6,6 @@ const ApiClima = (props) => {
 
   const consultarApi = async () => {
     // console.log("cargando datos del clima");
-
     const apiKey = "cbfc2a6863dc350ddf2cfab27a09762d";
     const pais = "AR";
     const ciudad = "San Miguel de Tucuman";
