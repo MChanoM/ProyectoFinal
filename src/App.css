@@ -75,6 +75,7 @@
 /* PaginaCategoria */
 .lineaVertical{
   border-left:  2px solid #21a4b6;
+}
 
 /* MEDIA QUERIES */
 @media (max-width: 767px){
