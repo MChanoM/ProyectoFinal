@@ -17,7 +17,7 @@ const Footer = () => {
     <div className="bg-dark py-2 position">
       <Container>
         <Row className="justify-content-center align-items-center">
-          <Col className="text-center">
+          <Col sm={12} md={4} className="text-center">
             <p className="text-white">Seguinos en nuestras redes sociales:</p>
             <FontAwesomeIcon
               icon={faFacebook}
@@ -35,10 +35,10 @@ const Footer = () => {
               className="twitter mx-2"
             />
           </Col>
-          <Col className="text-center">
+          <Col sm={12} md={4} className="text-center">
             <h1 className="text-center my-4 py-2 tituloFooter">NewsPro</h1>
           </Col>
-          <Col className="text-center">
+          <Col sm={12} md={4} className="text-center">
             <p className="text-white">
               Enterate de las noticias mas importantes primero!
             </p>
