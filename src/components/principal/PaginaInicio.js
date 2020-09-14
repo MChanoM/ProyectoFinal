@@ -1,5 +1,7 @@
 import React from "react";
-import { Container, Carousel, Card, Button } from "react-bootstrap";
+import { Container, Carousel, Card, Button, CardImg } from "react-bootstrap";
+import Logo from "../../img/publicidad.png";
+
 
 const PaginaInicio = () => {
   return (
@@ -239,7 +241,17 @@ const PaginaInicio = () => {
           </Card>
         </div>
         <div className="col-sm-12 col-md-3 mb-3">
-          <p>PUBLICIDAD</p>
+        <Card>
+            <Button variant="link">
+            <CardImg 
+               src={Logo}
+               width="110"
+               height="500"
+               className="d-inline-block align-top"
+               alt="Anuncio"
+            />
+            </Button>
+          </Card>
         </div>
       </div>
     </Container>
