@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 
 const AgregarNoticia = () => {
+    const [categoria, setCategoria] = useState("");
   return (
     <Container>
       <h2 className="text-center my-4">Agregar Categorías</h2>
@@ -25,6 +26,7 @@ const AgregarNoticia = () => {
                 <Form.Control
                   type="text"
                   placeholder="Ingrese el nombre de la categoría"
+                  onChange = {(e) => {setCategoria(e.target.value)}}
                 />
                 <Button className="mx-2" variant="primary">
                   Agregar
