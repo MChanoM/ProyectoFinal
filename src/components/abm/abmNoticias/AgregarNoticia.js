@@ -39,7 +39,7 @@ const AgregarNoticia = () => {
           <Form.Check
             type="switch"
             id="destaca"
-            value={noticiaDestacada}
+            checked={noticiaDestacada}
             label="Si"
             onChange={esDestacado}
           />
