@@ -1,19 +1,46 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ListaNoticias from "./abmNoticias/ListaNoticias";
-import ListaCategorias from "./abmCategorias/ListaCategorias";
 import Spinner from "../common/Spinner";
+import ListaCategorias from "./abmCategorias/ListaCategorias";
+import ListaNoticias from "./abmNoticias/ListaNoticias";
 
 const PaginaAdmin = () => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
 
+
+  const noticias = [
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:"true",publicada:"true" },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
+    
+  ];
+
+  const categorias = [
+    { nombre: "policiales", activa: "si"},
+    { nombre: "deportes", activa: "si" },
+    { nombre: "espectaculos", activa: "si" },
+    { nombre: "opinion", activa: "si" },
+  ];
+
+
+
   const handleOpc = (opcion) => {
     setTimeout(() => {
       setOpc(opcion);
       setLoader(false);
-    }, 2000);
+    }, 1000);
   };
 
   const cargarOpcion = () => {
@@ -25,9 +52,9 @@ const PaginaAdmin = () => {
       );
     } else {
       if (opc === "cat") {
-        return <ListaCategorias></ListaCategorias>;
+        return <ListaCategorias categorias={categorias}></ListaCategorias>;
       } else {
-        return <ListaNoticias></ListaNoticias>;
+        return <ListaNoticias noticias={noticias}></ListaNoticias>;
       }
     }
   };
@@ -86,8 +113,9 @@ const PaginaAdmin = () => {
           </Nav>
         </Row>
         <hr></hr>
-        <Row className="d-flex justify-content-center">{cargarOpcion()}</Row>
+        <section className="">{cargarOpcion()}</section>
       </Container>
+        
     </div>
   );
 };
