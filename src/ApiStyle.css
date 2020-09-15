@@ -44,17 +44,17 @@
   }
 
   .moneda {
-    font-size: 13px;
-    margin-right: 4px;
+    font-size: 12px;
+    margin-right: 3px;
   }
   .euro {
-    margin-left: 16px;
-    margin-right: 4px;
+    margin-left: 8px;
+    margin-right: 2px;
   }
 
   .desc {
     font-weight: bold;
-    font-size: 10px;
+    font-size: 8px;
     border: black 1px solid;
     border-radius: 10%;
     padding: 2px;

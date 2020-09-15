@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import './App.css';
 import './ApiStyle.css';
@@ -11,20 +10,10 @@ import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ApiHeader from './components/principal/ApiHeader';
 import EditarNoticia from './components/abm/abmNoticias/EditarNoticia';
-=======
-import React from "react";
-import "./App.css";
-import "./ApiStyle.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import PaginaInicio from "./components/principal/PaginaInicio";
-import PaginaAdmin from "./components/abm/PaginaAdmin";
-import Error404 from "./components/common/error404";
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
-import ApiHeader from "./components/principal/ApiHeader";
->>>>>>> pagAdmin
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
+import PaginaAdmin from './components/abm/PaginaAdmin';
+import Error404 from './components/common/error404';
+// import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
 
 
 function App() {
@@ -51,11 +40,7 @@ function App() {
       </Switch>
       <Footer></Footer>
     </Router>
-<<<<<<< HEAD
     );
-=======
-  );
->>>>>>> pagAdmin
 }
 
 export default App;

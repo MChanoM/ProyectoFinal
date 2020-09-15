@@ -1,12 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Container, Carousel, Card, Button, CardImg } from "react-bootstrap";
 import Logo from "../../img/publicidad.png";
-import ApiHeader from './ApiHeader';
 
 const PaginaInicio = () => {
   return (
-    <Fragment>
-    <ApiHeader></ApiHeader>
     <Container className="text-center">
       <hr />
       <hr className="mb-4" />
@@ -257,7 +254,6 @@ const PaginaInicio = () => {
         </div>
       </div>
     </Container>
-    </Fragment>
   );
 };
 
