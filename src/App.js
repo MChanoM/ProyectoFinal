@@ -13,7 +13,7 @@ import EditarNoticia from './components/abm/abmNoticias/EditarNoticia';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PaginaAdmin from './components/abm/PaginaAdmin';
 import Error404 from './components/common/error404';
-// import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
+
 
 
 function App() {
@@ -30,6 +30,9 @@ function App() {
         </Route>
         <Route exact path="*">
             <Error404></Error404>
+        </Route>
+        <Route exact path="/noticia/nueva">
+          <AgregarNoticia></AgregarNoticia>
         </Route>
         <Route exact path="/noticia/editar">
         <EditarNoticia></EditarNoticia>
