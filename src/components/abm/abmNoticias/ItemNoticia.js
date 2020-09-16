@@ -27,7 +27,7 @@ const ItemNoticia = (props) => {
             icon={faStar}
           ></FontAwesomeIcon>
         </Link>
-        <Link to={"/"} className="mr-2 text-dark">
+        <Link to="/noticia/editar" className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
         <Link to={"/"} className="mr-2 text-danger">
