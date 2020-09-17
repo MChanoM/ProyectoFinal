@@ -1,19 +1,20 @@
 {
-    "categorias": [
-      { "id":1, 
-        "nombre":"policiales",
-         "estado":"activa" }
-    ],
-    "noticias": [
-      { "id": 1, 
-        "titulo":"asdasdasdas",
-        "autor":"maxi",
-        "descripcionBreve":"asdasdas",
-        "cuerpo-noticia":"asdasdasdasd",
-        "categoria":"policiales",
-        "estado":true}
-    ]
-    
-  }
-
-
+  "categorias": [
+    { "id":1, 
+      "nombreCategoria":"policiales",
+       "estado":"activa" }
+  ],
+  "noticias": [
+    { "id": 1, 
+      "noticiaDestacada":false,
+      "tituloNoticia":"asdasdasdas",
+      "descripcionNoticia":"asdasdas",
+      "imagen": "url",
+      "cuerpoNoticia":"asdasdasdasd",
+      "autorNoticia":"maxi",
+      "fechaNoticia": "17/09/2020",
+      "categoria":"policiales"      
+      }
+  ]
+  
+}
