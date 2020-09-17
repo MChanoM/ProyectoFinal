@@ -28,9 +28,6 @@ function App() {
         <Route exact path="/admin">
             <PaginaAdmin></PaginaAdmin>
         </Route>
-        <Route exact path="*">
-            <Error404></Error404>
-        </Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
         </Route>
@@ -39,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria></AgregarCategoria>
+        </Route>
+        <Route exact path="*">
+            <Error404></Error404>
         </Route>
       </Switch>
       <Footer></Footer>
