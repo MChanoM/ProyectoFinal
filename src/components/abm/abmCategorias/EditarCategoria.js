@@ -11,7 +11,7 @@ const AgregarNoticia = () => {
     const [categoria, setCategoria] = useState("");
   return (
     <Container>
-      <h2 className="text-center my-4">Agregar Categorías</h2>
+      <h2 className="text-center my-4">Editar Categorías</h2>
       <div className="d-flex justify-content-center">
         <Card className="my-4 w-75 shadow">
           <Card.Header className="text-left">Ingrese el nombre de la categoria</Card.Header>
@@ -29,7 +29,7 @@ const AgregarNoticia = () => {
                   onChange = {(e) => {setCategoria(e.target.value)}}
                 />
                 <Button className="mx-2" variant="primary">
-                  Agregar
+                  Guardar
                 </Button>
               </InputGroup>
             </Card.Body>

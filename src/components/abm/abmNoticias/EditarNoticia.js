@@ -1,47 +1,85 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
-import Container from "react-bootstrap/Container";
+import React, { useState, useRef } from "react";
+import { Container, Alert, Form, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 
-const AgregarNoticia = () => {
-  const [noticiaDestacada, setNoticiaDestacada] = useState(false);
-  const [tituloNoticia, setTituloNoticia] = useState("");
-  const [descripcionNoticia, setDescripcionNoticia] = useState("");
-  const [imagen, setImagen] = useState("");
-  const [cuerpoNoticia, setCuerpoNoticia] = useState("");
-  const [autorNoticia, setAutorNoticia] = useState("");
-  const [fechaNoticia, setFechaNoticia] = useState("");
-  const [categoria, setCategoria] = useState("");
+const EditarNoticia = (props) => {
+  //     const [categoria, setCategoria] = useState("");
+  //   const [error, setError] = useState(false);
+  //   //aqui creo los ref
+  //   const nombreProductoRef = useRef("");
+  //   const precioProductoRef = useRef("");
 
-  const seleccionarCategoria = (e) => {
-    setCategoria(e.target.value);
-  };
+  //   const seleccionarCategoria = (e) => {
+  //     setCategoria(e.target.value);
+  //   };
 
-  const esDestacado = (e) => {
-    setNoticiaDestacada(e.currentTarget.checked);
-    console.log(noticiaDestacada);
-    if (noticiaDestacada === false) {
-      setNoticiaDestacada(true);
-      console.log(noticiaDestacada);
-    }
-  };
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     //validar datos
+  //     let _categoria = categoria === "" ? props.producto.categoria : categoria;
+  //     console.log(_categoria);
+  //     console.log(nombreProductoRef);
+  //     console.log(nombreProductoRef.current.value);
+  //     console.log(precioProductoRef.current.value);
+  //     if (
+  //       nombreProductoRef.current.value.trim() === "" ||
+  //       precioProductoRef.current.value.trim() === "" ||
+  //       _categoria === ""
+  //     ) {
+  //       setError(true);
+  //       return;
+  //     }
+
+  //     setError(false);
+
+  //     //preparar el objeto con los nuevos datos
+  //     const productoEditado = {
+  //       nombreProducto:nombreProductoRef.current.value,
+  //       precioProducto:precioProductoRef.current.value,
+  //       categoria: _categoria
+  //     }
+
+  //     try {
+  //       const cabecera = {
+  //         method: "PUT",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(productoEditado)
+  //       };
+  //       const resultado = await fetch(
+  //         `http://localhost:4000/cafeteria/${props.producto.id}`,
+  //         cabecera
+  //       );
+  //       console.log(resultado);
+  //       if(resultado.status === 200){
+  //         //se modificaron correctamente los datos
+  //         props.setRecargarProductos(true);
+  //         Swal.fire(
+  //           'Producto modificado!',
+  //           'El producto se modifico correctamente',
+  //           'success'
+  //         )
+  //         props.history.push("/productos");
+  //       }
+  //     } catch (bug) {
+  //       console.log(bug);
+  //     }
+  //   };
 
   return (
     <Container>
-      <h2 className="w-100 text-center my-4">Edición de Noticia</h2>
+      <h1 className="w-100 text-center my-4">Edición de Notica</h1>
       <hr></hr>
       <Form>
         <Alert variant={"danger"}>Todos los campos son obligatorios</Alert>
         <Form.Group className="d-flex">
-          <Form.Label>Noticia destacada</Form.Label>
+        <Form.Label>Noticia destacada</Form.Label>
           <p className="mr-1 ml-4">No</p>
           <Form.Check
             type="switch"
             id="destaca"
-            checked={noticiaDestacada}
             label="Si"
-            onChange={esDestacado}
           />
         </Form.Group>
 
@@ -50,48 +88,33 @@ const AgregarNoticia = () => {
           <Form.Control
             placeholder="Escriba aqui el titulo de la noticia"
             type="text"
-            onChange={(e) => setTituloNoticia(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Descripcion breve *</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="3"
-            onChange={(e) => setDescripcionNoticia(e.target.value)}
-          />
+          <Form.Control as="textarea" rows="3" />
         </Form.Group>
         <Form.Group>
           <Form.Label>Imagen *</Form.Label>
           <Form.Control
             placeholder="Inserte la URL de la imagen"
             type="text"
-            onChange={(e) => setImagen(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Cuerpo de la noticia *</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="10"
-            onChange={(e) => setCuerpoNoticia(e.target.value)}
-          />
+          <Form.Control as="textarea" rows="10" />
         </Form.Group>
         <Form.Group>
           <Form.Label>Autor *</Form.Label>
           <Form.Control
             placeholder="Nombre del autor de la noticia"
             type="text"
-            onChange={(e) => setAutorNoticia(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
-          <Form.Control
-            placeholder="DD/MM/AAAA"
-            type="date"
-            onChange={(e) => setFechaNoticia(e.target.value)}
-          ></Form.Control>
+          <Form.Control placeholder="DD/MM/AAAA" type="text"></Form.Control>
         </Form.Group>
         <Form.Group className="text-center">
           <Form.Label className="w-100">
@@ -105,7 +128,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="economia"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -113,7 +135,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="espectaculo"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -121,7 +142,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="salud"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -129,7 +149,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="politica"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -137,7 +156,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="tecnologia"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -145,7 +163,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="fotografia"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -153,7 +170,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="actualidad"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
           <Form.Check
             inline
@@ -161,7 +177,6 @@ const AgregarNoticia = () => {
             type="radio"
             value="deportes"
             name="categoria"
-            onChange={seleccionarCategoria}
           ></Form.Check>
         </div>
 
@@ -173,4 +188,4 @@ const AgregarNoticia = () => {
   );
 };
 
-export default AgregarNoticia;
+export default EditarNoticia;

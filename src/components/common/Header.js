@@ -4,6 +4,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Logo from "../../img/logo-sbg.png";
+import {Link} from "react-router-dom";
 // import Collapse from "react-bootstrap/Collapse";
 
 const Header = () => {
@@ -38,8 +39,9 @@ const Header = () => {
           </NavDropdown>
           </Nav>
           
-          <Nav.Link href="/suscribirse"><Button variant="success">Suscribite</Button></Nav.Link>
-          <Button variant="outline-info">Ingresar</Button>
+
+          <Button className="btn btn-success mx-2">Suscribite</Button>
+          <Link to="/admin" className="btn btn-outline-info">Ingresar</Link>
         </Navbar.Collapse>
       </Navbar>
       <div className="container">

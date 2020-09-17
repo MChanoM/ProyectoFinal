@@ -1,18 +1,11 @@
 import React from "react";
-import { Container, Carousel, Card, Button } from "react-bootstrap";
+import { Container, Carousel, Card, Button, CardImg } from "react-bootstrap";
+import Logo from "../../img/publicidad.png";
 
 const PaginaInicio = () => {
   return (
     <Container className="text-center">
       <hr />
-      <div className="row">
-        <div className="col-sm-12 col-md-6">
-          <p>INFORMACION API MONEDAS</p>
-        </div>
-        <div className="col-sm-12 col-md-6">
-          <p>INFORMAION API CLIMA</p>
-        </div>
-      </div>
       <hr className="mb-4" />
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-4 mb-2">
@@ -247,7 +240,17 @@ const PaginaInicio = () => {
           </Card>
         </div>
         <div className="col-sm-12 col-md-3 mb-3">
-          <p>PUBLICIDAD</p>
+        <Card>
+            <Button variant="link">
+            <CardImg 
+               src={Logo}
+               width="110"
+               height="500"
+               className="d-inline-block align-top"
+               alt="Anuncio"
+            />
+            </Button>
+          </Card>
         </div>
       </div>
     </Container>

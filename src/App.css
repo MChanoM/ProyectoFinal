@@ -66,12 +66,28 @@
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-
-/* CSS de pagina suscripcion */
-.cardsSuscripcion{
-  background-color: #E3E3E3;
-  border-radius: 8%;
+/* PaginaNoticia */
+.borde{
+  border: 1px solid;
+  padding: 10px;
 }
-.cardEntera:hover{
-  text-decoration: none;
+
+/* PaginaCategoria */
+.lineaVertical{
+  border-left:  2px solid #21a4b6;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 767px){
+  .titulo {
+    font-size: 40px;
+  }
+  
+  .punto {
+    font-size: 40px;
+  }
+
+  .tituloFooter {
+    font-size: 25px;
+  }
 }
