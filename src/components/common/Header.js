@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={Logo}
             width="80"
@@ -38,8 +38,7 @@ const Header = () => {
           </NavDropdown>
           </Nav>
           
-
-          <Button className="btn btn-success mx-2">Suscribite</Button>
+          <Nav.Link href="/suscribirse"><Button variant="success">Suscribite</Button></Nav.Link>
           <Button variant="outline-info">Ingresar</Button>
         </Navbar.Collapse>
       </Navbar>
