@@ -1,0 +1,19 @@
+{
+    "categorias": [
+      { "id":1, 
+        "nombre":"policiales",
+         "estado":"activa" }
+    ],
+    "noticias": [
+      { "id": 1, 
+        "titulo":"asdasdasdas",
+        "autor":"maxi",
+        "descripcionBreve":"asdasdas",
+        "cuerpo-noticia":"asdasdasdasd",
+        "categoria":"policiales",
+        "estado":true}
+    ]
+    
+  }
+
+
