@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./ApiStyle.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,11 +12,42 @@ import ApiHeader from "./components/principal/ApiHeader";
 import EditarNoticia from "./components/abm/abmNoticias/EditarNoticia";
 import EditarCategoria from "./components/abm/abmCategorias/EditarCategoria";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PaginaAdmin from './components/abm/PaginaAdmin';
-import Error404 from './components/common/error404';
-
+import PaginaAdmin from "./components/abm/PaginaAdmin";
+import Error404 from "./components/common/error404";
 
 function App() {
+  const [listaNoticias, setListaNoticias] = useState([]);
+  const [listaCategorias, setListaCategorias] = useState([]);
+  
+
+  useEffect(() => {
+    consultarCat();
+    consultarNoticias();
+  }, []);
+
+  //CONSULTA LISTA CATEGORIAS
+  const consultarCat = async () => {
+    try {
+      const consulta = await fetch("http://localhost:3000/categorias");
+      const respuesta = await consulta.json();
+      setListaCategorias(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //CONSULTA LISTA DE NOTICIAS
+  const consultarNoticias = async () => {
+    try {
+      const consulta = await fetch("http://localhost:3000/noticias");
+      const respuesta = await consulta.json();
+      setListaNoticias(respuesta);
+      console.log(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Router>
       <Header></Header>
@@ -27,7 +58,7 @@ function App() {
           <EditarNoticia></EditarNoticia>
         </Route>
         <Route exact path="/admin">
-          <PaginaAdmin></PaginaAdmin>
+          <PaginaAdmin listaCategorias={listaCategorias} listaNoticias={listaNoticias}></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
@@ -42,7 +73,7 @@ function App() {
           <AgregarCategoria></AgregarCategoria>
         </Route>
         <Route exact path="*">
-            <Error404></Error404>
+          <Error404></Error404>
         </Route>
       </Switch>
       <Footer></Footer>
