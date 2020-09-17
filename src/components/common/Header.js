@@ -40,7 +40,8 @@ const Header = () => {
           </Nav>
           
 
-          <Button className="btn btn-success mx-2">Suscribite</Button>
+          {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
+          <Link to="/suscribirse" className="btn btn-success">Suscribirse</Link>
           <Link to="/admin" className="btn btn-outline-info">Ingresar</Link>
         </Navbar.Collapse>
       </Navbar>

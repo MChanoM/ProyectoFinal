@@ -18,7 +18,7 @@ const Suscribirse = () => {
         <div className="row">
           <Link
             className="col-sm-12 col-md 4 text-center my-4 text-dark cardEntera"
-            to={"/suscribirse/newspro"}
+            to={"/suscribirse/plan1"}
           >
             <Card style={{ width: "100" }}>
               <Card.Body className="cardsSuscripcion">
