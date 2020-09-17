@@ -5,35 +5,9 @@ import Spinner from "../common/Spinner";
 import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
 
-const PaginaAdmin = () => {
+const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
-
-
-  const noticias = [
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:"true",publicada:"true" },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    { id: "24", titulo:"ADsdkasdkñalskdañlksdñalkdasasñdka", autor: "maxi", descripcion: "blabla", categoria: "policiales", destacada:true,publicada:true },
-    
-  ];
-
-  const categorias = [
-    { nombre: "policiales", activa: "si"},
-    { nombre: "deportes", activa: "si" },
-    { nombre: "espectaculos", activa: "si" },
-    { nombre: "opinion", activa: "si" },
-  ];
-
 
 
   const handleOpc = (opcion) => {
@@ -52,9 +26,9 @@ const PaginaAdmin = () => {
       );
     } else {
       if (opc === "cat") {
-        return <ListaCategorias categorias={categorias}></ListaCategorias>;
+        return <ListaCategorias categorias={props.listaCategorias}></ListaCategorias>;
       } else {
-        return <ListaNoticias noticias={noticias}></ListaNoticias>;
+        return <ListaNoticias noticias={props.listaNoticias}></ListaNoticias>;
       }
     }
   };

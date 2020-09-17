@@ -15,7 +15,7 @@ const ItemNoticia = (props) => {
       <td>{props.item.id}</td>
       <td>{props.item.titulo}</td>
       <td>{props.item.autor}</td>
-      <td>{props.item.descripcion}</td>
+      <td>{props.item.descripcionBreve}</td>
       <td>{props.item.categoria}</td>
       <td>
         <Link to={"/"} className="mr-2 text-success">

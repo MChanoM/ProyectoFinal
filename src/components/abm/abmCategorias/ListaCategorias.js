@@ -9,10 +9,10 @@ const ListaCategorias = (props) => {
       <Table className="text-center mb-5" responsive striped bordered hove size="sm">
         <thead>
           <tr>
+            <th>Id</th>
             <th>Nombre</th>
             <th>Estado</th>
             <th>Acciones</th>
-            
           </tr>
         </thead>
         <tbody>

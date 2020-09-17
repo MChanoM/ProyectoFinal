@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const ItemCategoria = (props) => {
   return (
     <tr>
+      <td>{props.item.id}</td>
       <td>{props.item.nombre}</td>
-      <td>{props.item.activa}</td>
+      <td>{props.item.estado}</td>
       <td>
-        
         <Link to="/categoria/editar" className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
