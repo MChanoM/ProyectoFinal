@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 
 const AgregarNoticia = () => {
-    const [categoria, setCategoria] = useState("");
+    const [nombreCategoria, setCategoria] = useState("");
+    const [estado, setEstado] = useState(true);
   return (
     <Container>
       <h2 className="text-center my-4">Agregar Categorías</h2>
