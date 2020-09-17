@@ -18,14 +18,6 @@ const AgregarNoticia = () => {
     setCategoria(e.target.value);
   };
 
-  const esDestacado = (e) => {
-    setNoticiaDestacada(e.currentTarget.checked);
-    console.log(noticiaDestacada);
-    if (noticiaDestacada === false) {
-      setNoticiaDestacada(true);
-      console.log(noticiaDestacada);
-    }
-  };
 
   return (
     <Container>
@@ -41,7 +33,7 @@ const AgregarNoticia = () => {
             id="destaca"
             checked={noticiaDestacada}
             label="Si"
-            onChange={esDestacado}
+            onChange={(e) => setNoticiaDestacada(e.target.value)}
           />
         </Form.Group>
 

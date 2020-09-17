@@ -14,6 +14,8 @@ import EditarCategoria from "./components/abm/abmCategorias/EditarCategoria";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PaginaAdmin from "./components/abm/PaginaAdmin";
 import Error404 from "./components/common/error404";
+import Suscribirse from "./components/principal/Suscribirse";
+import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
@@ -71,6 +73,12 @@ function App() {
         </Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria></AgregarCategoria>
+        </Route>
+        <Route exact path="/suscribirse">
+          <Suscribirse></Suscribirse>
+        </Route>
+        <Route exact path="/suscribirse/plan1">
+          <SuscribirsePlan1></SuscribirsePlan1>
         </Route>
         <Route exact path="*">
           <Error404></Error404>

@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={Logo}
             width="80"
@@ -40,7 +40,8 @@ const Header = () => {
           </Nav>
           
 
-          <Button className="btn btn-success mx-2">Suscribite</Button>
+          {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
+          <Link to="/suscribirse" className="btn btn-success">Suscribirse</Link>
           <Link to="/admin" className="btn btn-outline-info">Ingresar</Link>
         </Navbar.Collapse>
       </Navbar>
