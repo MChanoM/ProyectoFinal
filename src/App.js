@@ -12,15 +12,9 @@ import ApiHeader from "./components/principal/ApiHeader";
 import EditarNoticia from "./components/abm/abmNoticias/EditarNoticia";
 import EditarCategoria from "./components/abm/abmCategorias/EditarCategoria";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
 import PaginaAdmin from './components/abm/PaginaAdmin';
 import Error404 from './components/common/error404';
 
-=======
-import PaginaAdmin from "./components/abm/PaginaAdmin";
-import Error404 from "./components/common/error404";
-// import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
->>>>>>> ec76e4076dc478d5ae8e9d3418d76ebb3dede64e
 
 function App() {
   return (
