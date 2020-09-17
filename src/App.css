@@ -91,3 +91,15 @@
     font-size: 25px;
   }
 }
+
+/* PAGINA SUSCRIPCION */
+.cardsSuscripcion{
+  background-color: #E6E6E6;
+}
+.cardsSuscripcion:hover{
+ text-decoration: none;
+ border: 1px solid #BDBDBD;
+}
+.cardEntera:hover{
+ text-decoration: none;
+}
