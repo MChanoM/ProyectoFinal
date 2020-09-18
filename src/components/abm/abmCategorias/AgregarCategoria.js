@@ -10,21 +10,22 @@ import Swal from 'sweetalert2';
 
 const AgregarNoticia = () => {
     const [nombreCategoria, setCategoria] = useState("");
-    const [estado, setEstado] = useState(true);
+    const [estado, setEstado] = useState("activa");
     const [error, setError] = useState(false);
 
     const handleSubmit = async (e) =>{
       e.preventDefault();
+      e.target.reset();
       console.log("en el submit de categoria");
       
       if(nombreCategoria.trim()===""){
         setError(true);
-        setEstado(false);
+        setEstado("inactiva");
         return;
       }
 
       setError(false);
-      setEstado(true);
+      setEstado("activa");
       console.log(estado);
 
       const categorias = {
@@ -63,7 +64,7 @@ const AgregarNoticia = () => {
           'error'
         )
       }
-
+      
     }
 
   return (

@@ -59,6 +59,16 @@
       "nombreCategoria": "categoria nueva",
       "estado": true,
       "id": 12
+    },
+    {
+      "nombreCategoria": "nueva categoria",
+      "estado": "activa",
+      "id": 13
+    },
+    {
+      "nombreCategoria": "nueva categoria 3",
+      "estado": "activa",
+      "id": 14
     }
   ],
   "noticias": [
@@ -105,6 +115,28 @@
       "fechaNoticia": "2020-09-18",
       "categoria": "espectaculo",
       "id": 4
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo noticia 1",
+      "descripcionNoticia": "descripcion",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de la noticia 1",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "actualidad",
+      "id": 5
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo de noticia 4",
+      "descripcionNoticia": "descripcion de noticia",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de noticia",
+      "autorNoticia": "autori",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "salud",
+      "id": 6
     }
   ]
 }

@@ -22,6 +22,7 @@ const AgregarNoticia = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.target.reset();
     console.log("en funcion submit");
     //valido datos
     if (tituloNoticia.trim() === "" || descripcionNoticia.trim() === "" || descripcionNoticia.trim() === "" || imagen.trim() === "" || cuerpoNoticia.trim() === "" || autorNoticia.trim() === "" || fechaNoticia.trim() === ""){
@@ -77,6 +78,7 @@ const AgregarNoticia = () => {
         'error'
       )
     }
+
   }
 
   return (

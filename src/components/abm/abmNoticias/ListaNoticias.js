@@ -12,10 +12,11 @@ const ListaNoticias = (props) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Titulo</th>
+            <th>Título</th>
             <th>Autor</th>
-            <th>Descripcion</th>
+            <th>Descripcin</th>
             <th>Categoria</th>
+            <th>Fecha</th>
             <th>Acciones</th>
           </tr>
         </thead>
