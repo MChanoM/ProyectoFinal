@@ -6,13 +6,12 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
+import Swal from 'sweetalert2';
 
 const AgregarNoticia = () => {
     const [nombreCategoria, setCategoria] = useState("");
     const [estado, setEstado] = useState(true);
     const [error, setError] = useState(false);
-    const [arreglo, setArreglo] = useState([]);
-
 
     const handleSubmit = async (e) =>{
       e.preventDefault();
@@ -41,10 +40,28 @@ const AgregarNoticia = () => {
           },
           body: JSON.stringify(categorias)
         }
-
         const consulta = await fetch("http://localhost:3000/categorias",cabecera);
+
+        if(consulta.status === 201){
+          Swal.fire(
+            'Categoría Creada',
+            'La categoría se agregó correctamente',
+            'success'
+          )
+        } else{
+          Swal.fire(
+            'Oopss...',
+            'Ocurrió un error, intentelo nuevamente',
+            'error'
+          )
+        }
       } catch(excepcion){
         console.log(excepcion);
+        Swal.fire(
+          'Oopss...',
+          'Ocurrió un error, intentelo nuevamente',
+          'error'
+        )
       }
 
     }

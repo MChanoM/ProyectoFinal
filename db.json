@@ -54,6 +54,11 @@
       "nombreCategoria": "fgadfgafg",
       "estado": true,
       "id": 11
+    },
+    {
+      "nombreCategoria": "categoria nueva",
+      "estado": true,
+      "id": 12
     }
   ],
   "noticias": [
@@ -89,6 +94,17 @@
       "fechaNoticia": "2020-09-17",
       "categoria": "tecnologia",
       "id": 3
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo 3",
+      "descripcionNoticia": "adsfksadnfkn",
+      "imagen": "sndkfnsa",
+      "cuerpoNoticia": "kfnaskdnfkas",
+      "autorNoticia": "knkanskdfnas",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "espectaculo",
+      "id": 4
     }
   ]
 }

@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+import Swal from 'sweetalert2';
 
 const AgregarNoticia = () => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
@@ -53,9 +54,28 @@ const AgregarNoticia = () => {
       }
       const resultado = await fetch("http://localhost:3000/noticias",cabecera);
       console.log(resultado);
+      
+      if(resultado.status === 201){
+        Swal.fire(
+          'Noticia Creada',
+          'La noticia se agregó correctamente',
+          'success'
+        )
+      } else{
+        Swal.fire(
+          'Oopss...',
+          'Ocurrió un error, intentelo nuevamente',
+          'error'
+        )
+      }
 
     }catch(excepcion){
       console.log(excepcion);
+      Swal.fire(
+        'Oopss...',
+        'Ocurrió un error, intentelo nuevamente',
+        'error'
+      )
     }
   }
 
