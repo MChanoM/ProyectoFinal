@@ -14,7 +14,7 @@ const AgregarNoticia = () => {
       <h2 className="text-center my-4">Editar Categorías</h2>
       <div className="d-flex justify-content-center">
         <Card className="my-4 w-75 shadow">
-          <Card.Header className="text-left">Ingrese el nombre de la categoria</Card.Header>
+          <Card.Header className="text-left">Edite la categoria</Card.Header>
           <Form>
             <Card.Body>
               <InputGroup className="mb-2">

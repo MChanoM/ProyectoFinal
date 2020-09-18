@@ -10,7 +10,7 @@ const ItemCategoria = (props) => {
       <td>{props.item.nombre}</td>
       <td>{props.item.estado}</td>
       <td>
-        <Link to="/categoria/editar" className="mr-2 text-dark">
+        <Link to={`/categoria/editar/${props.item.id}`} className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
         <Link to={"/"} className="mr-2 text-danger">

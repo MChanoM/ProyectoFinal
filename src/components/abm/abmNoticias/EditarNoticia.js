@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Container, Alert, Form, Button } from "react-bootstrap";
+import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 
 const EditarNoticia = (props) => {
@@ -7,12 +8,12 @@ const EditarNoticia = (props) => {
   const [error, setError] = useState(false);
   //aqui creo los ref
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
-  const tituloRef = useRef("");
-  const autorRef = useRef("")
-  const descripcionBreveRef = useRef("")
-  const cuerpoNoticiaRef = useRef("")
+  const tituloNoticaRef = useRef("");
+  const descripcionNoticiaRef = useRef("")
   const imagenRef = useRef("")
-  const fechaRef = useRef("")
+  const cuerpoNoticiaRef = useRef("")
+  const autorNoticiaRef = useRef("")
+  const fechaNoticiaRef = useRef("")
 
     const seleccionarCategoria = (e) => {
       setCategoria(e.target.value);
@@ -23,12 +24,12 @@ const EditarNoticia = (props) => {
       //validar datos
       let _categoria = categoria === "" ? props.producto.categoria : categoria;
       console.log(_categoria);
-      console.log(tituloRef);
-      console.log(tituloRef.current.value);
-      console.log(descripcionBreveRef.current.value);
+      // console.log(nombreProductoRef);
+      // console.log(nombreProductoRef.current.value);
+      // console.log(precioProductoRef.current.value);
       if (
-        tituloRef.current.value.trim() === "" ||
-        descripcionBreveRef.current.value.trim() === "" ||
+        // nombreProductoRef.current.value.trim() === "" ||
+        // precioProductoRef.current.value.trim() === "" ||
         _categoria === ""
       ) {
         setError(true);
@@ -39,8 +40,8 @@ const EditarNoticia = (props) => {
 
       //preparar el objeto con los nuevos datos
       const productoEditado = {
-        titulo:tituloRef.current.value,
-        descripcion:descripcionBreveRef.current.value,
+        tituloNotica:tituloNoticaRef.current.value,
+        descripcionNoticia:descripcionNoticiaRef.current.value,
         categoria: _categoria
       }
 
@@ -53,7 +54,7 @@ const EditarNoticia = (props) => {
           body: JSON.stringify(productoEditado)
         };
         const resultado = await fetch(
-          `http://localhost:4000/cafeteria/${props.producto.id}`,
+          `http://localhost:3000/noticas/${props.item.id}`,
           cabecera
         );
         console.log(resultado);
@@ -89,6 +90,8 @@ const EditarNoticia = (props) => {
           <Form.Control
             placeholder="Escriba aqui el titulo de la noticia"
             type="text"
+            // ref={tituloNoticaRef}
+            // defaultValue={props.item.tituloNotica}
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -189,4 +192,4 @@ const EditarNoticia = (props) => {
   );
 };
 
-export default EditarNoticia;
+export default withRouter(EditarNoticia);

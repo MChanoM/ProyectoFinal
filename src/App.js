@@ -65,10 +65,27 @@ function App() {
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
         </Route>
-        <Route exact path="/noticia/editar">
+        <Route exact path="/noticia/editar/:id" render={(props)=>{
+          //Obtengo el id de la ruta
+          console.log(props);
+          const idNoticia = parseInt(props.item.id);
+          console.log(idNoticia);
+          //Filtro el arreglo de noticias y agarro el que coincide con el id
+          const noticiaSeleccionada = listaNoticias.find((noticia) => noticia.id === idNoticia)
+          console.log(noticiaSeleccionada);
+
+          //Renderizo EditarNotica
+          return 
+        }}>
           <EditarNoticia></EditarNoticia>
         </Route>
-        <Route exact path="/categoria/editar">
+        <Route exact path="/categoria/editar/:id" render={(props)=>{
+          //Obtengo el id de la ruta
+
+          //Filtro el arreglo de categorias y agarro el que coincide con el id
+
+          //Renderizo EditarCategoria
+        }}>
           <EditarCategoria></EditarCategoria>
         </Route>
         <Route exact path="/categoria/nueva">

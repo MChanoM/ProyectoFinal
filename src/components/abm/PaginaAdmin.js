@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 import Spinner from "../common/Spinner";
 import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
@@ -94,4 +94,4 @@ const PaginaAdmin = (props) => {
   );
 };
 
-export default PaginaAdmin;
+export default withRouter(PaginaAdmin);
