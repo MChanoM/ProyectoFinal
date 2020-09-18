@@ -50,7 +50,7 @@ const EditarNoticia = (props) => {
       cuerpoNoticia: cuerpoNoticiaRef.current.value,
       autorNoticia: autorNoticiaRef.current.value,
       fechaNoticia: fechaNoticiaRef.current.value,
-      categoria: _categoria
+      categoria: _categoria,
     };
 
     try {
@@ -68,13 +68,13 @@ const EditarNoticia = (props) => {
       console.log(resultado);
       if (resultado.status === 200) {
         //se modificaron correctamente los datos
-        // props.setListaNoticia();
+        props.consultarNoticias();
         Swal.fire(
           "Noticia Editada!",
           "La noticia se actualizo correctamente",
           "success"
         );
-        // props.noticia.history.push("/admin");
+        props.history.push("/admin");
       }
     } catch (bug) {
       console.log(bug);
@@ -99,7 +99,6 @@ const EditarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Título *</Form.Label>
           <Form.Control
-            placeholder="Escriba aqui el titulo de la noticia"
             type="text"
             ref={tituloNoticiaRef}
             defaultValue={props.noticia.tituloNoticia}
@@ -117,7 +116,6 @@ const EditarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Imagen *</Form.Label>
           <Form.Control
-            placeholder="Inserte la URL de la imagen"
             type="text"
             ref={imagenRef}
             defaultValue={props.noticia.imagen}
@@ -135,7 +133,6 @@ const EditarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Autor *</Form.Label>
           <Form.Control
-            placeholder="Nombre del autor de la noticia"
             type="text"
             ref={autorNoticiaRef}
             defaultValue={props.noticia.autorNoticia}
@@ -144,7 +141,6 @@ const EditarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
           <Form.Control
-            placeholder="DD/MM/AAAA"
             type="date"
             ref={fechaNoticiaRef}
             defaultValue={props.noticia.fechaNoticia}
@@ -238,4 +234,4 @@ const EditarNoticia = (props) => {
   );
 };
 
-export default EditarNoticia;
+export default withRouter(EditarNoticia);

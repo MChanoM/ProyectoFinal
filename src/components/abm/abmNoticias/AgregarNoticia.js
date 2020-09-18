@@ -81,7 +81,7 @@ const AgregarNoticia = () => {
 
   return (
     <Container>
-      <h2 className="w-100 text-center my-4">Edición de Noticia</h2>
+      <h2 className="w-100 text-center my-4">Agregar una Noticia</h2>
       <hr></hr>
       <Form onSubmit={handleSubmit}>
         {
@@ -107,7 +107,7 @@ const AgregarNoticia = () => {
             onChange={(e) => setTituloNoticia(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Group controlId="descripcionNoticia">
           <Form.Label>Descripcion breve *</Form.Label>
           <Form.Control
             as="textarea"
@@ -123,7 +123,7 @@ const AgregarNoticia = () => {
             onChange={(e) => setImagen(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Group controlId="cuerpoNoticia">
           <Form.Label>Cuerpo de la noticia *</Form.Label>
           <Form.Control
             as="textarea"

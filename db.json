@@ -1,13 +1,11 @@
 {
   "categorias": [
     {
-      "id": 1,
       "nombreCategoria": "policiales",
-      "estado": "activa"
+      "id": 1
     },
     {
-      "nombreCategoria": "estilo de vida",
-      "estado": false,
+      "nombreCategoria": "estilo de ",
       "id": 2
     },
     {
@@ -26,8 +24,7 @@
       "id": 5
     },
     {
-      "nombreCategoria": "qwqewqrerqw",
-      "estado": true,
+      "nombreCategoria": "hola",
       "id": 6
     },
     {
@@ -63,13 +60,13 @@
   ],
   "noticias": [
     {
-      "tituloNoticia": "cucu",
-      "descripcionNoticia": "asdasdas",
+      "tituloNoticia": "Hola",
+      "descripcionNoticia": "jaja",
       "imagen": "url",
-      "cuerpoNoticia": "asdasdasdasd",
-      "autorNoticia": "maxi",
-      "fechaNoticia": "1919-12-18",
-      "categoria": "economia",
+      "cuerpoNoticia": "jijij",
+      "autorNoticia": "leo",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "salud",
       "id": 1
     },
     {
@@ -116,8 +113,7 @@
       "id": 4
     },
     {
-      "noticiaDestacada": false,
-      "tituloNoticia": "Hola",
+      "tituloNoticia": "jachis",
       "descripcionNoticia": "jajajaja",
       "imagen": "url",
       "cuerpoNoticia": "una noticia muy importante",
