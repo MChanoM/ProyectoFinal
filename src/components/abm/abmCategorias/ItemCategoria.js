@@ -4,7 +4,6 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const ItemCategoria = (props) => {
-  
   return (
     <tr>
       <td>{props.item.id}</td>
