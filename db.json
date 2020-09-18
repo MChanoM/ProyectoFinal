@@ -1,20 +1,94 @@
 {
   "categorias": [
-    { "id":1, 
-      "nombreCategoria":"policiales",
-       "estado":"activa" }
+    {
+      "id": 1,
+      "nombreCategoria": "policiales",
+      "estado": "activa"
+    },
+    {
+      "nombreCategoria": "estilo de vida",
+      "estado": false,
+      "id": 2
+    },
+    {
+      "nombreCategoria": "aire libre",
+      "estado": false,
+      "id": 3
+    },
+    {
+      "nombreCategoria": "espectaculos",
+      "estado": true,
+      "id": 4
+    },
+    {
+      "nombreCategoria": "asdsfdsf",
+      "estado": true,
+      "id": 5
+    },
+    {
+      "nombreCategoria": "qwqewqrerqw",
+      "estado": true,
+      "id": 6
+    },
+    {
+      "nombreCategoria": "qwqewqr",
+      "estado": true,
+      "id": 7
+    },
+    {
+      "nombreCategoria": "zcvxcvxc",
+      "estado": true,
+      "id": 8
+    },
+    {
+      "nombreCategoria": "vfdfertert",
+      "estado": true,
+      "id": 9
+    },
+    {
+      "nombreCategoria": "zxvzxvzxv",
+      "estado": true,
+      "id": 10
+    },
+    {
+      "nombreCategoria": "fgadfgafg",
+      "estado": true,
+      "id": 11
+    }
   ],
   "noticias": [
-    { "id": 1, 
-      "noticiaDestacada":false,
-      "tituloNoticia":"asdasdasdas",
-      "descripcionNoticia":"asdasdas",
+    {
+      "id": 1,
+      "noticiaDestacada": "false",
+      "tituloNoticia": "asdasdasdas",
+      "descripcionNoticia": "asdasdas",
       "imagen": "url",
-      "cuerpoNoticia":"asdasdasdasd",
-      "autorNoticia":"maxi",
+      "cuerpoNoticia": "asdasdasdasd",
+      "autorNoticia": "maxi",
       "fechaNoticia": "17/09/2020",
-      "categoria":"policiales"      
-      }
+      "categoria": "policiales"
+    },
+    {
+      "noticiaDestacada": false,
+      "tituloNoticia": "titulo",
+      "descripcionNoticia": "descripcion",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de la noticia",
+      "autorNoticia": "yo",
+      "fechaNoticia": "2020-09-17",
+      "categoria": "espectaculo",
+      "id": 2
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo 2",
+      "descripcionNoticia": "descripcion",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de la noticia",
+      "autorNoticia": "yo",
+      "fechaNoticia": "2020-09-17",
+      "categoria": "tecnologia",
+      "id": 3
+    }
   ]
-  
 }

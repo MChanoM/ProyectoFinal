@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
+import {Card, Alert} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -10,14 +10,57 @@ import { faTable } from "@fortawesome/free-solid-svg-icons";
 const AgregarNoticia = () => {
     const [nombreCategoria, setCategoria] = useState("");
     const [estado, setEstado] = useState(true);
+    const [error, setError] = useState(false);
+    const [arreglo, setArreglo] = useState([]);
+
+
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+      console.log("en el submit de categoria");
+      
+      if(nombreCategoria.trim()===""){
+        setError(true);
+        setEstado(false);
+        return;
+      }
+
+      setError(false);
+      setEstado(true);
+      console.log(estado);
+
+      const categorias = {
+        nombreCategoria,
+        estado
+      }
+
+      try{
+        const cabecera = {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json"
+          },
+          body: JSON.stringify(categorias)
+        }
+
+        const consulta = await fetch("http://localhost:3000/categorias",cabecera);
+      } catch(excepcion){
+        console.log(excepcion);
+      }
+
+    }
+
   return (
     <Container>
       <h2 className="text-center my-4">Agregar Categorías</h2>
       <div className="d-flex justify-content-center">
         <Card className="my-4 w-75 shadow">
           <Card.Header className="text-left">Ingrese el nombre de la categoria</Card.Header>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Card.Body>
+              {
+                (error) ? <Alert variant={"danger"}>Es un campo obligatorio</Alert> : null
+              }
+            <Form.Label>Campo obligatorio *</Form.Label>
               <InputGroup className="mb-2">
                 <InputGroup.Prepend>
                   <InputGroup.Text>
@@ -29,7 +72,7 @@ const AgregarNoticia = () => {
                   placeholder="Ingrese el nombre de la categoría"
                   onChange = {(e) => {setCategoria(e.target.value)}}
                 />
-                <Button className="mx-2" variant="primary">
+                <Button className="mx-2" variant="primary" type="submit">
                   Agregar
                 </Button>
               </InputGroup>

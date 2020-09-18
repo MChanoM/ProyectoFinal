@@ -13,18 +13,60 @@ const AgregarNoticia = () => {
   const [autorNoticia, setAutorNoticia] = useState("");
   const [fechaNoticia, setFechaNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [error, setError] = useState(false);
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("en funcion submit");
+    //valido datos
+    if (tituloNoticia.trim() === "" || descripcionNoticia.trim() === "" || descripcionNoticia.trim() === "" || imagen.trim() === "" || cuerpoNoticia.trim() === "" || autorNoticia.trim() === "" || fechaNoticia.trim() === ""){
+      //mostrar error
+      setError(true);
+      return;
+    }
+    setError(false); 
+    //agregar objeto a api
+    //objeto noticia
+    const datos = {
+      noticiaDestacada,
+      tituloNoticia,
+      descripcionNoticia,
+      imagen,
+      cuerpoNoticia,
+      autorNoticia,
+      fechaNoticia,
+      categoria
+    }
+
+    //agregamos estructura para manejar errores
+    try{
+      const cabecera = {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify(datos)
+      }
+      const resultado = await fetch("http://localhost:3000/noticias",cabecera);
+      console.log(resultado);
+
+    }catch(excepcion){
+      console.log(excepcion);
+    }
+  }
 
   return (
     <Container>
       <h2 className="w-100 text-center my-4">Edición de Noticia</h2>
       <hr></hr>
-      <Form>
-        <Alert variant={"danger"}>Todos los campos son obligatorios</Alert>
+      <Form onSubmit={handleSubmit}>
+        {
+          (error) ? <Alert variant={"danger"}>Todos los campos son obligatorios</Alert> : null 
+        }
         <Form.Group className="d-flex">
           <Form.Label>Noticia destacada</Form.Label>
           <p className="mr-1 ml-4">No</p>
