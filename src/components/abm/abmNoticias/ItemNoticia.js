@@ -13,9 +13,9 @@ const ItemNoticia = (props) => {
   return (
     <tr>
       <td>{props.item.id}</td>
-      <td>{props.item.titulo}</td>
-      <td>{props.item.autor}</td>
-      <td>{props.item.descripcionBreve}</td>
+      <td>{props.item.tituloNoticia}</td>
+      <td>{props.item.autorNoticia}</td>
+      <td>{props.item.descripcionNoticia}</td>
       <td>{props.item.categoria}</td>
       <td>
         <Link to={"/"} className="mr-2 text-success">

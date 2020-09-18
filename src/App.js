@@ -57,7 +57,6 @@ function App() {
         <Route exact path="/">
           <ApiHeader></ApiHeader>
           <PaginaInicio></PaginaInicio>
-          <EditarNoticia></EditarNoticia>
         </Route>
         <Route exact path="/admin">
           <PaginaAdmin listaCategorias={listaCategorias} listaNoticias={listaNoticias}></PaginaAdmin>
@@ -67,17 +66,16 @@ function App() {
         </Route>
         <Route exact path="/noticia/editar/:id" render={(props)=>{
           //Obtengo el id de la ruta
-          console.log(props);
-          const idNoticia = parseInt(props.item.id);
+          const idNoticia = parseInt(props.match.params.id);
           console.log(idNoticia);
           //Filtro el arreglo de noticias y agarro el que coincide con el id
-          const noticiaSeleccionada = listaNoticias.find((noticia) => noticia.id === idNoticia)
+          const noticiaSeleccionada = listaNoticias.find((noticia) => noticia.id === idNoticia);
           console.log(noticiaSeleccionada);
 
           //Renderizo EditarNotica
-          return 
+          return <EditarNoticia noticia={noticiaSeleccionada} setListaNoticias={setListaNoticias}></EditarNoticia>
         }}>
-          <EditarNoticia></EditarNoticia>
+          
         </Route>
         <Route exact path="/categoria/editar/:id" render={(props)=>{
           //Obtengo el id de la ruta
@@ -85,8 +83,9 @@ function App() {
           //Filtro el arreglo de categorias y agarro el que coincide con el id
 
           //Renderizo EditarCategoria
+          return <EditarCategoria></EditarCategoria>
         }}>
-          <EditarCategoria></EditarCategoria>
+         
         </Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria></AgregarCategoria>

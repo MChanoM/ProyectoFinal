@@ -63,26 +63,25 @@
   ],
   "noticias": [
     {
-      "id": 1,
-      "noticiaDestacada": "false",
-      "tituloNoticia": "asdasdasdas",
+      "tituloNoticia": "cucu",
       "descripcionNoticia": "asdasdas",
       "imagen": "url",
       "cuerpoNoticia": "asdasdasdasd",
       "autorNoticia": "maxi",
-      "fechaNoticia": "17/09/2020",
-      "categoria":"policiales"      
-      },
-      { "id": 2, 
-        "noticiaDestacada":false,
-        "tituloNoticia":"asdasdasdas",
-        "descripcionNoticia":"asdasdas",
-        "imagen": "url",
-        "cuerpoNoticia":"asdasdasdasd",
-        "autorNoticia":"maxi",
-        "fechaNoticia": "17/09/2020",
-        "categoria":"policiales"      
-        },
+      "fechaNoticia": "1919-12-18",
+      "categoria": "economia",
+      "id": 1
+    },
+    {
+      "tituloNoticia": "oso",
+      "descripcionNoticia": "re importante la noticia",
+      "imagen": "url",
+      "cuerpoNoticia": "asdasdasdasd",
+      "autorNoticia": "maxi",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "espectaculo",
+      "id": 2
+    },
     {
       "noticiaDestacada": false,
       "tituloNoticia": "titulo",
@@ -92,7 +91,7 @@
       "autorNoticia": "yo",
       "fechaNoticia": "2020-09-17",
       "categoria": "espectaculo",
-      "id": 2
+      "id": 6
     },
     {
       "noticiaDestacada": "on",
@@ -115,6 +114,17 @@
       "fechaNoticia": "2020-09-18",
       "categoria": "espectaculo",
       "id": 4
+    },
+    {
+      "noticiaDestacada": false,
+      "tituloNoticia": "Hola",
+      "descripcionNoticia": "jajajaja",
+      "imagen": "url",
+      "cuerpoNoticia": "una noticia muy importante",
+      "autorNoticia": "leo",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "politica",
+      "id": 5
     }
   ]
 }
