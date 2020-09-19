@@ -17,11 +17,6 @@
       "nombreCategoria": "espectaculos",
       "estado": true,
       "id": 4
-    },
-    {
-      "nombreCategoria": "asdsfdsf",
-      "estado": true,
-      "id": 5
     }
   ],
   "noticias": [
@@ -46,14 +41,13 @@
       "id": 2
     },
     {
-      "noticiaDestacada": false,
-      "tituloNoticia": "titulo",
+      "tituloNoticia": "Chaito verde",
       "descripcionNoticia": "descripcion",
       "imagen": "imagen",
       "cuerpoNoticia": "cuerpo de la noticia",
-      "autorNoticia": "yo",
+      "autorNoticia": "Javi",
       "fechaNoticia": "2020-09-17",
-      "categoria": "espectaculo",
+      "categoria": "salud",
       "id": 6
     },
     {
