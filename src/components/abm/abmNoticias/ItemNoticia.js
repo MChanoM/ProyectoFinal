@@ -37,7 +37,7 @@ const ItemNoticia = (props) => {
           console.log(consulta);
           if(consulta.status === 200){
             //aqui si se borró el producto
-            // props.setRecargarProductos(true);
+            // props.consultarNoticias();
             Swal.fire(
               'El producto fue eliminado.',
               'Su producto fue eliminado correctamente.',

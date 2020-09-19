@@ -60,7 +60,7 @@ function App() {
           <EditarNoticia></EditarNoticia>
         </Route>
         <Route exact path="/admin">
-          <PaginaAdmin listaCategorias={listaCategorias} listaNoticias={listaNoticias}></PaginaAdmin>
+          <PaginaAdmin listaCategorias={listaCategorias} listaNoticias={listaNoticias} ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
