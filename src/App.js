@@ -61,6 +61,7 @@ function App() {
           <PaginaAdmin
             listaCategorias={listaCategorias}
             listaNoticias={listaNoticias}
+            consultarCat={consultarCat()}
           ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">

@@ -26,7 +26,7 @@ const PaginaAdmin = (props) => {
       );
     } else {
       if (opc === "cat") {
-        return <ListaCategorias categorias={props.listaCategorias}></ListaCategorias>;
+        return <ListaCategorias categorias={props.listaCategorias} consultarCat={props.consultarCat}></ListaCategorias>;
       } else {
         return <ListaNoticias noticias={props.listaNoticias}></ListaNoticias>;
       }

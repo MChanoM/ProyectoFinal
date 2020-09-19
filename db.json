@@ -1,7 +1,7 @@
 {
   "categorias": [
     {
-      "nombreCategoria": "policiales",
+      "nombreCategoria": "policial",
       "id": 1
     },
     {
@@ -26,36 +26,6 @@
     {
       "nombreCategoria": "hola",
       "id": 6
-    },
-    {
-      "nombreCategoria": "qwqewqr",
-      "estado": true,
-      "id": 7
-    },
-    {
-      "nombreCategoria": "zcvxcvxc",
-      "estado": true,
-      "id": 8
-    },
-    {
-      "nombreCategoria": "vfdfertert",
-      "estado": true,
-      "id": 9
-    },
-    {
-      "nombreCategoria": "zxvzxvzxv",
-      "estado": true,
-      "id": 10
-    },
-    {
-      "nombreCategoria": "fgadfgafg",
-      "estado": true,
-      "id": 11
-    },
-    {
-      "nombreCategoria": "categoria nueva",
-      "estado": true,
-      "id": 12
     }
   ],
   "noticias": [
@@ -102,14 +72,13 @@
       "id": 3
     },
     {
-      "noticiaDestacada": "on",
-      "tituloNoticia": "titulo 3",
-      "descripcionNoticia": "adsfksadnfkn",
-      "imagen": "sndkfnsa",
-      "cuerpoNoticia": "kfnaskdnfkas",
-      "autorNoticia": "knkanskdfnas",
+      "tituloNoticia": "Otra noticia editada",
+      "descripcionNoticia": "Es una noticia no tan importante",
+      "imagen": "url",
+      "cuerpoNoticia": "adfdfdfdaf adfsf ",
+      "autorNoticia": "cartlitos",
       "fechaNoticia": "2020-09-18",
-      "categoria": "espectaculo",
+      "categoria": "politica",
       "id": 4
     },
     {
