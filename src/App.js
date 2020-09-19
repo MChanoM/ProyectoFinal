@@ -20,7 +20,7 @@ import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
-  
+
 
   useEffect(() => {
     consultarCat();

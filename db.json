@@ -73,17 +73,6 @@
   ],
   "noticias": [
     {
-      "id": 1,
-      "noticiaDestacada": "false",
-      "tituloNoticia": "asdasdasdas",
-      "descripcionNoticia": "asdasdas",
-      "imagen": "url",
-      "cuerpoNoticia": "asdasdasdasd",
-      "autorNoticia": "maxi",
-      "fechaNoticia": "17/09/2020",
-      "categoria": "policiales"
-    },
-    {
       "noticiaDestacada": false,
       "tituloNoticia": "titulo",
       "descripcionNoticia": "descripcion",
