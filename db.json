@@ -9,54 +9,9 @@
       "id": 2
     },
     {
-      "nombreCategoria": "aire libre",
-      "estado": false,
-      "id": 3
-    },
-    {
       "nombreCategoria": "espectaculos",
       "estado": true,
       "id": 4
-    },
-    {
-      "nombreCategoria": "asdsfdsf",
-      "estado": true,
-      "id": 5
-    },
-    {
-      "nombreCategoria": "qwqewqrerqw",
-      "estado": true,
-      "id": 6
-    },
-    {
-      "nombreCategoria": "qwqewqr",
-      "estado": true,
-      "id": 7
-    },
-    {
-      "nombreCategoria": "zcvxcvxc",
-      "estado": true,
-      "id": 8
-    },
-    {
-      "nombreCategoria": "vfdfertert",
-      "estado": true,
-      "id": 9
-    },
-    {
-      "nombreCategoria": "zxvzxvzxv",
-      "estado": true,
-      "id": 10
-    },
-    {
-      "nombreCategoria": "fgadfgafg",
-      "estado": true,
-      "id": 11
-    },
-    {
-      "nombreCategoria": "categoria nueva",
-      "estado": true,
-      "id": 12
     },
     {
       "nombreCategoria": "nueva categoria",
@@ -91,17 +46,6 @@
       "id": 2
     },
     {
-      "noticiaDestacada": false,
-      "tituloNoticia": "titulo",
-      "descripcionNoticia": "descripcion",
-      "imagen": "imagen",
-      "cuerpoNoticia": "cuerpo de la noticia",
-      "autorNoticia": "yo",
-      "fechaNoticia": "2020-09-17",
-      "categoria": "espectaculo",
-      "id": 6
-    },
-    {
       "noticiaDestacada": "on",
       "tituloNoticia": "titulo 2",
       "descripcionNoticia": "descripcion",
@@ -121,17 +65,6 @@
       "fechaNoticia": "2020-09-18",
       "categoria": "politica",
       "id": 4
-    },
-    {
-      "noticiaDestacada": "on",
-      "tituloNoticia": "titulo noticia 1",
-      "descripcionNoticia": "descripcion",
-      "imagen": "imagen",
-      "cuerpoNoticia": "cuerpo de la noticia 1",
-      "autorNoticia": "pamela",
-      "fechaNoticia": "2020-09-18",
-      "categoria": "actualidad",
-      "id": 5
     },
     {
       "noticiaDestacada": "on",

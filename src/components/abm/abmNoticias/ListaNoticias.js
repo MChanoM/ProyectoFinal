@@ -22,7 +22,7 @@ const ListaNoticias = (props) => {
         </thead>
         <tbody>
             {props.noticias.map((item,pos)=>{
-                return(<ItemNoticia key={pos} item={item}></ItemNoticia>)
+                return(<ItemNoticia key={pos} item={item} setRecargarPagina={props.setRecargarPagina}></ItemNoticia>)
             })}
         </tbody>
       </Table>
