@@ -34,7 +34,7 @@ const ItemCategoria = (props) => {
           console.log(consulta);
           if (consulta.status === 200) {
             //aca si se borro la categoria y muestra cartel
-            props.consultarCat.consultarCat();
+            props.consultarCat();
 
             Swal.fire(
               "Eliminado!",
