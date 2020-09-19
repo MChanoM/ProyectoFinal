@@ -17,6 +17,56 @@
       "nombreCategoria": "espectaculos",
       "estado": true,
       "id": 4
+    },
+    {
+      "nombreCategoria": "asdsfdsf",
+      "estado": true,
+      "id": 5
+    },
+    {
+      "nombreCategoria": "qwqewqrerqw",
+      "estado": true,
+      "id": 6
+    },
+    {
+      "nombreCategoria": "qwqewqr",
+      "estado": true,
+      "id": 7
+    },
+    {
+      "nombreCategoria": "zcvxcvxc",
+      "estado": true,
+      "id": 8
+    },
+    {
+      "nombreCategoria": "vfdfertert",
+      "estado": true,
+      "id": 9
+    },
+    {
+      "nombreCategoria": "zxvzxvzxv",
+      "estado": true,
+      "id": 10
+    },
+    {
+      "nombreCategoria": "fgadfgafg",
+      "estado": true,
+      "id": 11
+    },
+    {
+      "nombreCategoria": "categoria nueva",
+      "estado": true,
+      "id": 12
+    },
+    {
+      "nombreCategoria": "nueva categoria",
+      "estado": "activa",
+      "id": 13
+    },
+    {
+      "nombreCategoria": "nueva categoria 3",
+      "estado": "activa",
+      "id": 14
     }
   ],
   "noticias": [
@@ -73,14 +123,26 @@
       "id": 4
     },
     {
-      "tituloNoticia": "jachis",
-      "descripcionNoticia": "jajajaja",
-      "imagen": "url",
-      "cuerpoNoticia": "una noticia muy importante",
-      "autorNoticia": "leo",
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo noticia 1",
+      "descripcionNoticia": "descripcion",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de la noticia 1",
+      "autorNoticia": "pamela",
       "fechaNoticia": "2020-09-18",
-      "categoria": "politica",
+      "categoria": "actualidad",
       "id": 5
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo de noticia 4",
+      "descripcionNoticia": "descripcion de noticia",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de noticia",
+      "autorNoticia": "autori",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "salud",
+      "id": 6
     }
   ]
 }
