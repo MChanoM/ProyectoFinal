@@ -12,8 +12,6 @@
       "nombreCategoria": "espectaculos",
       "estado": true,
       "id": 4
-<<<<<<< HEAD
-=======
     },
     {
       "nombreCategoria": "nueva categoria",
@@ -24,7 +22,6 @@
       "nombreCategoria": "nueva categoria 3",
       "estado": "activa",
       "id": 14
->>>>>>> 712d3751e7c7236be64762bc82a6d0dc8feefc1e
     }
   ],
   "noticias": [
@@ -49,19 +46,6 @@
       "id": 2
     },
     {
-<<<<<<< HEAD
-      "tituloNoticia": "Chaito verde",
-      "descripcionNoticia": "descripcion",
-      "imagen": "imagen",
-      "cuerpoNoticia": "cuerpo de la noticia",
-      "autorNoticia": "Javi",
-      "fechaNoticia": "2020-09-17",
-      "categoria": "salud",
-      "id": 6
-    },
-    {
-=======
->>>>>>> 712d3751e7c7236be64762bc82a6d0dc8feefc1e
       "noticiaDestacada": "on",
       "tituloNoticia": "titulo 2",
       "descripcionNoticia": "descripcion",
