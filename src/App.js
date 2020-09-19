@@ -20,11 +20,15 @@ import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
+  const [recargarPagina, setRecargarPagina] = useState(true);
 
   useEffect(() => {
-    consultarCat();
-    consultarNoticias();
-  }, []);
+    if (recargarPagina) {
+      consultarCat();
+      consultarNoticias();
+      setRecargarPagina(false);
+    }
+  }, [recargarPagina]);
 
   //CONSULTA LISTA CATEGORIAS
   const consultarCat = async () => {
@@ -61,7 +65,8 @@ function App() {
           <PaginaAdmin
             listaCategorias={listaCategorias}
             listaNoticias={listaNoticias}
-            consultarCat={consultarCat()}
+            setRecargarPagina={setRecargarPagina}
+            // consultarCat={consultarCat()}
           ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">

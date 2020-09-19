@@ -12,16 +12,17 @@ const ListaNoticias = (props) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Titulo</th>
+            <th>Título</th>
             <th>Autor</th>
-            <th>Descripcion</th>
+            <th>Descripcin</th>
             <th>Categoria</th>
+            <th>Fecha</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
             {props.noticias.map((item,pos)=>{
-                return(<ItemNoticia key={pos} item={item}></ItemNoticia>)
+                return(<ItemNoticia key={pos} item={item} setRecargarPagina={props.setRecargarPagina}></ItemNoticia>)
             })}
         </tbody>
       </Table>
