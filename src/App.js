@@ -59,7 +59,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
-          <PaginaInicio></PaginaInicio>
+          <PaginaInicio listaNoticias={listaNoticias} listaCategorias={listaCategorias}></PaginaInicio>
         </Route>
         <Route exact path="/admin">
           <PaginaAdmin

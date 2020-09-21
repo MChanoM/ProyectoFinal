@@ -26,23 +26,25 @@
   ],
   "noticias": [
     {
+      "noticiaDestacada": "on",
       "tituloNoticia": "Hola",
       "descripcionNoticia": "jaja",
       "imagen": "url",
       "cuerpoNoticia": "jijij",
       "autorNoticia": "leo",
       "fechaNoticia": "2020-09-18",
-      "categoria": "salud",
+      "categoria": "policial",
       "id": 1
     },
     {
+      "noticiaDestacada": "on",
       "tituloNoticia": "oso",
       "descripcionNoticia": "re importante la noticia",
       "imagen": "url",
       "cuerpoNoticia": "asdasdasdasd",
       "autorNoticia": "maxi",
       "fechaNoticia": "2020-09-18",
-      "categoria": "espectaculo",
+      "categoria": "espectaculos",
       "id": 2
     },
     {
@@ -53,10 +55,11 @@
       "cuerpoNoticia": "cuerpo de la noticia",
       "autorNoticia": "yo",
       "fechaNoticia": "2020-09-17",
-      "categoria": "tecnologia",
+      "categoria": "policial",
       "id": 3
     },
     {
+      "noticiaDestacada": "on",
       "tituloNoticia": "Otra noticia editada",
       "descripcionNoticia": "Es una noticia no tan importante",
       "imagen": "url",
@@ -74,7 +77,7 @@
       "cuerpoNoticia": "cuerpo de noticia",
       "autorNoticia": "autori",
       "fechaNoticia": "2020-09-18",
-      "categoria": "salud",
+      "categoria": "policial",
       "id": 6
     }
   ]
