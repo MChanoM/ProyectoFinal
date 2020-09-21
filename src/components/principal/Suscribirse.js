@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const Suscribirse = () => {
   return (
-    
+
     <div>
       <h1 className="text-center font-weight-bold  text-primary">
         Suscribite y leé News Pro. sin limites
@@ -84,9 +84,9 @@ const Suscribirse = () => {
           </Link>
         </div>
       </div>
-      
 
-  
+
+
     </div>
   );
 };
