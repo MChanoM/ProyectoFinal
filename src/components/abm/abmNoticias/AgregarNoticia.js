@@ -53,7 +53,7 @@ const AgregarNoticia = () => {
         },
         body: JSON.stringify(datos)
       }
-      const resultado = await fetch("http://localhost:3000/noticias",cabecera);
+      const resultado = await fetch("http://localhost:4000/api/noticias",cabecera);
       console.log(resultado);
       
       if(resultado.status === 201){

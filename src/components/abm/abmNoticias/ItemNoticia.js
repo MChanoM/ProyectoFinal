@@ -27,7 +27,7 @@ const ItemNoticia = (props) => {
       if (result.value) {
         //aqui tengo que eliminar el producto
         try{
-          const consulta = await fetch(`http://localhost:3000/noticias/${idNoticia}`,{
+          const consulta = await fetch(`http://localhost:4000/api/noticias${idNoticia}`,{
             method: "DELETE",
             headers:{
               "Content-Type": "application/json"
@@ -71,11 +71,11 @@ const ItemNoticia = (props) => {
             icon={faStar}
           ></FontAwesomeIcon>
         </Link>
-        <Link to={`/noticia/editar/${props.item.id}`} className="mr-2 text-dark">
+        <Link to={`/noticia/editar/${props.item._id}`} className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
         <Link className="mr-2 text-danger">
-          <FontAwesomeIcon icon={faTrash} onClick={() => eliminarNoticia(props.item.id)}></FontAwesomeIcon>
+          <FontAwesomeIcon icon={faTrash} onClick={() => eliminarNoticia(props.item._id)}></FontAwesomeIcon>
         </Link>
       </td>
     </tr>

@@ -27,7 +27,7 @@ const ItemCategoria = (props) => {
             }
           };
           const consulta = await fetch(
-            `http://localhost:3000/categorias/${idCategoria}`,
+            `http://localhost:4000/api/categorias/${idCategoria}`,
             cabecera
           );
 
@@ -57,14 +57,14 @@ const ItemCategoria = (props) => {
       <td>{props.item.estado}</td>
       <td>
         <Link
-          to={`/categoria/editar/${props.item.id}`}
+          to={`/categoria/editar/${props.item._id}`}
           className="mr-2 text-dark"
         >
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
         <Link
           className="mr-2 text-danger"
-          onClick={() => eliminarCategoria(props.item.id)}
+          onClick={() => eliminarCategoria(props.item._id)}
         >
           <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
         </Link>

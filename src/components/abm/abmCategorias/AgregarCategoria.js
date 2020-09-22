@@ -41,7 +41,7 @@ const AgregarNoticia = () => {
           },
           body: JSON.stringify(categorias)
         }
-        const consulta = await fetch("http://localhost:3000/categorias",cabecera);
+        const consulta = await fetch("http://localhost:4000/api/categorias",cabecera);
 
         if(consulta.status === 201){
           Swal.fire(
