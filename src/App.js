@@ -55,7 +55,7 @@ function App() {
 
   return (
     <Router>
-      <div className="row justify-content-center p-4">
+      <div className="row justify-content-center p-4 d-none d-sm-block">
         <a href="">
         <img
         src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
