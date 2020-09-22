@@ -45,12 +45,12 @@ const ModalLogin = (props) => {
           <hr />
           <h4>Ingresá con tu correo electrónico</h4>
           <Form className="row mt-4">
-            <Form.Group controlId="formBasicEmail" className="col-6">
+            <Form.Group controlId="formBasicEmail" className="col-sm-12 col-md-6">
               <Form.Label>Correo electrónico</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword" className="col-6">
+            <Form.Group controlId="formBasicPassword" className="col-sm-12 col-md-6">
               <Form.Label>Contraseña</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
