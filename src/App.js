@@ -22,6 +22,7 @@ function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
   const [recargarPagina, setRecargarPagina] = useState(true);
+  const [loginAdmin, setLoginAdmin] = useState(false);
 
   useEffect(() => {
     if (recargarPagina) {
@@ -65,19 +66,25 @@ function App() {
         </a>
       </div>
       
-      <Header></Header>
+      <Header setLoginAdmin={setLoginAdmin}></Header>
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
           <PaginaInicio listaNoticias={listaNoticias} listaCategorias={listaCategorias}></PaginaInicio>
         </Route>
-        <Route exact path="/admin">
-          <PaginaAdmin
-            listaCategorias={listaCategorias}
-            listaNoticias={listaNoticias}
-            setRecargarPagina={setRecargarPagina}
-          // consultarCat={consultarCat()}
-          ></PaginaAdmin>
+        <Route exact path="/admin"
+        render={()=>{
+          if(loginAdmin === true){
+            return(
+              <PaginaAdmin
+                listaCategorias={listaCategorias}
+                listaNoticias={listaNoticias}
+                setRecargarPagina={setRecargarPagina}
+              // consultarCat={consultarCat()}
+              ></PaginaAdmin>
+            )
+          }
+        }}>
         </Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
