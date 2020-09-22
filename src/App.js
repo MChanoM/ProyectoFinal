@@ -70,7 +70,7 @@ function App() {
           ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
-          <AgregarNoticia></AgregarNoticia>
+          <AgregarNoticia listaCategorias={listaCategorias}></AgregarNoticia>
         </Route>
         <Route
           exact

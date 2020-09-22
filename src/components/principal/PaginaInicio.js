@@ -6,9 +6,8 @@ import CardCategoria from './CardCategoria';
 
 const PaginaInicio = (props) => {
   return (
-    <Container className="text-center">
-      <hr />
-      <hr className="mb-4" />
+    <Container className="text-center my-4">
+      <h3 className="text-left">Último Momento</h3>
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-4 mb-2">
           <Carousel>
@@ -31,7 +30,6 @@ const PaginaInicio = (props) => {
                 src="https://e00-ar-marca.uecdn.es/claro/assets/multimedia/imagenes/2020/04/11/15865964374752.png"
                 alt="Noticia 2"
               />
-
               <Carousel.Caption>
                 <h3>Noticia 2</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

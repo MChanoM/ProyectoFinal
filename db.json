@@ -1,27 +1,34 @@
 {
   "categorias": [
     {
-      "nombreCategoria": "policial",
-      "id": 1
-    },
-    {
-      "nombreCategoria": "estilo de ",
-      "id": 2
-    },
-    {
-      "nombreCategoria": "espectaculos",
-      "estado": true,
-      "id": 4
-    },
-    {
-      "nombreCategoria": "nueva categoria",
+      "nombreCategoria": "Actualidad",
       "estado": "activa",
-      "id": 13
+      "id": 15
     },
     {
-      "nombreCategoria": "nueva categoria 3",
+      "nombreCategoria": "Tecnología",
       "estado": "activa",
-      "id": 14
+      "id": 16
+    },
+    {
+      "nombreCategoria": "Deportes",
+      "estado": "activa",
+      "id": 17
+    },
+    {
+      "nombreCategoria": "Espectáculos",
+      "estado": "activa",
+      "id": 18
+    },
+    {
+      "nombreCategoria": "Política",
+      "estado": "activa",
+      "id": 19
+    },
+    {
+      "nombreCategoria": "Policial",
+      "estado": "activa",
+      "id": 20
     }
   ],
   "noticias": [

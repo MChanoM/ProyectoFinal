@@ -10,54 +10,59 @@ import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 
 const AgregarNoticia = (props) => {
-    const [error, setError] = useState(false);
-    const [estado, setEstado] = useState(true);
-    const categoriaRef = useRef("");
+  const [error, setError] = useState(false);
+  const [estado, setEstado] = useState("");
+  const categoriaRef = useRef("");
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      if (categoriaRef === ""){
-        setError(true);
-        return
-      }
+  const cambiarEstado = (e) => {
+    setEstado(e.target.value);
+  }
 
-      setError(false)
-      setEstado(true)
-
-      const categoriaEditada = {
-        nombreCategoria: categoriaRef.current.value,
-        estado: setEstado()
-      };
-
-      try {
-        const cabecera = {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(categoriaEditada),
-        };
-        const resultado = await fetch(
-          `http://localhost:3000/categorias/${props.categoria.id}`,
-          cabecera
-        );
-        console.log(resultado);
-        if (resultado.status === 200) {
-          //se modificaron correctamente los datos
-          props.consultarCat();
-          Swal.fire(
-            "Categoria Editada!",
-            "La categoria se actualizo correctamente",
-            "success"
-          );
-          props.history.push("/admin");
-        }
-      } catch (bug) {
-        console.log(bug);
-        Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
-      }
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let _estado = (estado === "") ? props.categoria.estado : estado;
+    if (categoriaRef === "" || _estado === "") {
+      setError(true);
+      return
     }
+
+    setError(false)
+    // setEstado(true)
+
+    const categoriaEditada = {
+      nombreCategoria: categoriaRef.current.value,
+      estado: _estado
+    };
+
+    try {
+      const cabecera = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(categoriaEditada),
+      };
+      const resultado = await fetch(
+        `http://localhost:3000/categorias/${props.categoria.id}`,
+        cabecera
+      );
+      console.log(resultado);
+      if (resultado.status === 200) {
+        //se modificaron correctamente los datos
+        props.consultarCat();
+        Swal.fire(
+          "Categoria Editada!",
+          "La categoria se actualizo correctamente",
+          "success"
+        );
+        props.history.push("/admin");
+      }
+    } catch (bug) {
+      console.log(bug);
+      Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
+    }
+
+  }
 
 
   return (
@@ -79,6 +84,11 @@ const AgregarNoticia = (props) => {
                   ref={categoriaRef}
                   defaultValue={props.categoria.nombreCategoria}
                 />
+                <Form.Control as="select" className="ml-2" defaultValue={props.categoria.estado} onChange={cambiarEstado}>
+                  <option value="">--Selecciona estado de categoria--</option>
+                  <option value="activa">Activa</option>
+                  <option value="inactiva">Inactiva</option>
+                </Form.Control>
                 <Button className="mx-2" variant="primary" type="submit">
                   Guardar
                 </Button>
