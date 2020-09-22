@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import {Button, Alert} from "react-bootstrap";
+import Swal from 'sweetalert2';
+import {withRouter} from 'react-router-dom';
 
-const SuscribirsePlan1 = () => {
+const SuscribirsePlan1 = (props) => {
   const [error, setError] = useState(false);
   const [nombreYApellido, setNombreYApellido] = useState("");
   const [direccion, setDireccion] = useState("");
@@ -34,6 +36,15 @@ const SuscribirsePlan1 = () => {
       //mostrar cartel de error
       setError(true);
       return;
+    }else{
+      //los datos son correctos
+      props.history.push("/");
+
+      Swal.fire(
+        'Registro exitoso',
+        'El registro fue exitoso. En breve nos comunicaremos con usted para finalizar con la suscripción.',
+        'success'
+      )
     }
     setError(false);
   }
@@ -229,4 +240,4 @@ const SuscribirsePlan1 = () => {
   );
 };
 
-export default SuscribirsePlan1;
+export default withRouter(SuscribirsePlan1) ;
