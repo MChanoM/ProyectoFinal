@@ -55,6 +55,15 @@ function App() {
 
   return (
     <Router>
+      <div className="row justify-content-center p-4">
+        <a href="">
+        <img
+        src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
+        alt="Publicidad">
+        </img>
+        </a>
+      </div>
+      
       <Header></Header>
       <Switch>
         <Route exact path="/">
@@ -66,7 +75,7 @@ function App() {
             listaCategorias={listaCategorias}
             listaNoticias={listaNoticias}
             setRecargarPagina={setRecargarPagina}
-            // consultarCat={consultarCat()}
+          // consultarCat={consultarCat()}
           ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
