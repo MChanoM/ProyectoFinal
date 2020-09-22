@@ -27,7 +27,7 @@ const ItemCategoria = (props) => {
             }
           };
           const consulta = await fetch(
-            `http://localhost:4000/api/categorias/${idCategoria}`,
+            `https://newsprorc.herokuapp.com/api/categorias/${idCategoria}`,
             cabecera
           );
 

@@ -33,7 +33,7 @@ function App() {
   //CONSULTA LISTA CATEGORIAS
   const consultarCat = async () => {
     try {
-      const consulta = await fetch("http://localhost:4000/api/categorias");
+      const consulta = await fetch("https://newsprorc.herokuapp.com/api/categorias");
       const respuesta = await consulta.json();
       setListaCategorias(respuesta);
     } catch (error) {
@@ -44,7 +44,7 @@ function App() {
   //CONSULTA LISTA DE NOTICIAS
   const consultarNoticias = async () => {
     try {
-      const consulta = await fetch("http://localhost:4000/api/noticias");
+      const consulta = await fetch("https://newsprorc.herokuapp.com/api/noticias");
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
       console.log(respuesta);
