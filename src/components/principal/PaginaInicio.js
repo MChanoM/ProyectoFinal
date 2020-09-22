@@ -218,7 +218,7 @@ const PaginaInicio = (props) => {
 
       </div>
       <hr className="mb-4" />
-      <div className="row justify-content-center">
+      <div className="row justify-content-center d-none d-sm-block">
       <a href="">
             <img
               src="https://tpc.googlesyndication.com/simgad/10495352078616386191"></img>
