@@ -17,7 +17,7 @@ const ListaCategorias = (props) => {
         </thead>
         <tbody>
             {props.categorias.map((item,pos)=>{
-                return(<ItemCategoria key={pos} item={item}></ItemCategoria>)
+                return(<ItemCategoria key={pos} item={item} setRecargarPagina={props.setRecargarPagina}></ItemCategoria>)
             })}
         </tbody>
       </Table>

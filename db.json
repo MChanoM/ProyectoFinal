@@ -1,19 +1,84 @@
 {
-    "categorias": [
-      { "id":1, 
-        "nombre":"policiales",
-         "estado":"activa" }
-    ],
-    "noticias": [
-      { "id": 1, 
-        "titulo":"asdasdasdas",
-        "autor":"maxi",
-        "descripcionBreve":"asdasdas",
-        "cuerpo-noticia":"asdasdasdasd",
-        "categoria":"policiales",
-        "estado":true}
-    ]
-    
-  }
-
-
+  "categorias": [
+    {
+      "nombreCategoria": "policial",
+      "id": 1
+    },
+    {
+      "nombreCategoria": "estilo de ",
+      "id": 2
+    },
+    {
+      "nombreCategoria": "espectaculos",
+      "estado": true,
+      "id": 4
+    },
+    {
+      "nombreCategoria": "nueva categoria",
+      "estado": "activa",
+      "id": 13
+    },
+    {
+      "nombreCategoria": "nueva categoria 3",
+      "estado": "activa",
+      "id": 14
+    }
+  ],
+  "noticias": [
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "Hola",
+      "descripcionNoticia": "jaja",
+      "imagen": "url",
+      "cuerpoNoticia": "jijij",
+      "autorNoticia": "leo",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "policial",
+      "id": 1
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "oso",
+      "descripcionNoticia": "re importante la noticia",
+      "imagen": "url",
+      "cuerpoNoticia": "asdasdasdasd",
+      "autorNoticia": "maxi",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "espectaculos",
+      "id": 2
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo 2",
+      "descripcionNoticia": "descripcion",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de la noticia",
+      "autorNoticia": "yo",
+      "fechaNoticia": "2020-09-17",
+      "categoria": "policial",
+      "id": 3
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "Otra noticia editada",
+      "descripcionNoticia": "Es una noticia no tan importante",
+      "imagen": "url",
+      "cuerpoNoticia": "adfdfdfdaf adfsf ",
+      "autorNoticia": "cartlitos",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "politica",
+      "id": 4
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "titulo de noticia 4",
+      "descripcionNoticia": "descripcion de noticia",
+      "imagen": "imagen",
+      "cuerpoNoticia": "cuerpo de noticia",
+      "autorNoticia": "autori",
+      "fechaNoticia": "2020-09-18",
+      "categoria": "policial",
+      "id": 6
+    }
+  ]
+}

@@ -25,6 +25,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            
             <Nav.Link href="#link">Actualidad</Nav.Link>
             <Nav.Link href="#link">Espectáculos</Nav.Link>
             <Nav.Link href="#link">Tecnología</Nav.Link>
@@ -41,7 +42,7 @@ const Header = () => {
           
 
           {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
-          <Link to="/suscribirse" className="btn btn-success">Suscribirse</Link>
+          <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
           <Link to="/admin" className="btn btn-outline-info">Ingresar</Link>
         </Navbar.Collapse>
       </Navbar>

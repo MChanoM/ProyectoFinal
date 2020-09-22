@@ -20,12 +20,15 @@ import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
-  
+  const [recargarPagina, setRecargarPagina] = useState(true);
 
   useEffect(() => {
-    consultarCat();
-    consultarNoticias();
-  }, []);
+    if (recargarPagina) {
+      consultarCat();
+      consultarNoticias();
+      setRecargarPagina(false);
+    }
+  }, [recargarPagina]);
 
   //CONSULTA LISTA CATEGORIAS
   const consultarCat = async () => {
@@ -56,21 +59,60 @@ function App() {
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
-          <PaginaInicio></PaginaInicio>
-          <EditarNoticia></EditarNoticia>
+          <PaginaInicio listaNoticias={listaNoticias} listaCategorias={listaCategorias}></PaginaInicio>
         </Route>
         <Route exact path="/admin">
-          <PaginaAdmin listaCategorias={listaCategorias} listaNoticias={listaNoticias}></PaginaAdmin>
+          <PaginaAdmin
+            listaCategorias={listaCategorias}
+            listaNoticias={listaNoticias}
+            setRecargarPagina={setRecargarPagina}
+            // consultarCat={consultarCat()}
+          ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia></AgregarNoticia>
         </Route>
-        <Route exact path="/noticia/editar">
-          <EditarNoticia></EditarNoticia>
-        </Route>
-        <Route exact path="/categoria/editar">
-          <EditarCategoria></EditarCategoria>
-        </Route>
+        <Route
+          exact
+          path="/noticia/editar/:id"
+          render={(props) => {
+            //Obtengo el id de la ruta
+            const idNoticia = parseInt(props.match.params.id);
+            console.log(idNoticia);
+            //Filtro el arreglo de noticias y agarro el que coincide con el id
+            const noticiaSeleccionada = listaNoticias.find(
+              (noticia) => noticia.id === idNoticia
+            );
+            console.log(noticiaSeleccionada);
+            //Renderizo EditarNotica
+            return (
+              <EditarNoticia
+                noticia={noticiaSeleccionada}
+                consultarNoticias={consultarNoticias}
+              ></EditarNoticia>
+            );
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/categoria/editar/:id"
+          render={(props) => {
+            //Obtengo el id de la ruta
+            const idCategoria = parseInt(props.match.params.id);
+            //Filtro el arreglo de categorias y agarro el que coincide con el id
+            const categoriaSeleccionada = listaCategorias.find(
+              (categoria) => categoria.id === idCategoria
+            );
+            console.log(categoriaSeleccionada);
+            //Renderizo EditarCategoria
+            return (
+              <EditarCategoria
+                categoria={categoriaSeleccionada}
+                consultarCat={consultarCat}
+              ></EditarCategoria>
+            );
+          }}
+        ></Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria></AgregarCategoria>
         </Route>
