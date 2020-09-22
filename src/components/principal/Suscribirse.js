@@ -2,7 +2,6 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Modal from 'react-bootstrap/Modal';
 
 const Suscribirse = () => {
   return (
@@ -40,7 +39,7 @@ const Suscribirse = () => {
           </Link>
           <Link
             className="col-sm-12 col-md 4 text-center my-4 text-dark cardEntera"
-            to={"/404"}
+            to={"/*"}
           >
             <Card style={{ width: "100" }}>
               <Card.Body className="cardsSuscripcion">
@@ -62,7 +61,7 @@ const Suscribirse = () => {
           </Link>
           <Link
             className="col-sm-12 col-md 4 text-center my-4 text-dark cardEntera"
-            to={"/404"}
+            to={"/*"}
           >
             <Card style={{ width: "100" }}>
               <Card.Body className="cardsSuscripcion">
