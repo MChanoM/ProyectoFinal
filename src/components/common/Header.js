@@ -5,10 +5,13 @@ import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Logo from "../../img/logo-sbg.png";
 import {Link} from "react-router-dom";
+import ModalLogin from "./ModalLogin";
 // import Collapse from "react-bootstrap/Collapse";
 
 const Header = () => {
   //   const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -43,9 +46,11 @@ const Header = () => {
 
           {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
           <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
-          <Link to="/admin" className="btn btn-outline-info">Ingresar</Link>
+          <Link onClick={handleShow} className="btn btn-outline-info">Ingresar</Link>
+         
         </Navbar.Collapse>
       </Navbar>
+      <ModalLogin  setShow={setShow} show={show}></ModalLogin>
       <div className="container">
           <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
       </div>

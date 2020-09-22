@@ -103,3 +103,43 @@
 .cardEntera:hover{
  text-decoration: none;
 }
+
+/* MODAL LOGIN */
+.tituloModal {
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+}
+.puntoModal {
+  font-size: 30px;
+  color: red;
+}
+.google {
+  width: 36px;
+  height: 36px;
+  border-radius: 20%;
+  color: #fff;
+  background: rgb(66, 133, 244);
+}
+.cuadroFacebook{
+  background-color: #3b5998;
+  margin: 5% 13%;
+  border-radius: 4px;
+  color: white;
+  padding: 6px 0px;
+}
+.cuadroGoogle{
+  background-color:rgb(66, 133, 244);
+  margin: 5% 13%;
+  border-radius: 4px;
+  color: white;
+  padding: 6px 0px;
+}
+.cuadroGoogle:hover{
+  background-color:rgb(66, 133, 244, 0.93);
+}
+.cuadroFacebook:hover{
+  background-color:rgb(59, 89, 152, 0.93);
+}
+.linkModal:hover{
+  text-decoration: none;
+}

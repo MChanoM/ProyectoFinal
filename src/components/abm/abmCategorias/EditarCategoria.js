@@ -38,7 +38,7 @@ const AgregarNoticia = (props) => {
           body: JSON.stringify(categoriaEditada),
         };
         const resultado = await fetch(
-          `http://localhost:3000/categorias/${props.categoria.id}`,
+          `https://newsprorc.herokuapp.com/categorias/${props.categoria._id}`,
           cabecera
         );
         console.log(resultado);
