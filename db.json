@@ -64,6 +64,17 @@
       "fechaNoticia": "2020-09-22",
       "categoria": "Deportes",
       "id": 9
+    },
+    {
+      "noticiaDestacada": false,
+      "tituloNoticia": "Escándalo por el examen de italiano de Luis Suárez",
+      "descripcionNoticia": "Las sospechas recaen en el examen de italiano de Luis Suárez",
+      "imagen": "https://bucket2.glanacion.com/anexos/fotos/74/3406474w1033.jpg",
+      "cuerpoNoticia": "Días complicados para Luis Suárez. A su convulsionado intento de salida de Barcelona (tiene todo acordado con Atlético de Madrid, pero ahora el club catalán pediría dinero por el traspaso) se le sumó otro episodio: su examen de italiano para obtener la nacionalidad quedó en el ojo de la tormenta. Según anunciaron varios medios italianos primero y después también fuentes oficiales de la policía de Perugia, el test al que se sometió el jugador está bajo sospecha, ya que supuestamente habría sido arreglado.\n\nSegún la policía financiera italiana, las preguntas al delantero -que todavía pertenece al Barça- y la votación final fueron pactadas, lo que convertiría el proceso en fraude. Uno de los aspectos que alertó a la policía es el hecho de que el examen duró 30 minutos, cuando normalmente tiene una duración de dos horas.",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-22",
+      "categoria": "Deportes",
+      "id": 10
     }
   ]
 }
