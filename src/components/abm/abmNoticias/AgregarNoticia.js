@@ -5,7 +5,7 @@ import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Swal from 'sweetalert2';
 
-const AgregarNoticia = () => {
+const AgregarNoticia = (props) => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
   const [tituloNoticia, setTituloNoticia] = useState("");
   const [descripcionNoticia, setDescripcionNoticia] = useState("");
@@ -25,12 +25,12 @@ const AgregarNoticia = () => {
     e.target.reset();
     console.log("en funcion submit");
     //valido datos
-    if (tituloNoticia.trim() === "" || descripcionNoticia.trim() === "" || descripcionNoticia.trim() === "" || imagen.trim() === "" || cuerpoNoticia.trim() === "" || autorNoticia.trim() === "" || fechaNoticia.trim() === ""){
+    if (tituloNoticia.trim() === "" || descripcionNoticia.trim() === "" || descripcionNoticia.trim() === "" || imagen.trim() === "" || cuerpoNoticia.trim() === "" || autorNoticia.trim() === "" || fechaNoticia.trim() === "") {
       //mostrar error
       setError(true);
       return;
     }
-    setError(false); 
+    setError(false);
     //agregar objeto a api
     //objeto noticia
     const datos = {
@@ -45,24 +45,24 @@ const AgregarNoticia = () => {
     }
 
     //agregamos estructura para manejar errores
-    try{
+    try {
       const cabecera = {
         method: "POST",
         headers: {
-          "Content-Type":"application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(datos)
       }
-      const resultado = await fetch("http://localhost:3000/noticias",cabecera);
+      const resultado = await fetch("http://localhost:3000/noticias", cabecera);
       console.log(resultado);
-      
-      if(resultado.status === 201){
+
+      if (resultado.status === 201) {
         Swal.fire(
           'Noticia Creada',
           'La noticia se agregó correctamente',
           'success'
         )
-      } else{
+      } else {
         Swal.fire(
           'Oopss...',
           'Ocurrió un error, intentelo nuevamente',
@@ -70,7 +70,7 @@ const AgregarNoticia = () => {
         )
       }
 
-    }catch(excepcion){
+    } catch (excepcion) {
       console.log(excepcion);
       Swal.fire(
         'Oopss...',
@@ -87,7 +87,7 @@ const AgregarNoticia = () => {
       <hr></hr>
       <Form onSubmit={handleSubmit}>
         {
-          (error) ? <Alert variant={"danger"}>Todos los campos son obligatorios</Alert> : null 
+          (error) ? <Alert variant={"danger"}>Todos los campos son obligatorios</Alert> : null
         }
         <Form.Group className="d-flex">
           <Form.Label>Noticia destacada</Form.Label>
@@ -155,70 +155,19 @@ const AgregarNoticia = () => {
           </Form.Label>
         </Form.Group>
         <div className="text-center mb-4">
-          <Form.Check
-            inline
-            label="Economia"
-            type="radio"
-            value="economia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Espectáculos"
-            type="radio"
-            value="espectaculo"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Salud"
-            type="radio"
-            value="salud"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Politica"
-            type="radio"
-            value="politica"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Tecnología"
-            type="radio"
-            value="tecnologia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Fotografía"
-            type="radio"
-            value="fotografia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Actualidad"
-            type="radio"
-            value="actualidad"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Deportes"
-            type="radio"
-            value="deportes"
-            name="categoria"
-            onChange={seleccionarCategoria}
-          ></Form.Check>
+          {
+            props.listaCategorias.map((item, pos) => {
+              return (<Form.Check
+                key={pos}
+                inline
+                label={item.nombreCategoria}
+                type="radio"
+                value={item.nombreCategoria}
+                name="categoria"
+                onChange={seleccionarCategoria}
+              ></Form.Check>)
+            })
+          }
         </div>
 
         <Button className="w-100 mb-4 " variant="danger" type="submit">

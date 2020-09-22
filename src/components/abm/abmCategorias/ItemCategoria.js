@@ -9,7 +9,7 @@ const ItemCategoria = (props) => {
     console.log(idCategoria);
     Swal.fire({
       title: "¿Estas seguro?",
-      text: "Una vez que elimines esta categoria, no podés volver atras",
+      text: "Una vez que elimines esta categoria, no podés volver atras y se puede perder el acceso a las noticias dentro de esta categoria",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
