@@ -8,15 +8,59 @@ import {
   faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const ItemNoticia = (props) => {
+
+  const eliminarNoticia = (idNoticia) =>{
+    console.log(idNoticia);
+    Swal.fire({
+      title: '¿Está seguro de eliminar la noticia?',
+      text: "No puede recuperar una noticia eliminada.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: "Cancelar"
+    }).then(async(result) => {
+      if (result.value) {
+        //aqui tengo que eliminar el producto
+        try{
+          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias${idNoticia}`,{
+            method: "DELETE",
+            headers:{
+              "Content-Type": "application/json"
+            }
+          })
+
+          console.log(consulta);
+          if(consulta.status === 200){
+            //aqui si se borró el producto
+            // props.consultarNoticias();
+            props.setRecargarPagina(true);
+            Swal.fire(
+              'El producto fue eliminado.',
+              'Su producto fue eliminado correctamente.',
+              'success'
+            )
+          }
+          
+        }catch(error){
+          console.log(error)
+        }
+      }
+    })
+  }
+
   return (
     <tr>
       <td>{props.item.id}</td>
-      <td>{props.item.titulo}</td>
-      <td>{props.item.autor}</td>
-      <td>{props.item.descripcionBreve}</td>
+      <td>{props.item.tituloNoticia}</td>
+      <td>{props.item.autorNoticia}</td>
+      <td>{props.item.descripcionNoticia}</td>
       <td>{props.item.categoria}</td>
+      <td>{props.item.fechaNoticia}</td>
       <td>
         <Link to={"/"} className="mr-2 text-success">
           <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
@@ -27,11 +71,11 @@ const ItemNoticia = (props) => {
             icon={faStar}
           ></FontAwesomeIcon>
         </Link>
-        <Link to={"/noticia/editar"} className="mr-2 text-dark">
+        <Link to={`/noticia/editar/${props.item._id}`} className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
-        <Link to={"/"} className="mr-2 text-danger">
-          <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+        <Link className="mr-2 text-danger">
+          <FontAwesomeIcon icon={faTrash} onClick={() => eliminarNoticia(props.item._id)}></FontAwesomeIcon>
         </Link>
       </td>
     </tr>
