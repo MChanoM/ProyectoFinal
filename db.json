@@ -26,7 +26,6 @@
   ],
   "noticias": [
     {
-      "noticiaDestacada": "on",
       "tituloNoticia": "Hola",
       "descripcionNoticia": "jaja",
       "imagen": "url",
@@ -37,7 +36,6 @@
       "id": 1
     },
     {
-      "noticiaDestacada": "on",
       "tituloNoticia": "oso",
       "descripcionNoticia": "re importante la noticia",
       "imagen": "url",

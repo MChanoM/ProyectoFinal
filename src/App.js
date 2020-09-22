@@ -47,7 +47,7 @@ function App() {
       const consulta = await fetch("http://localhost:3000/noticias");
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
-      console.log(respuesta);
+      // console.log(respuesta);
     } catch (error) {
       console.log(error);
     }
@@ -78,12 +78,12 @@ function App() {
           render={(props) => {
             //Obtengo el id de la ruta
             const idNoticia = parseInt(props.match.params.id);
-            console.log(idNoticia);
+            // console.log(idNoticia);
             //Filtro el arreglo de noticias y agarro el que coincide con el id
             const noticiaSeleccionada = listaNoticias.find(
               (noticia) => noticia.id === idNoticia
             );
-            console.log(noticiaSeleccionada);
+            // console.log(noticiaSeleccionada);
             //Renderizo EditarNotica
             return (
               <EditarNoticia
@@ -103,7 +103,7 @@ function App() {
             const categoriaSeleccionada = listaCategorias.find(
               (categoria) => categoria.id === idCategoria
             );
-            console.log(categoriaSeleccionada);
+            // console.log(categoriaSeleccionada);
             //Renderizo EditarCategoria
             return (
               <EditarCategoria

@@ -1,16 +1,32 @@
 .moneda {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .euro {
   margin-left: 50px;
-  margin-right: 50px;
+  
+}
+
+.dolar {
+  margin-left: 40px;
+}
+
+.btc{
+  color: coral;
 }
 
 .desc {
   font-weight: bold;
   margin-right: 8px;
   font-size: 15px;
+  
+}
+
+.descBtc {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 15px;
+  color: coral;
 }
 
 .tempClima {
@@ -45,20 +61,34 @@
 
   .moneda {
     font-size: 12px;
-    margin-right: 3px;
+    
   }
   .euro {
-    margin-left: 8px;
-    margin-right: 2px;
+    margin-left: 12px;
+    
+  }
+
+  .dolar{
+    margin-left:12px;
   }
 
   .desc {
     font-weight: bold;
-    font-size: 8px;
+    font-size: 10px;
     border: black 1px solid;
     border-radius: 10%;
     padding: 2px;
     background-color: black;
+    color: white;
+  }
+
+  .descBtc {
+    font-weight: bold;
+    font-size: 10px;
+    border: coral 1px solid;
+    border-radius: 10%;
+    padding: 2px;
+    background-color: coral;
     color: white;
   }
 
