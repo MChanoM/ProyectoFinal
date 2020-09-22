@@ -62,7 +62,7 @@ const EditarNoticia = (props) => {
         body: JSON.stringify(noticiaEditada),
       };
       const resultado = await fetch(
-        `https://newsprorc.herokuapp.com/api/noticias/${props.noticia.id}`,
+        `https://newsprorc.herokuapp.com/api/noticias/${props.noticia._id}`,
         cabecera
       );
       console.log(resultado);
