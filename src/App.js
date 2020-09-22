@@ -17,6 +17,7 @@ import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 
+
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
@@ -33,7 +34,7 @@ function App() {
   //CONSULTA LISTA CATEGORIAS
   const consultarCat = async () => {
     try {
-      const consulta = await fetch("http://localhost:3000/categorias");
+      const consulta = await fetch("https://newsprorc.herokuapp.com/api/categorias");
       const respuesta = await consulta.json();
       setListaCategorias(respuesta);
     } catch (error) {
@@ -44,7 +45,7 @@ function App() {
   //CONSULTA LISTA DE NOTICIAS
   const consultarNoticias = async () => {
     try {
-      const consulta = await fetch("http://localhost:3000/noticias");
+      const consulta = await fetch("https://newsprorc.herokuapp.com/api/noticias");
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
       // console.log(respuesta);
@@ -55,6 +56,15 @@ function App() {
 
   return (
     <Router>
+      <div className="row justify-content-center p-4">
+        <a href="">
+        <img
+        src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
+        alt="Publicidad">
+        </img>
+        </a>
+      </div>
+      
       <Header></Header>
       <Switch>
         <Route exact path="/">
@@ -66,7 +76,7 @@ function App() {
             listaCategorias={listaCategorias}
             listaNoticias={listaNoticias}
             setRecargarPagina={setRecargarPagina}
-            // consultarCat={consultarCat()}
+          // consultarCat={consultarCat()}
           ></PaginaAdmin>
         </Route>
         <Route exact path="/noticia/nueva">
@@ -81,7 +91,7 @@ function App() {
             // console.log(idNoticia);
             //Filtro el arreglo de noticias y agarro el que coincide con el id
             const noticiaSeleccionada = listaNoticias.find(
-              (noticia) => noticia.id === idNoticia
+              (noticia) => noticia._id === idNoticia
             );
             // console.log(noticiaSeleccionada);
             //Renderizo EditarNotica
@@ -98,7 +108,7 @@ function App() {
           path="/categoria/editar/:id"
           render={(props) => {
             //Obtengo el id de la ruta
-            const idCategoria = parseInt(props.match.params.id);
+            const idCategoria = props.match.params.id;
             //Filtro el arreglo de categorias y agarro el que coincide con el id
             const categoriaSeleccionada = listaCategorias.find(
               (categoria) => categoria.id === idCategoria

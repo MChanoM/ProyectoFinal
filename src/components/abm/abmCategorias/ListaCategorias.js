@@ -5,8 +5,17 @@ import ItemCategoria from "./ItemCategoria";
 const ListaCategorias = (props) => {
   return (
     <div>
-      <h3 className="text-center my-3 bg-dark text-light rounded p-1">Categorias</h3>
-      <Table className="text-center mb-5" responsive striped bordered hove size="sm">
+      <h3 className="text-center my-3 bg-dark text-light rounded p-1">
+        Categorias
+      </h3>
+      <Table
+        className="text-center mb-5"
+        responsive
+        striped
+        bordered
+        hove
+        size="sm"
+      >
         <thead>
           <tr>
             <th>Id</th>
@@ -16,9 +25,15 @@ const ListaCategorias = (props) => {
           </tr>
         </thead>
         <tbody>
-            {props.categorias.map((item,pos)=>{
-                return(<ItemCategoria key={pos} item={item} setRecargarPagina={props.setRecargarPagina}></ItemCategoria>)
-            })}
+          {props.categorias.map((item, pos) => {
+            return (
+              <ItemCategoria
+                key={pos._id}
+                item={item}
+                setRecargarPagina={props.setRecargarPagina}
+              ></ItemCategoria>
+            );
+          })}
         </tbody>
       </Table>
     </div>
