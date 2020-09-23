@@ -118,7 +118,7 @@ function App() {
             const idCategoria = props.match.params.id;
             //Filtro el arreglo de categorias y agarro el que coincide con el id
             const categoriaSeleccionada = listaCategorias.find(
-              (categoria) => categoria.id === idCategoria
+              (categoria) => categoria._id === idCategoria
             );
             // console.log(categoriaSeleccionada);
             //Renderizo EditarCategoria
