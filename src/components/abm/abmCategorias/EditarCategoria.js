@@ -59,6 +59,8 @@ const AgregarNoticia = (props) => {
     }catch(bug) {
         console.log(bug);
         Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
+        props.history.push("/admin");
+
       }
 
     }
