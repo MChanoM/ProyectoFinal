@@ -91,6 +91,25 @@ const PaginaInicio = (props) => {
             </div>
           </div>
         </div>
+        <div className="col-sm-12 col-md-3 mb-5">
+          <a href="">
+            <img
+              src="http://www.laprensa.com.ar/Multimedios/Ads/92.gif?v=1"></img>
+          </a>
+        </div>
+        <div className="col-sm-12 col-md-3 mb-5 ">
+          <a href="">
+            <img
+              src="http://www.laprensa.com.ar/Multimedios/Ads/92.gif?v=1"></img>
+          </a>
+        </div>
+        <div className="col-sm-12 col-md-3 mb-5">
+
+          <a href="">
+            <img
+              src="http://www.laprensa.com.ar/Multimedios/Ads/92.gif?v=1"></img>
+          </a>
+        </div>
       </div>
 
       {props.listaCategorias.map((item, pos) => {
@@ -118,6 +137,6 @@ const PaginaInicio = (props) => {
       </div>
     </Container>
   );
-};
+}
 
 export default PaginaInicio;
