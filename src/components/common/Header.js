@@ -50,7 +50,7 @@ const Header = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <div className="d-inline-block">
+            <div className="d-inline-block align-top">
             {
                 props.listaCategorias.map((item, pos) => {
                   if(item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||
