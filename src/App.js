@@ -91,7 +91,7 @@ function App() {
                   listaCategorias={listaCategorias}
                   listaNoticias={listaNoticias}
                   setRecargarPagina={setRecargarPagina}
-                  consultarCat={consultarCat()}
+                  consultarCat={consultarCat}
                 ></PaginaAdmin>
               );
             }

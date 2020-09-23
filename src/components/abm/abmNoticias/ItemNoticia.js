@@ -1,5 +1,4 @@
 import React from "react";
-import { Form, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -12,7 +11,7 @@ import Swal from 'sweetalert2';
 
 const ItemNoticia = (props) => {
 
-  const eliminarNoticia = (idNoticia) =>{
+  const eliminarNoticia = (idNoticia) => {
     console.log(idNoticia);
     Swal.fire({
       title: '¿Está seguro de eliminar la noticia?',
@@ -23,30 +22,31 @@ const ItemNoticia = (props) => {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, eliminar',
       cancelButtonText: "Cancelar"
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.value) {
         //aqui tengo que eliminar el producto
-        try{
-          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias/${idNoticia}`,{
+        try {
+          const cabecera = {
             method: "DELETE",
-            headers:{
-              "Content-Type": "application/json"
+            headers: {
+              "Content-Type": "application/json",
             }
-          })
+          };
+          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias${idNoticia}`, cabecera)
 
           console.log(consulta);
-          if(consulta.status === 200){
+          if (consulta.status === 200) {
             //aqui si se borró el producto
             // props.consultarNoticias();
             props.setRecargarPagina(true);
             Swal.fire(
-              'El producto fue eliminado.',
-              'Su producto fue eliminado correctamente.',
+              'La noticia fue eliminada.',
+              'La noticia se eliminó correctamente.',
               'success'
             )
           }
-          
-        }catch(error){
+
+        } catch (error) {
           console.log(error)
         }
       }
