@@ -101,7 +101,7 @@ function App() {
           }}
         ></Route>
         <Route exact path="/noticia/nueva">
-          <AgregarNoticia listaNoticias={listaNoticias}></AgregarNoticia>
+          <AgregarNoticia listaCategorias={listaCategorias} consultarNoticias={consultarNoticias}></AgregarNoticia>
         </Route>
         <Route
           exact
