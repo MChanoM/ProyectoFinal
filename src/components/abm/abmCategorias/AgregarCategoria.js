@@ -7,8 +7,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import { withRouter } from "react-router";
 
-const AgregarNoticia = () => {
+const AgregarCategoria = (props) => {
   const [nombreCategoria, setCategoria] = useState("");
   const [estado, setEstado] = useState("");
   const [error, setError] = useState(false);
@@ -47,7 +48,8 @@ const AgregarNoticia = () => {
             "Categoría Creada",
             "La categoría se agregó correctamente",
             "success"
-          );
+          )
+          props.history.push('/admin');
         } else {
           Swal.fire(
             "Oopss...",
@@ -107,4 +109,4 @@ const AgregarNoticia = () => {
     );
   };
 
-  export default AgregarNoticia;
+  export default withRouter(AgregarCategoria);

@@ -9,7 +9,7 @@ import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 
-const AgregarNoticia = (props) => {
+const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
   const [estado, setEstado] = useState("");
   const categoriaRef = useRef("");
@@ -43,7 +43,7 @@ const AgregarNoticia = (props) => {
         body: JSON.stringify(categoriaEditada)
       };
       const resultado = await fetch(
-        `https://newsprorc.herokuapp.com/categorias/${props.categoria._id}`,
+        `https://newsprorc.herokuapp.com/api/categorias/${props.categoria._id}`,
         cabecera
       );
       console.log(resultado);
@@ -55,6 +55,7 @@ const AgregarNoticia = (props) => {
           "La categoria se actualizo correctamente",
           "success"
         )}
+        props.history.push('/admin');
       
     }catch(bug) {
         console.log(bug);
@@ -102,4 +103,4 @@ const AgregarNoticia = (props) => {
     );
   };
 
-  export default withRouter(AgregarNoticia);
+  export default withRouter(EditarCategoria);

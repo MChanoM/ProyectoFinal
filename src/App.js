@@ -91,7 +91,7 @@ function App() {
                   listaCategorias={listaCategorias}
                   listaNoticias={listaNoticias}
                   setRecargarPagina={setRecargarPagina}
-                  // consultarCat={consultarCat()}
+                  consultarCat={consultarCat()}
                 ></PaginaAdmin>
               );
             }
@@ -105,7 +105,7 @@ function App() {
           path="/noticia/editar/:id"
           render={(props) => {
             //Obtengo el id de la ruta
-            const idNoticia = parseInt(props.match.params.id);
+            const idNoticia = props.match.params.id;
             // console.log(idNoticia);
             //Filtro el arreglo de noticias y agarro el que coincide con el id
             const noticiaSeleccionada = listaNoticias.find(
@@ -129,7 +129,7 @@ function App() {
             const idCategoria = props.match.params.id;
             //Filtro el arreglo de categorias y agarro el que coincide con el id
             const categoriaSeleccionada = listaCategorias.find(
-              (categoria) => categoria.id === idCategoria
+              (categoria) => categoria._id === idCategoria
             );
             // console.log(categoriaSeleccionada);
             //Renderizo EditarCategoria
