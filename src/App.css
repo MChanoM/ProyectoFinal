@@ -143,3 +143,15 @@
 .linkModal:hover{
   text-decoration: none;
 }
+
+/* ERROR 404 */
+.pError{
+  font-size: 25px;
+  font-family: "Noto Serif", serif;
+  color: #818181;
+}
+.newsProError{
+  color: black;
+  font-size: 30PX;
+  font-family: "Noto Serif", serif;
+}

@@ -17,7 +17,6 @@ import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 
-
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
@@ -35,7 +34,9 @@ function App() {
   //CONSULTA LISTA CATEGORIAS
   const consultarCat = async () => {
     try {
-      const consulta = await fetch("https://newsprorc.herokuapp.com/api/categorias");
+      const consulta = await fetch(
+        "https://newsprorc.herokuapp.com/api/categorias"
+      );
       const respuesta = await consulta.json();
       setListaCategorias(respuesta);
     } catch (error) {
@@ -46,7 +47,9 @@ function App() {
   //CONSULTA LISTA DE NOTICIAS
   const consultarNoticias = async () => {
     try {
-      const consulta = await fetch("https://newsprorc.herokuapp.com/api/noticias");
+      const consulta = await fetch(
+        "https://newsprorc.herokuapp.com/api/noticias"
+      );
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
       // console.log(respuesta);
@@ -57,35 +60,43 @@ function App() {
 
   return (
     <Router>
-      <div className="row justify-content-center p-4 d-none d-sm-block">
-        <a href="">
-        <img
-        src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
-        alt="Publicidad">
-        </img>
-        </a>
+      <div className="d-none d-md-block ">
+        <div className="row justify-content-center ">
+          <a href="">
+            <img
+              src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
+              alt="Publicidad"
+              // className="publicidadGrande"
+            ></img>
+          </a>
+        </div>
       </div>
-      
+
       <Header setLoginAdmin={setLoginAdmin}></Header>
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
-          <PaginaInicio listaNoticias={listaNoticias} listaCategorias={listaCategorias}></PaginaInicio>
+          <PaginaInicio
+            listaNoticias={listaNoticias}
+            listaCategorias={listaCategorias}
+          ></PaginaInicio>
         </Route>
-        <Route exact path="/admin"
-        render={()=>{
-          if(loginAdmin === true){
-            return(
-              <PaginaAdmin
-                listaCategorias={listaCategorias}
-                listaNoticias={listaNoticias}
-                setRecargarPagina={setRecargarPagina}
-              // consultarCat={consultarCat()}
-              ></PaginaAdmin>
-            )
-          }
-        }}>
-        </Route>
+        <Route
+          exact
+          path="/admin"
+          render={() => {
+            if (loginAdmin === true) {
+              return (
+                <PaginaAdmin
+                  listaCategorias={listaCategorias}
+                  listaNoticias={listaNoticias}
+                  setRecargarPagina={setRecargarPagina}
+                  // consultarCat={consultarCat()}
+                ></PaginaAdmin>
+              );
+            }
+          }}
+        ></Route>
         <Route exact path="/noticia/nueva">
           <AgregarNoticia listaCategorias={listaCategorias}></AgregarNoticia>
         </Route>
