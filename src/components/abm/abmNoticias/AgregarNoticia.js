@@ -63,6 +63,7 @@ const AgregarNoticia = (props) => {
           'La noticia se agregó correctamente',
           'success'
         )
+        props.consultarNoticias();
         props.history.push('/admin');
       } else {
         Swal.fire(

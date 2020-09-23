@@ -152,78 +152,20 @@ const EditarNoticia = (props) => {
           </Form.Label>
         </Form.Group>
         <div className="text-center mb-4">
-          <Form.Check
-            inline
-            label="Economia"
-            type="radio"
-            value="economia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "economia"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Espectáculos"
-            type="radio"
-            value="espectaculo"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "espectaculo"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Salud"
-            type="radio"
-            value="salud"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "salud"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Politica"
-            type="radio"
-            value="politica"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "politica"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Tecnología"
-            type="radio"
-            value="tecnologia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "tecnologia"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Fotografía"
-            type="radio"
-            value="fotografia"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "fotografia"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Actualidad"
-            type="radio"
-            value="actualidad"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "actualidad"}
-          ></Form.Check>
-          <Form.Check
-            inline
-            label="Deportes"
-            type="radio"
-            value="deportes"
-            name="categoria"
-            onChange={seleccionarCategoria}
-            defaultChecked={props.noticia.categoria === "deportes"}
-          ></Form.Check>
+          {
+            props.listaCategorias.map((item, pos) => {
+              return (<Form.Check
+                key={pos}
+                inline
+                label={item.nombreCategoria}
+                type="radio"
+                value={item.nombreCategoria}
+                defaultChecked={props.noticia.categoria === item.nombreCategoria}
+                name="categoria"
+                onChange={seleccionarCategoria}
+              ></Form.Check>)
+            })
+          }
         </div>
 
         <Button className="w-100 mb-4 " variant="danger" type="submit">

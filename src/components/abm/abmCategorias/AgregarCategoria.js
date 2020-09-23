@@ -49,6 +49,7 @@ const AgregarCategoria = (props) => {
             "La categoría se agregó correctamente",
             "success"
           )
+          props.consultarCat();
           props.history.push('/admin');
         } else {
           Swal.fire(

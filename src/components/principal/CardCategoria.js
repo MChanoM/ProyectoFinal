@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import CardNoticia from "./CardNoticia";
 
 const CardCategoria = (props) => {
@@ -7,7 +7,7 @@ const CardCategoria = (props) => {
 
   return (
     <div className="mb-2">
-      <h4 className="text-left">{props.item.nombreCategoria}</h4>
+      <Link to={`/pagcategoria/${props.item._id}`}><h4 className="text-left">{props.item.nombreCategoria}</h4></Link>
       <hr></hr>
       <div className="row justify-content-around my-2">
         {props.listaNoticias.map((item, pos) => {
@@ -20,7 +20,7 @@ const CardCategoria = (props) => {
                 cuerpoNoticia={item.cuerpoNoticia}
                 autorNoticia={item.autorNoticia}
                 fechaNoticia={item.fechaNoticia}
-                id={item.id}
+                id={item._id}
                 key={pos}
               ></CardNoticia>
             );

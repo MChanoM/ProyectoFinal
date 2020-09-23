@@ -16,6 +16,10 @@ import PaginaAdmin from "./components/abm/PaginaAdmin";
 import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
+<<<<<<< HEAD
+=======
+import PaginaNoticia from "./components/principal/PaginaNoticia";
+>>>>>>> b0521b80cd7bf01f3cd3db1db08704e6a14d8ac6
 import PaginaCategoria from "./components/principal/PaginaCategoria";
 
 function App() {
@@ -67,7 +71,7 @@ function App() {
             <img
               src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
               alt="Publicidad"
-            // className="publicidadGrande"
+              // className="publicidadGrande"
             ></img>
           </a>
         </div>
@@ -84,6 +88,44 @@ function App() {
         </Route>
         <Route
           exact
+          path="/pagnoticia/:id"
+          render={(props) => {
+            // obtengo el nombre de la ruta
+            const idNoticia = props.match.params.id;
+            //Filtro el arreglo de noticias y agarro el que coincide con el id
+            const noticiaSeleccionada = listaNoticias.find(
+              (noticia) => noticia._id === idNoticia
+            );
+            return (
+              <PaginaNoticia
+                noticia={noticiaSeleccionada}
+                listaNoticias={listaNoticias}
+                consultarCat={consultarCat}
+              ></PaginaNoticia>
+            );
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/pagcategoria/:id"
+          render={(props) => {
+            // obtengo el id de la ruta
+            const idCategoria = props.match.params.id;
+            const categoriaSeleccionada = listaCategorias.find(
+              (categoria) => categoria._id === idCategoria
+            );
+            return (
+              <PaginaCategoria
+                listaNoticias={listaNoticias}
+                categoria={categoriaSeleccionada}
+                listaCategorias={listaCategorias}
+                consultarCat={consultarCat}
+              ></PaginaCategoria>
+            );
+          }}
+        ></Route>
+        <Route
+          exact
           path="/admin"
           render={() => {
             if (loginAdmin === true) {
@@ -96,11 +138,13 @@ function App() {
                   // consultarNoticias={consultarNoticias}
                 ></PaginaAdmin>
               );
+            } else {
+              return <Error404></Error404>;
             }
           }}
         ></Route>
         <Route exact path="/noticia/nueva">
-          <AgregarNoticia listaCategorias={listaCategorias}></AgregarNoticia>
+          <AgregarNoticia listaCategorias={listaCategorias} consultarNoticias={consultarNoticias}></AgregarNoticia>
         </Route>
         <Route
           exact
@@ -119,6 +163,7 @@ function App() {
               <EditarNoticia
                 noticia={noticiaSeleccionada}
                 consultarNoticias={consultarNoticias}
+                listaCategorias={listaCategorias}
               ></EditarNoticia>
             );
           }}
@@ -144,7 +189,7 @@ function App() {
           }}
         ></Route>
         <Route exact path="/categoria/nueva">
-          <AgregarCategoria></AgregarCategoria>
+          <AgregarCategoria listaCategorias={listaCategorias} consultarCat={consultarCat}></AgregarCategoria>
         </Route>
         <Route exact path="/categoria">
         <PaginaCategoria listaCategorias={listaCategorias}></PaginaCategoria>
