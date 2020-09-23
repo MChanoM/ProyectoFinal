@@ -1,77 +1,27 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faShare, faImage } from '@fortawesome/free-solid-svg-icons';
 
-const PaginaInicio = () => {
+const PaginaCategoria = (props) => {
   return (
     <Container>
       <main className="row my-4">
         <section className="col-8">
-          <div className="d-flex justify-content-between">
-            <FontAwesomeIcon
-                icon={faImage}
-                size="10x"
-                className="mx-2"
-              />
-            <div>
-            <h3>EE.UU y China. Férnandez busca un equilibrio, pero el lazo con Pekín se afianza</h3>
-            <p>ACTUALIDAD POLÍTICA</p>
-            <p>14 de septiembre de 2020</p>
-            </div>
-          </div>
-
-          <div className="d-flex justify-content-between">
-            <FontAwesomeIcon
-                icon={faImage}
-                size="10x"
-                className="mx-2"
-              />
-            <div>
-            <h3>EE.UU y China. Férnandez busca un equilibrio, pero el lazo con Pekín se afianza</h3>
-            <p>ACTUALIDAD POLÍTICA</p>
-            <p>14 de septiembre de 2020</p>
-            </div>
-          </div>
-
-          <div className="d-flex justify-content-between">
-            <FontAwesomeIcon
-                icon={faImage}
-                size="10x"
-                className="mx-2"
-              />
-            <div>
-            <h3>EE.UU y China. Férnandez busca un equilibrio, pero el lazo con Pekín se afianza</h3>
-            <p>ACTUALIDAD POLÍTICA</p>
-            <p>14 de septiembre de 2020</p>
-            </div>
-          </div>
-
-          <div className="d-flex justify-content-between">
-            <FontAwesomeIcon
-                icon={faImage}
-                size="10x"
-                className="mx-2"
-              />
-            <div>
-            <h3>EE.UU y China. Férnandez busca un equilibrio, pero el lazo con Pekín se afianza</h3>
-            <p>ACTUALIDAD POLÍTICA</p>
-            <p>14 de septiembre de 2020</p>
-            </div>
-          </div>
-
-          <div className="d-flex justify-content-between">
-            <FontAwesomeIcon
-                icon={faImage}
-                size="10x"
-                className="mx-2"
-              />
-            <div>
-            <h3>EE.UU y China. Férnandez busca un equilibrio, pero el lazo con Pekín se afianza</h3>
-            <p>ACTUALIDAD POLÍTICA</p>
-            <p>14 de septiembre de 2020</p>
-            </div>
-          </div>
+          {props.listaNoticias.map((item, pos) => {
+            if (item.categoria === props.categoria.nombreCategoria) {
+              return (
+                <div className="d-flex justify-content-between">
+                  <img src={item.imagen} alt="" />
+                  <div>
+                    <h3>{item.tituloNoticia}</h3>
+                    <p>{item.categoria}</p>
+                    <p>{item.fechaNoticia}</p>
+                    id={item._id}
+                    key={pos}
+                  </div>
+                </div>
+              );
+            }
+          })}
         </section>
 
         <section className="col-4 lineaVertical">
@@ -82,4 +32,4 @@ const PaginaInicio = () => {
   );
 };
 
-export default PaginaInicio;
+export default PaginaCategoria;

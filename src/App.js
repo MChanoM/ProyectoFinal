@@ -17,6 +17,7 @@ import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 import PaginaNoticia from "./components/principal/PaginaNoticia";
+import PaginaCategoria from "./components/principal/PaginaCategoria";
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
@@ -86,7 +87,7 @@ function App() {
           exact
           path="/pagnoticia/:id"
           render={(props) => {
-            // obtengo el id de la ruta
+            // obtengo el nombre de la ruta
             const idNoticia = props.match.params.id;
             //Filtro el arreglo de noticias y agarro el que coincide con el id
             const noticiaSeleccionada = listaNoticias.find(
@@ -98,6 +99,25 @@ function App() {
                 listaNoticias={listaNoticias}
                 consultarCat={consultarCat}
               ></PaginaNoticia>
+            );
+          }}
+        ></Route>
+        <Route
+          exact
+          path="/pagcategoria/:id"
+          render={(props) => {
+            // obtengo el id de la ruta
+            const idCategoria = props.match.params.id;
+            const categoriaSeleccionada = listaCategorias.find(
+              (categoria) => categoria._id === idCategoria
+            );
+            return (
+              <PaginaCategoria
+                listaNoticias={listaNoticias}
+                categoria={categoriaSeleccionada}
+                listaCategorias={listaCategorias}
+                consultarCat={consultarCat}
+              ></PaginaCategoria>
             );
           }}
         ></Route>
