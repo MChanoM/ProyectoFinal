@@ -16,10 +16,7 @@ import PaginaAdmin from "./components/abm/PaginaAdmin";
 import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
-<<<<<<< HEAD
-=======
 import PaginaNoticia from "./components/principal/PaginaNoticia";
->>>>>>> b0521b80cd7bf01f3cd3db1db08704e6a14d8ac6
 import PaginaCategoria from "./components/principal/PaginaCategoria";
 
 function App() {
