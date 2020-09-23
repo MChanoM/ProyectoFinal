@@ -120,6 +120,7 @@ function App() {
               <EditarNoticia
                 noticia={noticiaSeleccionada}
                 consultarNoticias={consultarNoticias}
+                listaCategorias={listaCategorias}
               ></EditarNoticia>
             );
           }}
