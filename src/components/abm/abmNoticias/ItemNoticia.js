@@ -27,7 +27,7 @@ const ItemNoticia = (props) => {
       if (result.value) {
         //aqui tengo que eliminar el producto
         try{
-          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias${idNoticia}`,{
+          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias/${idNoticia}`,{
             method: "DELETE",
             headers:{
               "Content-Type": "application/json"
@@ -55,7 +55,7 @@ const ItemNoticia = (props) => {
 
   return (
     <tr>
-      <td>{props.item.id}</td>
+      <td>{props.item._id}</td>
       <td>{props.item.tituloNoticia}</td>
       <td>{props.item.autorNoticia}</td>
       <td>{props.item.descripcionNoticia}</td>
