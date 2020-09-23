@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import CardNoticia from "./CardNoticia";
 
 const CardCategoria = (props) => {
@@ -20,7 +19,7 @@ const CardCategoria = (props) => {
                 cuerpoNoticia={item.cuerpoNoticia}
                 autorNoticia={item.autorNoticia}
                 fechaNoticia={item.fechaNoticia}
-                id={item.id}
+                id={item._id}
                 key={pos}
               ></CardNoticia>
             );
