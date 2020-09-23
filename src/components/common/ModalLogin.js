@@ -85,8 +85,8 @@ const ModalLogin = (props) => {
           <hr />
           <h4>Ingresá tus datos de acceso</h4>
           <Form onSubmit={handleSubmit}>
-            <div className="row mt-4">
-              <Form.Group controlId="formBasicEmail" className="col-6">
+            <div className="row mt-4 text-left">
+              <Form.Group controlId="formBasicEmail" className="col-sm-12 col-md-6">
                 <Form.Label>Usuario</Form.Label>
                 <Form.Control
                   type="text"
@@ -97,7 +97,7 @@ const ModalLogin = (props) => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword" className="col-6">
+              <Form.Group controlId="formBasicPassword" className="col-sm-12 col-md-6">
                 <Form.Label>Contraseña</Form.Label>
                 <Form.Control
                   type="password"
@@ -108,11 +108,11 @@ const ModalLogin = (props) => {
                 />
               </Form.Group>
             </div>
-            <div className="w-100 mt-3">
+            <div className="w-100 mt-3 text-right">
               <Button className="mr-2" variant="primary" type="submit">
                 Iniciar sesión
               </Button>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="danger" onClick={handleClose}>
                 Cerrar
               </Button>
             </div>
