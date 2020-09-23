@@ -37,7 +37,7 @@ const Header = (props) => {
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">
           <img
             src={Logo}
@@ -47,10 +47,10 @@ const Header = (props) => {
             alt="logo news pro"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <div className="d-inline-block align-top">
+            
             {
                 props.listaCategorias.map((item, pos) => {
                   if(item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||
@@ -64,7 +64,7 @@ const Header = (props) => {
                 })
             }
             
-            <NavDropdown title="Otras" id="basic-navbar-nav">
+            <NavDropdown title="Otras" id="collasible-nav-dropdown">
               {
                 props.listaCategorias.map((item, pos) => {
                   if(item.nombreCategoria !== "Actualidad" || item.nombreCategoria !== "Política" ||
@@ -77,7 +77,7 @@ const Header = (props) => {
                 })
               }
             </NavDropdown>
-            </div>
+            
             
           </Nav>
 
