@@ -50,16 +50,15 @@ const Header = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <div className="d-inline-block align-top">
             {
                 props.listaCategorias.map((item, pos) => {
                   if(item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||
                   item.nombreCategoria === "Tecnología" || item.nombreCategoria === "Deportes"){
-                    return (<NavLink
+                    return (<Nav.Link
                       key={pos}
-                      exact={true} to={`/categoria/${item.nombreCategoria}`}
+                      href={`/pagcategoria/${item._id}`}
                       className="text-white mx-2"
-                    >{item.nombreCategoria}</NavLink>)
+                    >{item.nombreCategoria}</Nav.Link>)
                   }                   
                 })
             }
@@ -71,14 +70,12 @@ const Header = (props) => {
                   item.nombreCategoria !== "Tecnología" || item.nombreCategoria !== "Deportes"){
                     return (<NavDropdown.Item
                       key={pos}
-                      exact={true} to={`/categoria/${item.nombreCategoria}`}
+                      href={`/pagcategoria/${item._id}`}
                     >{item.nombreCategoria}</NavDropdown.Item>)
                   }
                 })
               }
             </NavDropdown>
-            </div>
-            
           </Nav>
 
 
