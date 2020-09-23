@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Swal from 'sweetalert2';
+import { withRouter } from "react-router";
 
 const AgregarNoticia = (props) => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
@@ -62,6 +63,7 @@ const AgregarNoticia = (props) => {
           'La noticia se agregó correctamente',
           'success'
         )
+        props.history.push('/admin');
       } else {
         Swal.fire(
           'Oopss...',
@@ -178,4 +180,4 @@ const AgregarNoticia = (props) => {
   );
 };
 
-export default AgregarNoticia;
+export default withRouter(AgregarNoticia);
