@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardNoticia = (props) => {
   return (
@@ -8,7 +9,7 @@ const CardNoticia = (props) => {
       <Card.Body>
         <Card.Title>{props.tituloNoticia}</Card.Title>
         <Card.Text>{props.descripcionNoticia}</Card.Text>
-        <Button variant="primary">Leer más...</Button>
+        <Link to={`/pagnoticia/${props.id}`} className="btn btn-primary">Leer más...</Link>
       </Card.Body>
     </Card>
   );

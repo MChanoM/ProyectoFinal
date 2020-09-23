@@ -1,64 +1,45 @@
 import React from "react";
-// import Header from '../common/Header';
-// import Footer from '../common/Footer';
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp, faShare, faImage } from '@fortawesome/free-solid-svg-icons';
+import {
+  faThumbsUp,
+  faShare
+} from "@fortawesome/free-solid-svg-icons";
 
-const PaginaNoticia = () => {
-    return (
-        <Container>
-          <section className="borde mt-4">
-          {/* <Header></Header> */}
-          <h1>Titulo de la noticia</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatum labore cum reprehenderit enim nihil, quasi aspernatur optio veniam eveniet modi accusantium nobis et unde facilis doloremque nemo magni? Temporibus debitis saepe aut deleniti exercitationem sapiente? Accusamus natus consequatur distinctio quasi dicta laboriosam a, enim amet facilis id nobis facere?</p>
-          {/* <Footer></Footer> */}
-        </section>
+const PaginaNoticia = (props) => {
+  return (
+    <Container>
+      <section className="borde mt-4">
+        <h1>{props.noticia.tituloNoticia}</h1>
+        <p>{props.noticia.descripcionNoticia}</p>
+      </section>
 
-        <section className=" my-3 d-flex justify-content-between">
-          <div className="d-flex flex-column">
-            <p>Por Mariela Perez</p>
-            <div className="d-flex justify-content-between">
-              <p>Fecha</p>
-              <span class="badge badge-pill badge-success h-50">Categoria</span>
-            </div>
+      <section className=" my-3 d-flex justify-content-between">
+        <div className="d-flex flex-column">
+          <p>Por {props.noticia.autorNoticia}</p>
+          <div className="d-flex justify-content-between">
+            <p>{props.noticia.fechaNoticia}</p>
+            <span class="badge badge-pill badge-success h-50">{props.noticia.categoria}</span>
           </div>
+        </div>
 
-          <div>
-          <FontAwesomeIcon
-              icon={faImage}
-              size="10x"
-              className="mx-2"
-            />
-          </div>
-          
-          <div>
-          <FontAwesomeIcon
-              icon={faThumbsUp}
-              size="1x"
-              className="mx-2"
-            />
-            <FontAwesomeIcon
-              icon={faShare}
-              size="1x"
-            />
-          </div>
-        </section>
-        
-        <section className="borde mb-4">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam in facilis, impedit culpa corporis exercitationem obcaecati blanditiis sint! Alias fuga molestiae exercitationem sit eos in facere, ad maxime enim vel necessitatibus esse atque dicta fugiat, consectetur totam modi pariatur at quam voluptas quo quisquam? Quaerat enim mollitia error adipisci. Aut autem molestiae quae nemo reprehenderit veritatis ipsum est expedita perferendis dolores laudantium omnis nostrum, obcaecati aperiam corrupti accusantium, at numquam voluptas, quam recusandae dolorum repellendus sed ullam quisquam? Laboriosam ex saepe officiis ipsa architecto corrupti perferendis, facere ratione magni ab inventore. Doloremque, fuga quaerat deleniti unde aliquid placeat quod debitis?</p>
+        <div>
+          <img src={props.noticia.imagen} alt=""/>
+        </div>
 
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam in facilis, impedit culpa corporis exercitationem obcaecati blanditiis sint! Alias fuga molestiae exercitationem sit eos in facere, ad maxime enim vel necessitatibus esse atque dicta fugiat, consectetur totam modi pariatur at quam voluptas quo quisquam? Quaerat enim mollitia error adipisci. Aut autem molestiae quae nemo reprehenderit veritatis ipsum est expedita perferendis dolores laudantium omnis nostrum, obcaecati aperiam corrupti accusantium, at numquam voluptas, quam recusandae dolorum repellendus sed ullam quisquam? Laboriosam ex saepe officiis ipsa architecto corrupti perferendis, facere ratione magni ab inventore. Doloremque, fuga quaerat deleniti unde aliquid placeat quod debitis?</p>
+        <div>
+          <FontAwesomeIcon icon={faThumbsUp} size="1x" className="mx-2" />
+          <FontAwesomeIcon icon={faShare} size="1x" />
+        </div>
+      </section>
 
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam in facilis, impedit culpa corporis exercitationem obcaecati blanditiis sint! Alias fuga molestiae exercitationem sit eos in facere, ad maxime enim vel necessitatibus esse atque dicta fugiat, consectetur totam modi pariatur at quam voluptas quo quisquam? Quaerat enim mollitia error adipisci. Aut autem molestiae quae nemo reprehenderit veritatis ipsum est expedita perferendis dolores laudantium omnis nostrum, obcaecati aperiam corrupti accusantium, at numquam voluptas, quam recusandae dolorum repellendus sed ullam quisquam? Laboriosam ex saepe officiis ipsa architecto corrupti perferendis, facere ratione magni ab inventore. Doloremque, fuga quaerat deleniti unde aliquid placeat quod debitis?</p>
+      <section className="borde mb-4">
+        <p>
+        {props.noticia.cuerpoNoticia}
+        </p>
+      </section>
+    </Container>
+  );
+};
 
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam in facilis, impedit culpa corporis exercitationem obcaecati blanditiis sint! Alias fuga molestiae exercitationem sit eos in facere, ad maxime enim vel necessitatibus esse atque dicta fugiat, consectetur totam modi pariatur at quam voluptas quo quisquam? Quaerat enim mollitia error adipisci. Aut autem molestiae quae nemo reprehenderit veritatis ipsum est expedita perferendis dolores laudantium omnis nostrum, obcaecati aperiam corrupti accusantium, at numquam voluptas, quam recusandae dolorum repellendus sed ullam quisquam? Laboriosam ex saepe officiis ipsa architecto corrupti perferendis, facere ratione magni ab inventore. Doloremque, fuga quaerat deleniti unde aliquid placeat quod debitis?</p>
-
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam in facilis, impedit culpa corporis exercitationem obcaecati blanditiis sint! Alias fuga molestiae exercitationem sit eos in facere, ad maxime enim vel necessitatibus esse atque dicta fugiat, consectetur totam modi pariatur at quam voluptas quo quisquam? Quaerat enim mollitia error adipisci. Aut autem molestiae quae nemo reprehenderit veritatis ipsum est expedita perferendis dolores laudantium omnis nostrum, obcaecati aperiam corrupti accusantium, at numquam voluptas, quam recusandae dolorum repellendus sed ullam quisquam? Laboriosam ex saepe officiis ipsa architecto corrupti perferendis, facere ratione magni ab inventore. Doloremque, fuga quaerat deleniti unde aliquid placeat quod debitis?</p>
-
-        </section>
-        </Container>
-    );
-  };
-  
 export default PaginaNoticia;

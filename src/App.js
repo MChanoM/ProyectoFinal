@@ -16,6 +16,7 @@ import PaginaAdmin from "./components/abm/PaginaAdmin";
 import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
+import PaginaNoticia from "./components/principal/PaginaNoticia";
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
@@ -66,7 +67,7 @@ function App() {
             <img
               src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
               alt="Publicidad"
-            // className="publicidadGrande"
+              // className="publicidadGrande"
             ></img>
           </a>
         </div>
@@ -83,6 +84,25 @@ function App() {
         </Route>
         <Route
           exact
+          path="/pagnoticia/:id"
+          render={(props) => {
+            // obtengo el id de la ruta
+            const idNoticia = props.match.params.id;
+            //Filtro el arreglo de noticias y agarro el que coincide con el id
+            const noticiaSeleccionada = listaNoticias.find(
+              (noticia) => noticia._id === idNoticia
+            );
+            return (
+              <PaginaNoticia
+                noticia={noticiaSeleccionada}
+                listaNoticias={listaNoticias}
+                consultarCat={consultarCat}
+              ></PaginaNoticia>
+            );
+          }}
+        ></Route>
+        <Route
+          exact
           path="/admin"
           render={() => {
             if (loginAdmin === true) {
@@ -96,7 +116,7 @@ function App() {
                 ></PaginaAdmin>
               );
             } else {
-              return(<Error404></Error404>)
+              return <Error404></Error404>;
             }
           }}
         ></Route>
