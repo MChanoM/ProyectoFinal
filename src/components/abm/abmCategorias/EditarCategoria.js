@@ -34,17 +34,16 @@ const AgregarNoticia = (props) => {
       estado: _estado
     };
 
-<<<<<<< HEAD
     try {
       const cabecera = {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(categoriaEditada),
+        body: JSON.stringify(categoriaEditada)
       };
       const resultado = await fetch(
-        `http://localhost:3000/categorias/${props.categoria.id}`,
+        `https://newsprorc.herokuapp.com/categorias/${props.categoria._id}`,
         cabecera
       );
       console.log(resultado);
@@ -55,64 +54,50 @@ const AgregarNoticia = (props) => {
           "Categoria Editada!",
           "La categoria se actualizo correctamente",
           "success"
-=======
-      try {
-        const cabecera = {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(categoriaEditada),
-        };
-        const resultado = await fetch(
-          `https://newsprorc.herokuapp.com/categorias/${props.categoria._id}`,
-          cabecera
->>>>>>> a0d2ca46463e2cfc730468d328af0315aecb84f3
-        );
-        props.history.push("/admin");
+        )}
+      
+    }catch(bug) {
+        console.log(bug);
+        Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
       }
-    } catch (bug) {
-      console.log(bug);
-      Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
-    }
 
-  }
+    }
 
 
   return (
-    <Container>
-      <h2 className="text-center my-4">Editar Categorías</h2>
-      <div className="d-flex justify-content-center">
-        <Card className="my-4 w-75 shadow">
-          <Card.Header className="text-left">Edite la categoria</Card.Header>
-          <Form onSubmit={handleSubmit}>
-            <Card.Body>
-              <InputGroup className="mb-2">
-                <InputGroup.Prepend>
-                  <InputGroup.Text>
-                    <FontAwesomeIcon icon={faTable} />
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <Form.Control
-                  type="text"
-                  ref={categoriaRef}
-                  defaultValue={props.categoria.nombreCategoria}
-                />
-                <Form.Control as="select" className="ml-2" defaultValue={props.categoria.estado} onChange={cambiarEstado}>
-                  <option value="">--Selecciona estado de categoria--</option>
-                  <option value="activa">Activa</option>
-                  <option value="inactiva">Inactiva</option>
-                </Form.Control>
-                <Button className="mx-2" variant="primary" type="submit">
-                  Guardar
+      <Container>
+        <h2 className="text-center my-4">Editar Categorías</h2>
+        <div className="d-flex justify-content-center">
+          <Card className="my-4 w-75 shadow">
+            <Card.Header className="text-left">Edite la categoria</Card.Header>
+            <Form onSubmit={handleSubmit}>
+              <Card.Body>
+                <InputGroup className="mb-2">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text>
+                      <FontAwesomeIcon icon={faTable} />
+                    </InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <Form.Control
+                    type="text"
+                    ref={categoriaRef}
+                    defaultValue={props.categoria.nombreCategoria}
+                  />
+                  <Form.Control as="select" className="ml-2" defaultValue={props.categoria.estado} onChange={cambiarEstado}>
+                    <option value="">--Selecciona estado de categoria--</option>
+                    <option value="activa">Activa</option>
+                    <option value="inactiva">Inactiva</option>
+                  </Form.Control>
+                  <Button className="mx-2" variant="primary" type="submit">
+                    Guardar
                 </Button>
-              </InputGroup>
-            </Card.Body>
-          </Form>
-        </Card>
-      </div>
-    </Container>
-  );
-};
+                </InputGroup>
+              </Card.Body>
+            </Form>
+          </Card>
+        </div>
+      </Container>
+    );
+  };
 
-export default withRouter(AgregarNoticia);
+  export default withRouter(AgregarNoticia);
