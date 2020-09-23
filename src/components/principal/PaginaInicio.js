@@ -1,85 +1,95 @@
 import React from "react";
 import { Container, Carousel, Card, Button, CardImg } from "react-bootstrap";
 import Logo from "../../img/publicidad.png";
-import CardCategoria from './CardCategoria';
-
+import CardCategoria from "./CardCategoria";
 
 const PaginaInicio = (props) => {
   return (
-    <Container className="text-center">
-
-      <hr />
-      <hr className="mb-4" />
-      <div className="row justify-content-center">
-        <div className="col-sm-12 col-md-4 mb-2">
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://www.lavanguardia.com/r/GODO/LV/p7/WebSite/2020/08/26/Recortada/img_asalarich_20200826-095240_imagenes_lv_otras_fuentes_marcha-messi-1200x675-5-364-kB4F-U483089990486wkG-992x558@LaVanguardia-Web.jpg"
-                alt="Noticia 1"
-              />
-              <Carousel.Caption>
-                <h3>Noticia 1</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://e00-ar-marca.uecdn.es/claro/assets/multimedia/imagenes/2020/04/11/15865964374752.png"
-                alt="Noticia 2"
-              />
-
-              <Carousel.Caption>
-                <h3>Noticia 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="https://saltateve.com/public/images/noticias/554-sube-el-dolar-y-aumenta-la-incertidumbre-sobre-el-bcra.jpg"
-                alt="Noticia 3"
-              />
-
-              <Carousel.Caption>
-                <h3>Nombre Noticia 3</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-5">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
+    <Container className="text-center my-4">
+      <h3 className="text-left">Último Momento</h3>
+      <div className="row">
+        <div className="col-12 mb-2">
+          <div className="row">
+            <div className="col-12 col-md-6 pb-0 pb-md-3 pt-2 pr-md-1 border-right">
+              <Carousel>
+                {props.listaNoticias.map((item, pos) => {
+                  if (item.noticiaDestacada === "on") {
+                    return (
+                      <Carousel.Item>
+                        <img
+                          className="d-block w-100"
+                          src={item.imagen}
+                          alt="imagen noticia"
+                          key={pos}
+                        />
+                        <Carousel.Caption>
+                          <h4>{item.tituloNoticia}</h4>
+                          <p>
+                            {/* Nulla vitae elit libero, a pharetra augue mollis interdum. */}
+                          </p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
+                    );
+                  }
+                })}
+              </Carousel>
+            </div>
+            <div className="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
+              <div className="row">
+                {props.listaNoticias.map((item, pos) => {
+                  if (pos < 2) {
+                    return (
+                      <div className="col-6 pb-1 pt-0 pr-1">
+                        <Card className="text-white">
+                          <Card.Img
+                            src={item.imagen}
+                            alt="imagen de noticia"
+                            key={pos}
+                          />
+                          <Card.ImgOverlay>
+                            <a
+                              className="p-1 badge badge-primary rounded-0"
+                              href=""
+                            >
+                              {item.categoria}
+                            </a>
+                            <Card.Title className="align-self-end">
+                              {item.tituloNoticia}
+                            </Card.Title>
+                          </Card.ImgOverlay>
+                        </Card>
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+              {props.listaNoticias.map((item, pos) => {
+                if (pos < 1) {
+                  return (
+                    <Card className="text-white">
+                      <Card.Img
+                        src={item.imagen}
+                        alt="imagen de noticia"
+                        key={pos}
+                        className="h-50"
+                      />
+                      <Card.ImgOverlay>
+                        <a
+                          className="p-1 badge badge-primary rounded-0"
+                          href=""
+                        >
+                          {item.categoria}
+                        </a>
+                        <Card.Title className="align-self-end">
+                          {item.tituloNoticia}
+                        </Card.Title>
+                      </Card.ImgOverlay>
+                    </Card>
+                  );
+                }
+              })}
+            </div>
+          </div>
         </div>
         <div className="col-sm-12 col-md-3 mb-5">
           <a href="">
@@ -103,49 +113,15 @@ const PaginaInicio = (props) => {
       </div>
 
       {props.listaCategorias.map((item, pos) => {
-        return (<CardCategoria item={item} key={pos} listaNoticias={props.listaNoticias}></CardCategoria>)
+        return (
+          <CardCategoria
+            item={item}
+            key={pos}
+            listaNoticias={props.listaNoticias}
+          ></CardCategoria>
+        );
       })}
-      <hr className="mb-4" />
-      <div className="row justify-content-center">
-      <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
+
       <div className="col-sm-12 col-md-3 mb-3">
         <Card>
           <Button variant="link">
@@ -158,75 +134,7 @@ const PaginaInicio = (props) => {
             />
           </Button>
         </Card>
-        </div>
-      </div>  
-
-      <hr className="mb-4" />
-      <div className="row justify-content-center">
-      <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col-sm-12 col-md-3 mb-2">
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>Titulo Noticia</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Leer más...</Button>
-            </Card.Body>
-          </Card>
-        </div>
-
       </div>
-      <hr className="mb-4" />
-      <div className="row justify-content-center d-none d-sm-block">
-      <a href="">
-            <img
-              src="https://tpc.googlesyndication.com/simgad/10495352078616386191"></img>
-          </a>
-      </div>
-      <hr className="mb-4" />
-      
-      <hr className="mb-4" />
     </Container>
   );
 }

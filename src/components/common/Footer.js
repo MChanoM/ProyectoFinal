@@ -53,7 +53,7 @@ const Footer = () => {
           <Button variant="outline-secondary">¿Como anunciar?</Button>
         </Row>
         <hr />
-        <div className="piePagina">
+        <div className="">
           <p className="text-center text-white py-2">
             &copy; 2019 - 2020 Todos los derechos reservados. Número de edición
             9107 - Mes: 09 - Año: 24 Propietario: Diario NewsPro S.A. - CUIT

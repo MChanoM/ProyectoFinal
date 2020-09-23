@@ -1,31 +1,60 @@
 {
   "categorias": [
     {
-      "nombreCategoria": "policial",
-      "id": 1
-    },
-    {
-      "nombreCategoria": "estilo de ",
-      "id": 2
-    },
-    {
-      "nombreCategoria": "espectaculos",
-      "estado": true,
-      "id": 4
-    },
-    {
-      "nombreCategoria": "nueva categoria",
+      "nombreCategoria": "Actualidad",
       "estado": "activa",
-      "id": 13
+      "id": 15
     },
     {
-      "nombreCategoria": "nueva categoria 3",
+      "nombreCategoria": "Tecnología",
       "estado": "activa",
-      "id": 14
+      "id": 16
+    },
+    {
+      "nombreCategoria": "Deportes",
+      "estado": "activa",
+      "id": 17
+    },
+    {
+      "nombreCategoria": "Espectáculos",
+      "estado": "activa",
+      "id": 18
+    },
+    {
+      "nombreCategoria": "Política",
+      "estado": "activa",
+      "id": 19
+    },
+    {
+      "nombreCategoria": "Policiales",
+      "estado": "activa",
+      "id": 20
     }
   ],
   "noticias": [
     {
+<<<<<<< HEAD
+      "noticiaDestacada": "on",
+      "tituloNoticia": "El presidente de la Corte Suprema convocó a un acuerdo extraordinario para tratar el martes próximo el caso de los jueces desplazados",
+      "descripcionNoticia": "El presidente de la Corte, Carlos Rosenkrantz, informó que hizo una convocatoria \"extraordinaria\" a sus colegas para tratar el tema el martes próximo. \"La Corte debe dar certidumbre a la ciudadanía\".",
+      "imagen": "https://bucket1.glanacion.com/anexos/fotos/30/3197930w1033.jpg",
+      "cuerpoNoticia": "El presidente de la Corte Suprema de Justicia, Carlos Rosenkrantz, anunció que convocó a un acuerdo extraordinario para el martes próximo para que el máximo tribunal se expida sobre el caso de los traslados de los camaristas Leopoldo Bruglia, Pablo Bertuzzi y Germán Castelli.\n\nRosenkrantz destacó que realizar una convocatoria extraordinaria es una facultad que tiene como presidente del tribunal, según el artículo 71 del Reglamento para la Justicia Nacional, y dijo que esa atribución ya fue empleada en otras ocasiones.\n\"La Corte tiene la responsabilidad, en casos como este, de dar certidumbre a la ciudadanía sobre el trámite que se impondrá a los planteos de los jueces involucrados. Como dije hace una semana, la Corte tiene la autoridad final cuando está en juego la constitucionalidad de los actos de otros poderes del Estado\", dijo Rosenkrantz.\n\nY agregó: \"Tenemos, como en otras circunstancias de la vida institucional argentina, la enorme responsabilidad de decidir\".\n\nLa Corte Suprema se reunió hoy durante más de una hora, por Zoom, para debatir la situación de los tres camaristas trasladados por el Gobierno de los cargos que ocupaban en la Cámara Federal y en un tribunal oral federal.",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-22",
+      "categoria": "Política",
+      "id": 7
+    },
+    {
+      "noticiaDestacada": "on",
+      "tituloNoticia": "El juego de \"El Bulldog\": Ricardo López Murphy arma una fuerza propia y planea un gran acuerdo opositor",
+      "descripcionNoticia": "El juego del \"bulldog\": Ricardo López Murphy arma una fuerza propia y planea un gran acuerdo opositor",
+      "imagen": "https://bucket3.glanacion.com/anexos/fotos/29/3398129w1033.jpg",
+      "cuerpoNoticia": "Ricardo López Murphy planea construir una opción alternativa al Frente de Todos y Juntos por el Cambio para competir en las elecciones legislativas de 2021. El exministro de Economía reanima en el país a su partido Recrear y busca articular un armado con otros espacios opositores para captar a votantes moderados de centroderecha que se sienten decepcionados con Mauricio Macri. A largo plazo, apuesta a integrar una gran coalición \"republicana\" de la oposición, para enfrentar al kirchnerismo en 2023.\n\nSi bien varios referentes de Juntos por el Cambio le proponen sumarse a la principal coalición opositora, \"El Bulldog\" camina con pies de plomo en su regreso a la arena política. Dialoga con todo el espectro opositor, desde la UCR y Pro hasta José Luis Espert y Juan José Goméz Centurión, excandidatos de la derecha, y el liberal Javier Milei.\n\nPero, antes de negociar formalmente un acuerdo con otros dirigentes de la oposición, López Murphy se enfoca en diseñar un andamiaje electoral propio. Quiere evaluar si tiene chances o no de competir en 2021, en un contexto económico y político inédito por la pandemia. \"El mundo que vamos a enfrentar es muy complejo\", les avisa a sus socios.\n\n¿Con quién va a jugar? López Murphy plantea a sus socios que la oposición debe aprender de los errores estratégicos que cometió en las elecciones de 2019, que facilitaron el regreso del \"populismo\" a la Casa Rosada. Por eso, entiende que es necesario conformar un frente amplio \"republicano\" para enfrentar al kirchnerismo.\n\nEn las conversaciones con dirigentes de Juntos por el Cambio, el economista propone hacer un experimento en 2021. Sugiere consensuar candidatos en las provincias que elegirán a sus representantes en el Senado -Catamarca, Chubut, Córdoba, Corrientes, La Pampa, Mendoza, Santa Fe y Tucumán- , para no fragmentar el voto opositor en esos distritos y evitar que Cristina Kirchner puede eventualmente alcanzar la mayoría de dos tercios en la Cámara alta.\n\nA su vez, procura competir con una fuerza propia contra los postulantes de Juntos por el Cambio en la categoría de diputados nacionales. \"Lo lógico es que los partidos que no se sintieron representados por el macrismo marquen su posición en las elecciones legislativas\", explican cerca de López Murphy.\n\nSi ese ensayo de unidad funciona en 2021, el economista propone replicarlo en las presidenciales de 2023 para disputarle el poder al peronismo. López Murphy pone como ejemplo el caso del presidente de Uruguay, Luis Lacalle Pou, quien llegó al gobierno en el país vecino de la mano de una coalición amplia de la oposición.\n\nEn Juntos por el Cambio coinciden en la necesidad de lograr una mayor amplitud. Durante la cuarentena, López Murphy compartió charlas virtuales con referentes de la principal coalición opositora, como la titular de Pro, Patricia Bullrich (hoy tendrán un segundo capítulo), el peronista Miguel Ángel Pichetto o el radical Mario Negri. Y el presidente de la UCR, Alfredo Cornejo, reconoció que \"sería un orgullo\" incorporar al exministro del gobierno de la Alianza.\n\nLos \"dialoguistas\" díscolos Emilio Monzó y Rogelio Frigerio, que pretenden armar una coalición amplia de centro, también buscan atraer al economista. \"Compartimos mucho lo que Ricardo dice y representa. Hay una vieja relación\", dicen desde el sector de los moderados.\n\nDinámicas y críticas\nLópez Murphy prefiere ser cauto. Considera que una alianza amplia de la oposición debe tener una dinámica distinta a la que mostró Cambiemos cuando estuvo en la Casa Rosada. Pretende integrar un espacio donde se sienta valorado y escuchado en el plano intelectual y programático. En definitiva, no quiere asumir un rol periférico y ser marginado por Pro. \"Hay que aprender a hacer esa gran coalición republicana en programas y reglas en las candidaturas a senador de 2021, donde proponemos ir unificados\", dicen en el entorno del economista.\n\nEn reserva, el exministro considera que la experiencia de Macri fue \"poco exitosa\" y advierte que el gobierno del Frente de Todos lidia con un combo complejo: feroces internas en la coalición, sumado a una crisis económica inédita.\n\nEn ese contexto, López Murphy percibe que hay una porción del electorado que rechaza profundamente al kirchnerismo, pero que también es muy crítica de la gestión de Macri. Cree que es necesario construir una fuerza que capte a esos potenciales \"antisistema\". Es decir, ciudadanos que están molestos con la dirigencia política por las reiteradas crisis. \"Sería bueno que tengamos un vehículo electoral que los atraiga al sistema político\", afirman desde su entorno.\n\nPor eso, el economista acelera la construcción de su espacio. Reactivó su partido Recrear, con el que compitió en las presidenciales de 2003, en varias provincias del país. Y cerró un acuerdo con el Partido Libertario, entre otras fuerzas, para conformar Encuentro Republicano. El espacio ya fue lanzado en Córdoba y Tucumán. En paralelo, López Murphy explora una alianza con el Partido Demócrata Nacional y el Partido Autonomista Nacional.\n\nEl exministro no sabe si será candidato en las próximas legislativas. Preferiría no serlo y darle lugar a jóvenes que militan en su partido, pero no descarta una postulación si las encuestas y las circunstancias lo empujan a subirse al ring en la Ciudad o en Buenos Aires. \"Me he definido como un emprendedor cultural, quiero colaborar a construir este espacio\", les dice a los suyos.",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-22",
+      "categoria": "Política",
+      "id": 8
+=======
       "tituloNoticia": "Hola",
       "descripcionNoticia": "jaja",
       "imagen": "url",
@@ -44,39 +73,29 @@
       "fechaNoticia": "2020-09-18",
       "categoria": "espectaculos",
       "id": 2
+>>>>>>> a0d2ca46463e2cfc730468d328af0315aecb84f3
     },
     {
       "noticiaDestacada": "on",
-      "tituloNoticia": "titulo 2",
-      "descripcionNoticia": "descripcion",
-      "imagen": "imagen",
-      "cuerpoNoticia": "cuerpo de la noticia",
-      "autorNoticia": "yo",
-      "fechaNoticia": "2020-09-17",
-      "categoria": "policial",
-      "id": 3
+      "tituloNoticia": "Rafa Nadal y Roland Garros: las diferencias con las que se encontrará en su búsqueda del 13° trofeo",
+      "descripcionNoticia": "Rafael Nadal encumbrando, en 2019, su decimosegundo trofeo de Roland Garros; este año, en París, el español deberá modificar varias rutinas. ",
+      "imagen": "https://bucket3.glanacion.com/anexos/fotos/89/3406789w1033.jpg",
+      "cuerpoNoticia": "En el tenis profesional nadie construyó, como Rafael Nadal en Roland Garros, un dominio tan amplio e impactante en la historia de un certamen. Desde que el español debutó en el Bois de Boulogne, en 2005, con 18 años años y siendo el número 5 del ranking, conquistó doce trofeos, con un récord de 93 victorias y 2 derrotas. Cuando el mallorquín aterrice esta semana en París, con el sueño de lograr su Grand Slam número 20 (con el que igualaría la marca de Roger Federer), se encontrará con diferencias y modificaciones. Algunas obligatorias por el protocolo sanitario en tiempos de pandemia.",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-22",
+      "categoria": "Deportes",
+      "id": 9
     },
     {
-      "noticiaDestacada": "on",
-      "tituloNoticia": "Otra noticia editada",
-      "descripcionNoticia": "Es una noticia no tan importante",
-      "imagen": "url",
-      "cuerpoNoticia": "adfdfdfdaf adfsf ",
-      "autorNoticia": "cartlitos",
-      "fechaNoticia": "2020-09-18",
-      "categoria": "politica",
-      "id": 4
-    },
-    {
-      "noticiaDestacada": "on",
-      "tituloNoticia": "titulo de noticia 4",
-      "descripcionNoticia": "descripcion de noticia",
-      "imagen": "imagen",
-      "cuerpoNoticia": "cuerpo de noticia",
-      "autorNoticia": "autori",
-      "fechaNoticia": "2020-09-18",
-      "categoria": "policial",
-      "id": 6
+      "noticiaDestacada": false,
+      "tituloNoticia": "Escándalo por el examen de italiano de Luis Suárez",
+      "descripcionNoticia": "Las sospechas recaen en el examen de italiano de Luis Suárez",
+      "imagen": "https://bucket2.glanacion.com/anexos/fotos/74/3406474w1033.jpg",
+      "cuerpoNoticia": "Días complicados para Luis Suárez. A su convulsionado intento de salida de Barcelona (tiene todo acordado con Atlético de Madrid, pero ahora el club catalán pediría dinero por el traspaso) se le sumó otro episodio: su examen de italiano para obtener la nacionalidad quedó en el ojo de la tormenta. Según anunciaron varios medios italianos primero y después también fuentes oficiales de la policía de Perugia, el test al que se sometió el jugador está bajo sospecha, ya que supuestamente habría sido arreglado.\n\nSegún la policía financiera italiana, las preguntas al delantero -que todavía pertenece al Barça- y la votación final fueron pactadas, lo que convertiría el proceso en fraude. Uno de los aspectos que alertó a la policía es el hecho de que el examen duró 30 minutos, cuando normalmente tiene una duración de dos horas.",
+      "autorNoticia": "pamela",
+      "fechaNoticia": "2020-09-22",
+      "categoria": "Deportes",
+      "id": 10
     }
   ]
 }
