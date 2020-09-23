@@ -134,6 +134,72 @@ const PaginaInicio = (props) => {
             />
           </Button>
         </Card>
+        </div>
+     
+
+      <hr className="mb-4" />
+      <div className="row justify-content-center">
+      <div className="col-sm-12 col-md-3 mb-2">
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Titulo Noticia</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Leer más...</Button>
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-sm-12 col-md-3 mb-2">
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Titulo Noticia</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Leer más...</Button>
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-sm-12 col-md-3 mb-2">
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Titulo Noticia</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Leer más...</Button>
+            </Card.Body>
+          </Card>
+        </div>
+        <div className="col-sm-12 col-md-3 mb-2">
+          <Card>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+              <Card.Title>Titulo Noticia</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Leer más...</Button>
+            </Card.Body>
+          </Card>
+        </div>
+
+      </div>
+      <hr className="mb-4" />
+      <div className="row justify-content-center">
+      <a href="">
+            <img
+              src="https://tpc.googlesyndication.com/simgad/10495352078616386191"
+              className="publicidadLarga"></img>
+          </a>
       </div>
     </Container>
   );
