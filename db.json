@@ -33,7 +33,6 @@
   ],
   "noticias": [
     {
-<<<<<<< HEAD
       "noticiaDestacada": "on",
       "tituloNoticia": "El presidente de la Corte Suprema convocó a un acuerdo extraordinario para tratar el martes próximo el caso de los jueces desplazados",
       "descripcionNoticia": "El presidente de la Corte, Carlos Rosenkrantz, informó que hizo una convocatoria \"extraordinaria\" a sus colegas para tratar el tema el martes próximo. \"La Corte debe dar certidumbre a la ciudadanía\".",
@@ -54,26 +53,6 @@
       "fechaNoticia": "2020-09-22",
       "categoria": "Política",
       "id": 8
-=======
-      "tituloNoticia": "Hola",
-      "descripcionNoticia": "jaja",
-      "imagen": "url",
-      "cuerpoNoticia": "jijij",
-      "autorNoticia": "leo",
-      "fechaNoticia": "2020-09-18",
-      "categoria": "policial",
-      "id": 1
-    },
-    {
-      "tituloNoticia": "oso",
-      "descripcionNoticia": "re importante la noticia",
-      "imagen": "url",
-      "cuerpoNoticia": "asdasdasdasd",
-      "autorNoticia": "maxi",
-      "fechaNoticia": "2020-09-18",
-      "categoria": "espectaculos",
-      "id": 2
->>>>>>> a0d2ca46463e2cfc730468d328af0315aecb84f3
     },
     {
       "noticiaDestacada": "on",
