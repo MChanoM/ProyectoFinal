@@ -17,6 +17,18 @@ const error404 = () => {
       </p>
 
       <Link to="/" className="btn btn-primary mr-2">Volver a inicio</Link>
+      <hr className="mb-4" />
+      <div className="d-none d-md-block ">
+        <div className="row justify-content-center">
+          <a href="">
+            <img
+              src="https://tpc.googlesyndication.com/simgad/10495352078616386191"
+              className="publicidadLarga"
+            ></img>
+          </a>
+        </div>
+      </div>
+      <hr className="mb-4" />
     </Jumbotron>
 
     

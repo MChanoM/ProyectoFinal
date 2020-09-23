@@ -74,7 +74,7 @@ function App() {
         </div>
       </div>
 
-      <Header setLoginAdmin={setLoginAdmin}></Header>
+      <Header setLoginAdmin={setLoginAdmin} listaCategorias={listaCategorias}></Header>
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
@@ -187,6 +187,9 @@ function App() {
         ></Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria listaCategorias={listaCategorias} consultarCat={consultarCat}></AgregarCategoria>
+        </Route>
+        <Route exact path="/categoria">
+        <PaginaCategoria listaCategorias={listaCategorias}></PaginaCategoria>
         </Route>
         <Route exact path="/suscribirse">
           <Suscribirse></Suscribirse>
