@@ -16,6 +16,7 @@ import PaginaAdmin from "./components/abm/PaginaAdmin";
 import Error404 from "./components/common/error404";
 import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
+import PaginaCategoria from "./components/principal/PaginaCategoria";
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
@@ -72,7 +73,7 @@ function App() {
         </div>
       </div>
 
-      <Header setLoginAdmin={setLoginAdmin}></Header>
+      <Header setLoginAdmin={setLoginAdmin} listaCategorias={listaCategorias}></Header>
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
@@ -144,6 +145,9 @@ function App() {
         ></Route>
         <Route exact path="/categoria/nueva">
           <AgregarCategoria></AgregarCategoria>
+        </Route>
+        <Route exact path="/categoria">
+        <PaginaCategoria listaCategorias={listaCategorias}></PaginaCategoria>
         </Route>
         <Route exact path="/suscribirse">
           <Suscribirse></Suscribirse>

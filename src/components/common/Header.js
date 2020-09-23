@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Logo from "../../img/logo-sbg.png";
-import { Link, withRouter} from "react-router-dom";
+import { Link, withRouter, NavLink } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 import Swal from 'sweetalert2';
-// import Collapse from "react-bootstrap/Collapse";
+
 
 const Header = (props) => {
-  //   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(false);
   const [btnIngresar, setBtnIngresar] = useState('Ingresar');
-  
 
 
   const handleShow = () => {
-    if(btnIngresar === 'Cerrar Sesion'){
+    if (btnIngresar === 'Cerrar Sesion') {
       Swal.fire({
         title: '¿Seguro desea Cerrar Sesion?',
         icon: 'warning',
@@ -27,14 +24,14 @@ const Header = (props) => {
         confirmButtonText: 'Si, eliminar',
         cancelButtonText: "Cancelar"
       }).then((result) => {
-        if(result.value){
+        if (result.value) {
           setBtnIngresar('Ingresar');
           props.setLoginAdmin(false);
           props.history.push('/');
         }
       })
     } else {
-      setShow(true); 
+      setShow(true);
     }
   }
 
@@ -53,32 +50,48 @@ const Header = (props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
+            <div className="d-inline-block align-top">
+            {
+                props.listaCategorias.map((item, pos) => {
+                  if(item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||
+                  item.nombreCategoria === "Tecnología" || item.nombreCategoria === "Deportes"){
+                    return (<NavLink
+                      key={pos}
+                      exact={true} to={`/categoria/${item.nombreCategoria}`}
+                      className="text-white mx-2"
+                    >{item.nombreCategoria}</NavLink>)
+                  }                   
+                })
+            }
             
-            <Nav.Link href="#link">Actualidad</Nav.Link>
-            <Nav.Link href="#link">Espectáculos</Nav.Link>
-            <Nav.Link href="#link">Tecnología</Nav.Link>
-            <Nav.Link href="#link">Deportes</Nav.Link>
-            <NavDropdown title="Otras Categorías" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Politica</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Economía
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Salud</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Fotografía</NavDropdown.Item>
-          </NavDropdown>
+            <NavDropdown title="Otras" id="basic-navbar-nav">
+              {
+                props.listaCategorias.map((item, pos) => {
+                  if(item.nombreCategoria !== "Actualidad" || item.nombreCategoria !== "Política" ||
+                  item.nombreCategoria !== "Tecnología" || item.nombreCategoria !== "Deportes"){
+                    return (<NavDropdown.Item
+                      key={pos}
+                      exact={true} to={`/categoria/${item.nombreCategoria}`}
+                    >{item.nombreCategoria}</NavDropdown.Item>)
+                  }
+                })
+              }
+            </NavDropdown>
+            </div>
+            
           </Nav>
-          
+
 
           {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
           <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
           <Link onClick={handleShow} className="btn btn-outline-info">{btnIngresar}</Link>
-         
+
         </Navbar.Collapse>
       </Navbar>
-      
+
       <ModalLogin setBtnIngresar={setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show}></ModalLogin>
       <div className="container">
-          <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
+        <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
       </div>
     </div>
   );
