@@ -221,7 +221,8 @@ const PaginaInicio = (props) => {
       <div className="row justify-content-center">
       <a href="">
             <img
-              src="https://tpc.googlesyndication.com/simgad/10495352078616386191"></img>
+              src="https://tpc.googlesyndication.com/simgad/10495352078616386191"
+              className="publicidadLarga"></img>
           </a>
       </div>
       <hr className="mb-4" />
