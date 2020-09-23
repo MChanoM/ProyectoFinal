@@ -31,7 +31,7 @@ const ListaNoticias = (props) => {
           {props.noticias.map((item, pos) => {
             return (
               <ItemNoticia
-                key={pos._id}
+                key={item._id}
                 item={item}
                 setRecargarPagina={props.setRecargarPagina}
               ></ItemNoticia>

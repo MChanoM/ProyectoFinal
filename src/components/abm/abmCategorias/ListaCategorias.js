@@ -28,7 +28,7 @@ const ListaCategorias = (props) => {
           {props.categorias.map((item, pos) => {
             return (
               <ItemCategoria
-                key={pos._id}
+                key={item._id}
                 item={item}
                 setRecargarPagina={props.setRecargarPagina}
               ></ItemCategoria>

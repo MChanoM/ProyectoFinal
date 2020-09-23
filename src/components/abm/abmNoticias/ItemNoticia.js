@@ -32,7 +32,7 @@ const ItemNoticia = (props) => {
               "Content-Type": "application/json",
             }
           };
-          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias${idNoticia}`, cabecera)
+          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias/${idNoticia}`, cabecera)
 
           console.log(consulta);
           if (consulta.status === 200) {
@@ -47,7 +47,12 @@ const ItemNoticia = (props) => {
           }
 
         } catch (error) {
-          console.log(error)
+          console.log(error);
+          Swal.fire(
+            'Oopss...',
+            'Ocurrió un error, intentelo nuevamente',
+            'error'
+          )
         }
       }
     })

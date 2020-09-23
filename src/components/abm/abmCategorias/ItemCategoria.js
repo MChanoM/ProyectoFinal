@@ -34,7 +34,7 @@ const ItemCategoria = (props) => {
           console.log(consulta);
           if (consulta.status === 200) {
             //aca si se borro la categoria y muestra cartel
-            props.consultarCat();
+            // props.consultarCat();
             props.setRecargarPagina(true);
 
             Swal.fire(
@@ -45,6 +45,11 @@ const ItemCategoria = (props) => {
           }
         } catch (error) {
           console.log(error);
+          Swal.fire(
+            'Oopss...',
+            'Ocurrió un error, intentelo nuevamente',
+            'error'
+          )
         }
       }
     });

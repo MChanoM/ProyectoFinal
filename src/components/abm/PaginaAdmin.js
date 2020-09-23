@@ -38,6 +38,7 @@ const PaginaAdmin = (props) => {
           <ListaNoticias
             noticias={props.listaNoticias}
             setRecargarPagina={props.setRecargarPagina}
+            // consultarNoticias={props.consultarNoticias}
           ></ListaNoticias>
         );
       }

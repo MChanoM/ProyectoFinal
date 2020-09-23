@@ -66,7 +66,7 @@ function App() {
             <img
               src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
               alt="Publicidad"
-              // className="publicidadGrande"
+            // className="publicidadGrande"
             ></img>
           </a>
         </div>
@@ -91,7 +91,8 @@ function App() {
                   listaCategorias={listaCategorias}
                   listaNoticias={listaNoticias}
                   setRecargarPagina={setRecargarPagina}
-                  consultarCat={consultarCat}
+                  // consultarCat={consultarCat}
+                  // consultarNoticias={consultarNoticias}
                 ></PaginaAdmin>
               );
             }
