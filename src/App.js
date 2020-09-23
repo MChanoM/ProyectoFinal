@@ -95,6 +95,8 @@ function App() {
                   // consultarNoticias={consultarNoticias}
                 ></PaginaAdmin>
               );
+            } else {
+              return(<Error404></Error404>)
             }
           }}
         ></Route>
