@@ -1,12 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import CardNoticia from "./CardNoticia";
 
 const CardCategoria = (props) => {
-  console.log(props.listaNoticias);
+  // console.log(props.listaNoticias);
 
   return (
-    <Fragment className="mb-2">
+    <div className="mb-2">
       <h4 className="text-left">{props.item.nombreCategoria}</h4>
       <hr></hr>
       <div className="row justify-content-around my-2">
@@ -27,7 +27,7 @@ const CardCategoria = (props) => {
           }
         })}
       </div>
-    </Fragment>
+    </div>
   );
 };
 

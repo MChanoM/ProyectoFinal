@@ -34,6 +34,7 @@ const AgregarNoticia = (props) => {
       estado: _estado
     };
 
+<<<<<<< HEAD
     try {
       const cabecera = {
         method: "PUT",
@@ -54,6 +55,19 @@ const AgregarNoticia = (props) => {
           "Categoria Editada!",
           "La categoria se actualizo correctamente",
           "success"
+=======
+      try {
+        const cabecera = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(categoriaEditada),
+        };
+        const resultado = await fetch(
+          `https://newsprorc.herokuapp.com/categorias/${props.categoria._id}`,
+          cabecera
+>>>>>>> a0d2ca46463e2cfc730468d328af0315aecb84f3
         );
         props.history.push("/admin");
       }

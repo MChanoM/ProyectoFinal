@@ -53,7 +53,11 @@ const AgregarNoticia = (props) => {
         },
         body: JSON.stringify(datos)
       }
+<<<<<<< HEAD
       const resultado = await fetch("http://localhost:3000/noticias", cabecera);
+=======
+      const resultado = await fetch("https://newsprorc.herokuapp.com/api/noticias",cabecera);
+>>>>>>> a0d2ca46463e2cfc730468d328af0315aecb84f3
       console.log(resultado);
 
       if (resultado.status === 201) {
