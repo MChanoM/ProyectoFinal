@@ -1,30 +1,34 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import CardNoticiaHorizontal from "./CardNoticiaHorizontal";
 
 const PaginaCategoria = (props) => {
   return (
     <Container>
       <main className="row my-4">
-        <section className="col-8">
+        <section className="col-12 col-md-9">
           {props.listaNoticias.map((item, pos) => {
             if (item.categoria === props.categoria.nombreCategoria) {
               return (
-                <div className="d-flex justify-content-between">
-                  <img src={item.imagen} alt="" />
-                  <div>
-                    <h3>{item.tituloNoticia}</h3>
-                    <p>{item.categoria}</p>
-                    <p>{item.fechaNoticia}</p>
+                <div>
+                  <CardNoticiaHorizontal
+                    tituloNoticia={item.tituloNoticia}
+                    descripcionNoticia={item.descripcionNoticia}
+                    imagen={item.imagen}
+                    cuerpoNoticia={item.cuerpoNoticia}
+                    autorNoticia={item.autorNoticia}
+                    fechaNoticia={item.fechaNoticia}
                     id={item._id}
                     key={pos}
-                  </div>
+                  ></CardNoticiaHorizontal>
                 </div>
               );
             }
           })}
         </section>
 
-        <section className="col-4 lineaVertical">
+        <section className="col-md-3 lineaVertical publicidadNone">
           <p>PUBLICIDAD O NOTICIAS DESTACADAS</p>
         </section>
       </main>
