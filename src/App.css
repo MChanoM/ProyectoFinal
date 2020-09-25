@@ -159,7 +159,7 @@
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
-/* Extra Small devices (landscape phones, 576px and up) */
+/* Extra Small devices (576px and up) */
 @media (max-width: 575px) {
   /* Pagina Inicio */
   .anchoCard{
@@ -191,9 +191,6 @@ No media query for `xs` since this is the default in Bootstrap */
   .anchoCard{
     width: 45%;
   }
-
-  /* Pagina Categoria */
-  
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -202,9 +199,6 @@ No media query for `xs` since this is the default in Bootstrap */
   .anchoCard{
     width: 45%;
   }
-
-  /* Pagina Categoria */
-  
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -213,7 +207,4 @@ No media query for `xs` since this is the default in Bootstrap */
   .anchoCard{
     width: 45%;
   }
-
-  /* Pagina Categoria */
-  
 }
