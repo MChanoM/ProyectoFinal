@@ -155,3 +155,46 @@
   font-size: 30PX;
   font-family: "Noto Serif", serif;
 }
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Extra Small devices (landscape phones, 576px and up) */
+@media (max-width: 575px) {
+  /* Pagina Inicio */
+  .anchoCard{
+    width: 80%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Pagina Inicio */
+  .anchoCard{
+    width: 30%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Pagina Inicio */
+  .anchoCard{
+    width: auto;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Pagina Inicio */
+  .anchoCard{
+    width: auto;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Pagina Inicio */
+  .anchoCard{
+    width: auto;
+  }
+}
