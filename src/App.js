@@ -111,12 +111,17 @@ function App() {
             const categoriaSeleccionada = listaCategorias.find(
               (categoria) => categoria._id === idCategoria
             );
+            const idNoticia = props.match.params.id;
+            const noticiaSeleccionada = listaNoticias.find(
+              (noticia) => noticia._id === idNoticia
+            );
             return (
               <PaginaCategoria
                 listaNoticias={listaNoticias}
                 categoria={categoriaSeleccionada}
                 listaCategorias={listaCategorias}
                 consultarCat={consultarCat}
+                noticia={noticiaSeleccionada}
               ></PaginaCategoria>
             );
           }}

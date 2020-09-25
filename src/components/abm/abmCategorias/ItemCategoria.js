@@ -57,7 +57,7 @@ const ItemCategoria = (props) => {
 
   return (
     <tr>
-      <td>{props.item._id}</td>
+      
       <td>{props.item.nombreCategoria}</td>
       <td>{props.item.estado}</td>
       <td>
