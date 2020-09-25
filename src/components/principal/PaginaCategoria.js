@@ -1,30 +1,39 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const PaginaCategoria = (props) => {
   return (
     <Container>
       <main className="row my-4">
-        <section className="col-8">
+        <section className="d-flex col-9">
           {props.listaNoticias.map((item, pos) => {
             if (item.categoria === props.categoria.nombreCategoria) {
               return (
-                <div className="d-flex justify-content-between">
-                  <img src={item.imagen} alt="" />
-                  <div>
-                    <h3>{item.tituloNoticia}</h3>
-                    <p>{item.categoria}</p>
-                    <p>{item.fechaNoticia}</p>
-                    id={item._id}
-                    key={pos}
+                <div className="">
+                  <div className="m-2 shadow p-3 mb-5 bg-white rounded">
+                    <Card className="">
+                      <Card.Img variant="top" src={item.imagen} />
+                      <Card.Body>
+                        <Card.Title>{item.tituloNoticia}</Card.Title>
+                        <Card.Text>{item.descripcionNoticia}</Card.Text>
+                        <Link
+                          to={`/pagnoticia/${item.id}`}
+                          className="btn btn-primary"
+                        >
+                          Leer más...
+                        </Link>
+                      </Card.Body>
+                    </Card>
                   </div>
+                  
                 </div>
               );
             }
           })}
         </section>
 
-        <section className="col-4 lineaVertical">
+        <section className="col-3 lineaVertical">
           <p>PUBLICIDAD O NOTICIAS DESTACADAS</p>
         </section>
       </main>
