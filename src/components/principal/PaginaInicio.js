@@ -35,12 +35,13 @@ const PaginaInicio = (props) => {
                 })}
               </Carousel>
             </div>
+            {/* Destacados */}
             <div className="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
               <div className="row">
                 {props.listaNoticias.map((item, pos) => {
                   if (pos < 2) {
                     return (
-                      <div className="col-6 pb-1 pt-0 pr-1">
+                      <div className="col-12 col-sm-6 pb-1 pt-0 pr-1">
                         <Card className="text-white">
                           <Card.Img
                             src={item.imagen}
