@@ -7,7 +7,7 @@ const PaginaCategoria = (props) => {
   return (
     <Container>
       <main className="row my-4">
-        <section className="col-9">
+        <section className="col-12 col-md-9">
           {props.listaNoticias.map((item, pos) => {
             if (item.categoria === props.categoria.nombreCategoria) {
               return (
@@ -28,7 +28,7 @@ const PaginaCategoria = (props) => {
           })}
         </section>
 
-        <section className="col-3 lineaVertical">
+        <section className="col-md-3 lineaVertical publicidadNone">
           <p>PUBLICIDAD O NOTICIAS DESTACADAS</p>
         </section>
       </main>

@@ -6,10 +6,10 @@ const CardNoticiaHorizontal = (props) => {
   return (
     <Card className="mb-3 shadow p-3 mb-3 bg-white rounded">
       <div className="row no-gutters">
-        <div className="col-md-4">
+        <div className="col-sm-4">
           <Card.Img variant="top" src={props.imagen} />
         </div>
-        <div className="col-md-8">
+        <div className="col-sm-8">
           <Card.Body>
             <Card.Title>{props.tituloNoticia}</Card.Title>
             <Card.Text>{props.descripcionNoticia}</Card.Text>
