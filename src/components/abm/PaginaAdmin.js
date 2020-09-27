@@ -10,10 +10,14 @@ import {
 import Spinner from "../common/Spinner";
 import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
+import ListaUsuarios from "./abmUsuarios/ListaUsuarios";
+
 
 const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
+  const [usuarios, listaUsuarios] = useState([]);
+    
 
   const handleOpc = (opcion) => {
     setTimeout(() => {
@@ -32,18 +36,26 @@ const PaginaAdmin = (props) => {
             categorias={props.listaCategorias}
             setRecargarPagina={props.setRecargarPagina}
           ></ListaCategorias>
-        );
-      } else {
-        return (
-          <ListaNoticias
-            noticias={props.listaNoticias}
+        );}
+        if( opc === "not") {
+          return (
+            <ListaNoticias
+              noticias={props.listaNoticias}
+              setRecargarPagina={props.setRecargarPagina}
+              // consultarNoticias={props.consultarNoticias}
+            ></ListaNoticias>
+          );
+        }
+        if( opc === "users") {
+          return(
+            <ListaUsuarios
+            usuarios={usuarios}
             setRecargarPagina={props.setRecargarPagina}
-            // consultarNoticias={props.consultarNoticias}
-          ></ListaNoticias>
-        );
+            ></ListaUsuarios>
+          )
+        }
       }
     }
-  };
 
   return (
     <div>
@@ -59,7 +71,15 @@ const PaginaAdmin = (props) => {
       </Container>
       <Container>
         <Row className="my-3">
-          <h5 className="ml-1 lead">Bienvenidos NOMBRE DE USUARIO,</h5>
+          <h4 className="ml-1">Bienvenidos <strong>{props.usuario.usuario}</strong>
+            {
+              props.usuario.role.map((item)=>{
+                console.log(item)
+                return(<Badge item={item.name} key={item._id} className="ml-2" variant="dark"></Badge>)
+              })
+            }
+           </h4>
+          
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
@@ -88,8 +108,14 @@ const PaginaAdmin = (props) => {
                 </Button>
               </Nav.Item>
               <Nav.Item>
-                <Button className="btn btn-info mr-1" disabled>
-                  Usuarios
+                <Button
+                 className="btn btn-info mr-1"
+                 onClick={() => {
+                   handleOpc("users");
+                   setLoader(true);
+                 }}
+               >
+                 Usuarios
                 </Button>
               </Nav.Item>
               <Nav.Item>
@@ -103,8 +129,11 @@ const PaginaAdmin = (props) => {
             <Link to={"/noticia/nueva"} className="btn btn-success ml-4">
               Agregar Noticia
             </Link>
-            <Link to={"/categoria/nueva"} className="btn btn-success mx-2">
+            <Link to={"/categoria/nueva"} className="btn btn-success ml-2">
               Agregar Categoria
+            </Link>
+            <Link to={"/usuario/nuevo"} className="btn btn-success ml-2">
+              Agregar Usuario
             </Link>
           </div>
         </Row>

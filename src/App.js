@@ -25,13 +25,15 @@ function App() {
   const [recargarPagina, setRecargarPagina] = useState(true);
   const [loginAdmin, setLoginAdmin] = useState(false);
   const [usuario, setUsuario] = useState(null);
-  
+  const [btnIngresar, setBtnIngresar] = useState('Ingresar');
+  const authToken = sessionStorage.getItem("authtoken");
 
   useEffect(() => {
     if (recargarPagina) {
       consultarCat();
       consultarNoticias();
       setRecargarPagina(false);
+      consultarUsuario();
     }
   }, [recargarPagina]);
 
@@ -51,14 +53,46 @@ function App() {
   //CONSULTA LISTA DE NOTICIAS
   const consultarNoticias = async () => {
     try {
-      const cabecera = {
-      }
+      const cabecera = {};
       const consulta = await fetch(
-        "https://newsprorc.herokuapp.com/api/noticias",cabecera
+        "https://newsprorc.herokuapp.com/api/noticias",
+        cabecera
       );
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
       // console.log(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const consultarUsuario = async () => {
+    try {
+      const cabecera = {
+        headers: {
+          ["x-access-token"]: authToken,
+        },
+      };
+      const consulta = await fetch(
+        "http://localhost:4000/api/users/me",
+        cabecera
+      );
+      const usuarioLogueado = await consulta.json();
+
+      //verifico que esté activo el usuario
+      if (usuarioLogueado.userActive) {
+        //verifico que esté iniciada la sesion
+        if (usuarioLogueado.sessionState) {
+          setUsuario(usuarioLogueado);
+          setLoginAdmin(true);
+          setBtnIngresar("Cerrar Sesion");
+          consulta = await fetch("http://localhost:4000/api/users/me/roles",cabecera);
+          const rolesUsuario = consulta.json();
+          console.log(rolesUsuario);
+        }
+      }
+
+
     } catch (error) {
       console.log(error);
     }
@@ -78,7 +112,15 @@ function App() {
         </div>
       </div>
 
-      <Header setLoginAdmin={setLoginAdmin} listaCategorias={listaCategorias}></Header>
+      <Header
+        btnIngresar={btnIngresar}
+        setBtnIngresar={setBtnIngresar}
+        setLoginAdmin={setLoginAdmin}
+        loginAdmin={loginAdmin}
+        listaCategorias={listaCategorias}
+        usuario={usuario}
+        setUsuario={setUsuario}
+      ></Header>
       <Switch>
         <Route exact path="/">
           <ApiHeader></ApiHeader>
@@ -129,13 +171,13 @@ function App() {
           exact
           path="/admin"
           render={() => {
-            
             if (loginAdmin === true) {
               return (
                 <PaginaAdmin
                   listaCategorias={listaCategorias}
                   listaNoticias={listaNoticias}
                   setRecargarPagina={setRecargarPagina}
+                  usuario={usuario}
                   // consultarCat={consultarCat}
                   // consultarNoticias={consultarNoticias}
                 ></PaginaAdmin>
@@ -146,7 +188,10 @@ function App() {
           }}
         ></Route>
         <Route exact path="/noticia/nueva">
-          <AgregarNoticia listaCategorias={listaCategorias} consultarNoticias={consultarNoticias}></AgregarNoticia>
+          <AgregarNoticia
+            listaCategorias={listaCategorias}
+            consultarNoticias={consultarNoticias}
+          ></AgregarNoticia>
         </Route>
         <Route
           exact
@@ -191,10 +236,13 @@ function App() {
           }}
         ></Route>
         <Route exact path="/categoria/nueva">
-          <AgregarCategoria listaCategorias={listaCategorias} consultarCat={consultarCat}></AgregarCategoria>
+          <AgregarCategoria
+            listaCategorias={listaCategorias}
+            consultarCat={consultarCat}
+          ></AgregarCategoria>
         </Route>
         <Route exact path="/categoria">
-        <PaginaCategoria listaCategorias={listaCategorias}></PaginaCategoria>
+          <PaginaCategoria listaCategorias={listaCategorias}></PaginaCategoria>
         </Route>
         <Route exact path="/suscribirse">
           <Suscribirse></Suscribirse>

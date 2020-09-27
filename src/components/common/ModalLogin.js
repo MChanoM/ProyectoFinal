@@ -48,7 +48,7 @@ const ModalLogin = (props) => {
           body: JSON.stringify(datos),
         };
         const loguear = await fetch(
-          "http://localhost:4000/api/users/login",
+          "http://localhost:4000/api/auth/login",
           cabecera
         );
         const data = await loguear.json();
@@ -91,7 +91,7 @@ const ModalLogin = (props) => {
           },
           body: JSON.stringify(mail)
         }
-        const enviarMail = await fetch("https://newsprorc.herokuapp.com/api/login/admin",
+        const enviarMail = await fetch("https://newsprorc.herokuapp.com/api/auth/admin",
         cabecera)
 
         if (enviarMail.status === 201){
