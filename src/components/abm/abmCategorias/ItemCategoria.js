@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ItemCategoria = (props) => {
+  const authToken = sessionStorage.getItem('authtoken');
+
   const eliminarCategoria = (idCategoria) => {
     console.log(idCategoria);
     Swal.fire({
@@ -24,6 +26,7 @@ const ItemCategoria = (props) => {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              ['x-access-token'] : authToken
             }
           };
           const consulta = await fetch(

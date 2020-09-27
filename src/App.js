@@ -24,6 +24,8 @@ function App() {
   const [listaCategorias, setListaCategorias] = useState([]);
   const [recargarPagina, setRecargarPagina] = useState(true);
   const [loginAdmin, setLoginAdmin] = useState(false);
+  const [usuario, setUsuario] = useState(null);
+  
 
   useEffect(() => {
     if (recargarPagina) {
@@ -49,8 +51,10 @@ function App() {
   //CONSULTA LISTA DE NOTICIAS
   const consultarNoticias = async () => {
     try {
+      const cabecera = {
+      }
       const consulta = await fetch(
-        "https://newsprorc.herokuapp.com/api/noticias"
+        "https://newsprorc.herokuapp.com/api/noticias",cabecera
       );
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
@@ -125,6 +129,7 @@ function App() {
           exact
           path="/admin"
           render={() => {
+            
             if (loginAdmin === true) {
               return (
                 <PaginaAdmin

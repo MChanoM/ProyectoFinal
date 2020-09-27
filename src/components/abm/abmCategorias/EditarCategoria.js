@@ -13,6 +13,7 @@ const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
   const [estado, setEstado] = useState("");
   const categoriaRef = useRef("");
+  const authToken = sessionStorage.getItem('authtoken');
 
   const cambiarEstado = (e) => {
     setEstado(e.target.value);
@@ -39,6 +40,7 @@ const EditarCategoria = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          ['x-access-token'] : authToken
         },
         body: JSON.stringify(categoriaEditada)
       };

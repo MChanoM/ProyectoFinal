@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 
 const ItemNoticia = (props) => {
 
+  const authToken = sessionStorage.getItem('authtoken');
+
   const eliminarNoticia = (idNoticia) => {
     console.log(idNoticia);
     Swal.fire({
@@ -30,6 +32,7 @@ const ItemNoticia = (props) => {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              ['x-access-token'] : authToken
             }
           };
           const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias/${idNoticia}`, cabecera)
