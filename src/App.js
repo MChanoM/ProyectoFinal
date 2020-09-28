@@ -86,9 +86,9 @@ function App() {
           setUsuario(usuarioLogueado);
           setLoginAdmin(true);
           setBtnIngresar("Cerrar Sesion");
-          consulta = await fetch("http://localhost:4000/api/users/me/roles",cabecera);
-          const rolesUsuario = consulta.json();
-          console.log(rolesUsuario);
+          // consulta = await fetch("http://localhost:4000/api/users/me/roles",cabecera);
+          // const rolesUsuario = consulta.json();
+          // console.log(rolesUsuario);
         }
       }
 
@@ -120,6 +120,7 @@ function App() {
         listaCategorias={listaCategorias}
         usuario={usuario}
         setUsuario={setUsuario}
+        setRecargarPagina={setRecargarPagina}
       ></Header>
       <Switch>
         <Route exact path="/">

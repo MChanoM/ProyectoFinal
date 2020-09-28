@@ -53,17 +53,16 @@ const ModalLogin = (props) => {
         );
         const data = await loguear.json();
         sessionStorage.setItem('authtoken',data.token);
-        
-        
-        
+            
         if (loguear.status === 200) {
           
           //setLogin a true para dar acceso al admin
           setError(false);
           props.setLoginAdmin(true);
           handleClose();
-          props.history.push("/admin");
           props.setBtnIngresar("Cerrar Sesion");
+          props.history.push("/");
+          props.setRecargarPagina(true);
         } else {
           //setLogin a false y error 404
           setError(true);
@@ -91,7 +90,7 @@ const ModalLogin = (props) => {
           },
           body: JSON.stringify(mail)
         }
-        const enviarMail = await fetch("https://newsprorc.herokuapp.com/api/auth/admin",
+        const enviarMail = await fetch("http://localhost:4000/api/auth/admin",
         cabecera)
 
         if (enviarMail.status === 201){

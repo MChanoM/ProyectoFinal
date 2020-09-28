@@ -10,8 +10,6 @@ import Swal from 'sweetalert2';
 
 const Header = (props) => {
   const [show, setShow] = useState(false);
-  
-
 
   const handleShow = () => {
     if (props.btnIngresar === 'Cerrar Sesion') {
@@ -91,7 +89,7 @@ const Header = (props) => {
         </Navbar.Collapse>
       </Navbar>
 
-      <ModalLogin setBtnIngresar={props.setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show}></ModalLogin>
+      <ModalLogin setBtnIngresar={props.setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show} setRecargarPagina={props.setRecargarPagina}></ModalLogin>
       <div className="container">
         <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
       </div>

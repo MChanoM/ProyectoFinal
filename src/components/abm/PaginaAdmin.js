@@ -17,7 +17,8 @@ const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
   const [usuarios, listaUsuarios] = useState([]);
-    
+
+  
 
   const handleOpc = (opcion) => {
     setTimeout(() => {
@@ -57,6 +58,10 @@ const PaginaAdmin = (props) => {
       }
     }
 
+    const userData = () => {
+       return(props.usuario.usuario)
+    };
+
   return (
     <div>
       <Container fluid>
@@ -71,15 +76,7 @@ const PaginaAdmin = (props) => {
       </Container>
       <Container>
         <Row className="my-3">
-          <h4 className="ml-1">Bienvenidos <strong>{props.usuario.usuario}</strong>
-            {
-              props.usuario.role.map((item)=>{
-                console.log(item)
-                return(<Badge item={item.name} key={item._id} className="ml-2" variant="dark"></Badge>)
-              })
-            }
-           </h4>
-          
+          <h4>Bienvenidos {props.usuario.usuario}</h4>
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
