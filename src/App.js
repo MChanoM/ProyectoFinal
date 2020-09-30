@@ -18,14 +18,17 @@ import Suscribirse from "./components/principal/Suscribirse";
 import SuscribirsePlan1 from "./components/principal/SuscribirsePlan1";
 import PaginaNoticia from "./components/principal/PaginaNoticia";
 import PaginaCategoria from "./components/principal/PaginaCategoria";
+import AltaUsuario from "./components/abm/abmUsuarios/AltaUsuario";
+import EditarUsuario from "./components/abm/abmUsuarios/EditarUsuario";
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
   const [listaCategorias, setListaCategorias] = useState([]);
+  const [listaUsuarios, setListaUsuarios] = useState([]);
   const [recargarPagina, setRecargarPagina] = useState(true);
   const [loginAdmin, setLoginAdmin] = useState(false);
   const [usuario, setUsuario] = useState(null);
-  const [btnIngresar, setBtnIngresar] = useState('Ingresar');
+  const [btnIngresar, setBtnIngresar] = useState("Ingresar");
   const authToken = sessionStorage.getItem("authtoken");
 
   useEffect(() => {
@@ -86,13 +89,12 @@ function App() {
           setUsuario(usuarioLogueado);
           setLoginAdmin(true);
           setBtnIngresar("Cerrar Sesion");
+
           // consulta = await fetch("http://localhost:4000/api/users/me/roles",cabecera);
           // const rolesUsuario = consulta.json();
           // console.log(rolesUsuario);
         }
       }
-
-
     } catch (error) {
       console.log(error);
     }
@@ -178,6 +180,8 @@ function App() {
                   listaCategorias={listaCategorias}
                   listaNoticias={listaNoticias}
                   setRecargarPagina={setRecargarPagina}
+                  setListaUsuarios={setListaUsuarios}
+                  listaUsuarios={listaUsuarios}
                   usuario={usuario}
                   // consultarCat={consultarCat}
                   // consultarNoticias={consultarNoticias}
@@ -186,6 +190,25 @@ function App() {
             } else {
               return <Error404></Error404>;
             }
+          }}
+        ></Route>
+        <Route exact path="/usuario/nuevo">
+          <AltaUsuario></AltaUsuario>
+        </Route>
+        <Route
+          exact
+          path="/usuario/editar/:id"
+          render={(props) => {
+            const idUsuario = props.match.params.id;
+
+            const usuarioSeleccionado = listaUsuarios.find(
+              (usu) => usu._id === idUsuario
+            );
+            return (
+              <EditarUsuario
+                usuarioSeleccionado={usuarioSeleccionado}
+              ></EditarUsuario>
+            );
           }}
         ></Route>
         <Route exact path="/noticia/nueva">

@@ -3,6 +3,7 @@ import { Button, Form, Modal, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, withRouter } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ModalLogin = (props) => {
   //   const [show, setShow] = useState(false);
@@ -13,14 +14,13 @@ const ModalLogin = (props) => {
   const [mail, setMail] = useState("");
   const [errorDos, setErrorDos] = useState(false);
   const [errorTres, setErrorTres] = useState(false);
-  
-  
+
   const handleClose = () => {
     props.setShow(false);
     setError(false);
     setErrorDos(false);
     setErrorTres(false);
-  }
+  };
   //   const handleShow = () => setShow(true);
 
   const handleSubmit = async (e) => {
@@ -36,10 +36,10 @@ const ModalLogin = (props) => {
         // voy a hacer un fetch al backend con los datos de user y pass tokenizados
         const datos = {
           usuario: user,
-          password: pass
+          password: pass,
         };
-        localStorage.setItem('credNews',[user,pass]);
-        
+        localStorage.setItem("credNews", [user, pass]);
+
         const cabecera = {
           method: "POST",
           headers: {
@@ -52,17 +52,42 @@ const ModalLogin = (props) => {
           cabecera
         );
         const data = await loguear.json();
-        sessionStorage.setItem('authtoken',data.token);
-            
+        sessionStorage.setItem("authtoken", data.token);
+
         if (loguear.status === 200) {
-          
-          //setLogin a true para dar acceso al admin
-          setError(false);
-          props.setLoginAdmin(true);
-          handleClose();
-          props.setBtnIngresar("Cerrar Sesion");
-          props.history.push("/");
-          props.setRecargarPagina(true);
+          // consulto usuario
+          const cabecera = {
+            headers: {
+              ["x-access-token"]: data.token,
+            },
+          };
+          const consulta = await fetch(
+            "http://localhost:4000/api/users/me",
+            cabecera
+          );
+          const usuarioLogueado = await consulta.json();
+
+          //verifico que esté activo el usuario
+          if (usuarioLogueado.userActive) {
+            //verifico que esté iniciada la sesion
+            if (usuarioLogueado.sessionState) {
+              props.setUsuario(usuarioLogueado);
+              props.setLoginAdmin(true);
+              props.setBtnIngresar("Cerrar Sesion");
+
+              //setLogin a true para dar acceso al admin
+              setError(false);
+              props.setLoginAdmin(true);
+              handleClose();
+              props.setBtnIngresar("Cerrar Sesion");
+              props.history.push('/admin');
+              
+            
+         
+            }
+          } else {
+            setError(true);
+          }
         } else {
           //setLogin a false y error 404
           setError(true);
@@ -82,29 +107,27 @@ const ModalLogin = (props) => {
       console.log("validado");
       setErrorDos(false);
       // envio mail al backend para q le envie las credenciales al usuario
-      try{
+      try {
         const cabecera = {
           method: "POST",
           headers: {
-            "Content-Type":"application/json"
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(mail)
-        }
-        const enviarMail = await fetch("http://localhost:4000/api/auth/admin",
-        cabecera)
+          body: JSON.stringify(mail),
+        };
+        const enviarMail = await fetch(
+          "http://localhost:4000/api/auth/admin",
+          cabecera
+        );
 
-        if (enviarMail.status === 201){
+        if (enviarMail.status === 201) {
           setErrorDos(false);
-
         } else {
-          setErrorDos(true);    
+          setErrorDos(true);
         }
-
-      }catch(error){
+      } catch (error) {
         console.log(error);
       }
-
-
     } else {
       setErrorDos(true);
     }
@@ -186,14 +209,12 @@ const ModalLogin = (props) => {
                     </Button>
                   </div>
                 </div>
-                { errorTres ? 
-                (
+                {errorTres ? (
                   <Alert className="mt-3" variant={"primary"}>
-                  Ingresa tus credenciales antes de continuar!
-                </Alert>
-                ): null}
-                {error ? 
-                (
+                    Ingresa tus credenciales antes de continuar!
+                  </Alert>
+                ) : null}
+                {error ? (
                   <Alert className="mt-3" variant={"primary"}>
                     Las Credenciales son incorrectas!
                   </Alert>

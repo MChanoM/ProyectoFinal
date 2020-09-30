@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
 import {
   BrowserRouter as Router,
@@ -12,13 +12,34 @@ import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
 import ListaUsuarios from "./abmUsuarios/ListaUsuarios";
 
-
 const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
-  const [usuarios, listaUsuarios] = useState([]);
+  const [recargarAdmin, setRecargarAdmin] = useState(true);
+  const authToken = sessionStorage.getItem("authtoken");
 
-  
+  const consultaUsuarios = async () => {
+    try {
+      const cabecera = {
+        headers: {
+          ["x-access-token"]: authToken,
+        },
+      };
+      const consulta = await fetch(
+        "http://localhost:4000/api/users/",
+        cabecera
+      );
+      const usuarios = await consulta.json();
+
+      if (consulta.status === 403) {
+        return;
+      } else {
+        props.setListaUsuarios(usuarios);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleOpc = (opcion) => {
     setTimeout(() => {
@@ -37,30 +58,37 @@ const PaginaAdmin = (props) => {
             categorias={props.listaCategorias}
             setRecargarPagina={props.setRecargarPagina}
           ></ListaCategorias>
-        );}
-        if( opc === "not") {
-          return (
-            <ListaNoticias
-              noticias={props.listaNoticias}
-              setRecargarPagina={props.setRecargarPagina}
-              // consultarNoticias={props.consultarNoticias}
-            ></ListaNoticias>
-          );
-        }
-        if( opc === "users") {
-          return(
-            <ListaUsuarios
-            usuarios={usuarios}
+        );
+      }
+      if (opc === "not") {
+        return (
+          <ListaNoticias
+            noticias={props.listaNoticias}
             setRecargarPagina={props.setRecargarPagina}
-            ></ListaUsuarios>
-          )
-        }
+            // consultarNoticias={props.consultarNoticias}
+          ></ListaNoticias>
+        );
+      }
+      if (opc === "users") {
+        return (
+          <ListaUsuarios
+            listaUsuarios={props.listaUsuarios}
+            setRecargarPagina={props.setRecargarPagina}
+            setRecargarAdmin={setRecargarAdmin}
+          ></ListaUsuarios>
+        );
       }
     }
+  };
 
-    const userData = () => {
-       return(props.usuario.usuario)
-    };
+  const userData = () => {
+    return props.usuario.usuario;
+  };
+
+  useEffect(() => {
+    consultaUsuarios();
+    setRecargarAdmin(false);
+  }, [recargarAdmin]);
 
   return (
     <div>
@@ -76,7 +104,23 @@ const PaginaAdmin = (props) => {
       </Container>
       <Container>
         <Row className="my-3">
-          <h4>Bienvenidos {props.usuario.usuario}</h4>
+          <h4 className="mr-2">
+            Bienvenidos <strong>{props.usuario.usuario}</strong>! - Roles
+            Activos:
+          </h4>
+          <h5>
+            {props.usuario.role.map((item, pos) => {
+              return (
+                <span
+                  key={pos}
+                  item={item}
+                  className="badge badge-primary mx-1"
+                >
+                  {item.name}
+                </span>
+              );
+            })}
+          </h5>
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
@@ -106,13 +150,13 @@ const PaginaAdmin = (props) => {
               </Nav.Item>
               <Nav.Item>
                 <Button
-                 className="btn btn-info mr-1"
-                 onClick={() => {
-                   handleOpc("users");
-                   setLoader(true);
-                 }}
-               >
-                 Usuarios
+                  className="btn btn-info mr-1"
+                  onClick={() => {
+                    handleOpc("users");
+                    setLoader(true);
+                  }}
+                >
+                  Usuarios
                 </Button>
               </Nav.Item>
               <Nav.Item>

@@ -56,8 +56,17 @@ const EditarCategoria = (props) => {
           "Categoria Editada!",
           "La categoria se actualizo correctamente",
           "success"
-        )}
+        )
         props.history.push('/admin');
+      }
+      if (resultado.status === 403) {
+        Swal.fire(
+          "No Autorizado!",
+          "No tiene autorizacion para editar",
+          "error"
+        );
+      }
+        
       
     }catch(bug) {
         console.log(bug);

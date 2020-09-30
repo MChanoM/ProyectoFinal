@@ -10,8 +10,11 @@ import Swal from 'sweetalert2';
 
 const Header = (props) => {
   const [show, setShow] = useState(false);
+  const authToken = sessionStorage.getItem('authtoken');
+  
 
   const handleShow = () => {
+    
     if (props.btnIngresar === 'Cerrar Sesion') {
       Swal.fire({
         title: '¿Seguro desea Cerrar Sesion?',
@@ -21,14 +24,27 @@ const Header = (props) => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si',
         cancelButtonText: "Cancelar"
-      }).then((result) => {
+      }).then(async(result) => {
         if (result.value) {
-          props.setBtnIngresar('Ingresar');
-          props.setLoginAdmin(false);
-          props.setUsuario(null);
-          //elimino el authtoken
-          sessionStorage.removeItem('authtoken');
-          props.history.push('/');
+
+          const cabecera = {
+            method: "POST",
+            headers:{
+              "Content-Type": "application/json",
+              ["x-access-token"]: authToken,
+            },
+            body:JSON.stringify(props.usuario)
+          }
+          const consulta = await fetch('http://localhost:4000/api/auth/logout',cabecera);
+
+          if (consulta.status === 200){
+            props.setBtnIngresar('Ingresar');
+            props.setLoginAdmin(false);
+            props.setUsuario(null);
+            //elimino el authtoken
+            sessionStorage.removeItem('authtoken');
+            props.history.push('/');
+          }         
         }
       })
     } else {
@@ -89,7 +105,7 @@ const Header = (props) => {
         </Navbar.Collapse>
       </Navbar>
 
-      <ModalLogin setBtnIngresar={props.setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show} setRecargarPagina={props.setRecargarPagina}></ModalLogin>
+      <ModalLogin setUsuario={props.setUsuario} setBtnIngresar={props.setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show} setRecargarPagina={props.setRecargarPagina}></ModalLogin>
       <div className="container">
         <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
       </div>
