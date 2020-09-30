@@ -96,6 +96,8 @@
   }
 }
 
+
+
 /* PAGINA SUSCRIPCION */
 .cardsSuscripcion {
   background-color: #e6e6e6;
@@ -186,7 +188,8 @@
 
 .imagen{
   position: relative;
-  height: 520px;
+  /* height:75vh; */
+  height: 450px;
 }
 
 .slides .slick-prev {
@@ -199,4 +202,21 @@
 .slick-next:before,
 .slick-prev:before {
   color: #000;
+}
+@media (max-width: 768px) {
+  .imagen{
+    height: 350px!important;
+  }
+  .tituloNoticia{
+    font-size: small!important;
+  }
+}
+
+@media (max-width: 576px) {
+  .imagen{
+    height:250px!important;
+  }
+  .tituloNoticia{
+   font-size: smaller!important;
+  }
 }
