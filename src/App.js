@@ -59,7 +59,7 @@ function App() {
     try {
       const cabecera = {};
       const consulta = await fetch(
-        "https://newsprorc.herokuapp.com/api/noticias",
+        `${configs.urlBackend}/api/noticias`,
         cabecera
       );
       const respuesta = await consulta.json();
@@ -78,7 +78,7 @@ function App() {
         },
       };
       const consulta = await fetch(
-        "http://localhost:4000/api/users/me",
+        `${configs.urlBackend}/api/users/me`,
         cabecera
       );
       const usuarioLogueado = await consulta.json();

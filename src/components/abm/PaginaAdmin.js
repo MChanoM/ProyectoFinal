@@ -17,6 +17,7 @@ const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
   const [recargarAdmin, setRecargarAdmin] = useState(true);
+  const [agregarUsuariosBtn,setAgregaUsuariosBtn] = useState('');
   const authToken = sessionStorage.getItem("authtoken");
 
   const consultaUsuarios = async () => {
@@ -33,8 +34,11 @@ const PaginaAdmin = (props) => {
       const usuarios = await consulta.json();
 
       if (consulta.status === 403) {
+        setAgregaUsuariosBtn('disabled');
+        
         return;
       } else {
+        setAgregaUsuariosBtn('');
         props.setListaUsuarios(usuarios);
       }
     } catch (error) {
@@ -151,11 +155,13 @@ const PaginaAdmin = (props) => {
               </Nav.Item>
               <Nav.Item>
                 <Button
-                  className="btn btn-info mr-1"
+                  className={`btn btn-info mr-1`}
                   onClick={() => {
                     handleOpc("users");
                     setLoader(true);
+                    
                   }}
+                  id='btnUser'
                 >
                   Usuarios
                 </Button>
@@ -174,7 +180,7 @@ const PaginaAdmin = (props) => {
             <Link to={"/categoria/nueva"} className="btn btn-success ml-2">
               Agregar Categoria
             </Link>
-            <Link to={"/usuario/nuevo"} className="btn btn-success ml-2">
+            <Link to={"/usuario/nuevo"} className={`btn btn-success ml-2 ${agregarUsuariosBtn}`}>
               Agregar Usuario
             </Link>
           </div>

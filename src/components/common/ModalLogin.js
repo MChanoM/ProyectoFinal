@@ -39,8 +39,7 @@ const ModalLogin = (props) => {
           usuario: user,
           password: pass,
         };
-        localStorage.setItem("credNews", [user, pass]);
-
+     
         const cabecera = {
           method: "POST",
           headers: {
@@ -78,14 +77,10 @@ const ModalLogin = (props) => {
               props.setBtnIngresar("Cerrar Sesion");
 
               //setLogin a true para dar acceso al admin
-              setError(false);
-              props.setLoginAdmin(true);
               handleClose();
+              props.setLoginAdmin(true);
               props.setBtnIngresar("Cerrar Sesion");
-              props.history.push('/admin');
-              
-            
-         
+              props.history.push('/admin')
             }
           } else {
             setError(true);
