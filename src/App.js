@@ -103,12 +103,12 @@ function App() {
   return (
     <Router>
       <div className="d-none d-md-block ">
-        <div className="row justify-content-center ">
+        <div className="text-center ">
           <a href="">
             <img
               src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
               alt="Publicidad"
-              // className="publicidadGrande"
+              // className="w-100"
             ></img>
           </a>
         </div>
