@@ -6,6 +6,10 @@
   font-size: 75px;
 }
 
+.fuente{
+  font-family: "Noto Serif", serif;
+}
+
 .punto {
   font-size: 75px;
   color: red;
@@ -67,22 +71,22 @@
 }
 
 /* PaginaNoticia */
-.borde{
+.borde {
   border: 1px solid;
   padding: 10px;
 }
 
 /* PaginaCategoria */
-.lineaVertical{
-  border-left:  2px solid #21a4b6;
+.lineaVertical {
+  border-left: 2px solid #21a4b6;
 }
 
 /* MEDIA QUERIES */
-@media (max-width: 767px){
+@media (max-width: 767px) {
   .titulo {
     font-size: 40px;
   }
-  
+
   .punto {
     font-size: 40px;
   }
@@ -93,15 +97,15 @@
 }
 
 /* PAGINA SUSCRIPCION */
-.cardsSuscripcion{
-  background-color: #E6E6E6;
+.cardsSuscripcion {
+  background-color: #e6e6e6;
 }
-.cardsSuscripcion:hover{
- text-decoration: none;
- border: 1px solid #BDBDBD;
+.cardsSuscripcion:hover {
+  text-decoration: none;
+  border: 1px solid #bdbdbd;
 }
-.cardEntera:hover{
- text-decoration: none;
+.cardEntera:hover {
+  text-decoration: none;
 }
 
 /* MODAL LOGIN */
@@ -120,38 +124,79 @@
   color: #fff;
   background: rgb(66, 133, 244);
 }
-.cuadroFacebook{
+.cuadroFacebook {
   background-color: #3b5998;
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
   padding: 6px 0px;
 }
-.cuadroGoogle{
-  background-color:rgb(66, 133, 244);
+.cuadroGoogle {
+  background-color: rgb(66, 133, 244);
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
   padding: 6px 0px;
 }
-.cuadroGoogle:hover{
-  background-color:rgb(66, 133, 244, 0.93);
+.cuadroGoogle:hover {
+  background-color: rgb(66, 133, 244, 0.93);
 }
-.cuadroFacebook:hover{
-  background-color:rgb(59, 89, 152, 0.93);
+.cuadroFacebook:hover {
+  background-color: rgb(59, 89, 152, 0.93);
 }
-.linkModal:hover{
+.linkModal:hover {
   text-decoration: none;
 }
 
 /* ERROR 404 */
-.pError{
+.pError {
   font-size: 25px;
   font-family: "Noto Serif", serif;
   color: #818181;
 }
-.newsProError{
+.newsProError {
   color: black;
-  font-size: 30PX;
+  font-size: 30px;
   font-family: "Noto Serif", serif;
+}
+
+/* NOTICIAS DESTACADAS SLIDER */
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  color: #000;
+}
+
+.tituloNoticia {
+  position: absolute;
+  top: 80%;
+  z-index: 4;
+  font-size: medium;
+  background-color: black;
+  color: white;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.slides {
+  position: relative;
+}
+
+.imagen{
+  position: relative;
+  height: 520px;
+}
+
+.slides .slick-prev {
+  left: 1%;
+}
+
+.slides .slick-next {
+  right: 1%;
+}
+.slick-next:before,
+.slick-prev:before {
+  color: #000;
 }
