@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { Container, Alert, Form, Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
@@ -14,7 +16,7 @@ const EditarNoticia = (props) => {
   const cuerpoNoticiaRef = useRef("");
   const autorNoticiaRef = useRef("");
   const fechaNoticiaRef = useRef("");
-  const authToken = sessionStorage.getItem('authtoken');
+  const authToken = sessionStorage.getItem("authtoken");
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
@@ -50,7 +52,7 @@ const EditarNoticia = (props) => {
       cuerpoNoticia: cuerpoNoticiaRef.current.value,
       autorNoticia: autorNoticiaRef.current.value,
       fechaNoticia: fechaNoticiaRef.current.value,
-      categoria: _categoria
+      categoria: _categoria,
     };
 
     try {
@@ -58,7 +60,7 @@ const EditarNoticia = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          ['x-access-token'] : authToken
+          ["x-access-token"]: authToken,
         },
         body: JSON.stringify(noticiaEditada),
       };
@@ -131,11 +133,25 @@ const EditarNoticia = (props) => {
         </Form.Group>
         <Form.Group controlId="cuerpoNoticia">
           <Form.Label>Cuerpo de la noticia *</Form.Label>
-          <Form.Control
+          {/* <Form.Control
             as="textarea"
             rows="10"
             ref={cuerpoNoticiaRef}
             defaultValue={props.noticia.cuerpoNoticia}
+          /> */}
+          <CKEditor
+            editor={ClassicEditor}
+            data={props.noticia.cuerpoNoticia}
+            onInit={(editor) => {
+              // You can store the "editor" and use when it is needed.
+              console.log("Editor is ready to use!", editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              console.log({ event, editor, data });
+              
+            }}
+            ref={cuerpoNoticiaRef}
           />
         </Form.Group>
         <Form.Group>
@@ -160,20 +176,22 @@ const EditarNoticia = (props) => {
           </Form.Label>
         </Form.Group>
         <div className="text-center mb-4">
-          {
-            props.listaCategorias.map((item, pos) => {
-              return (<Form.Check
+          {props.listaCategorias.map((item, pos) => {
+            return (
+              <Form.Check
                 key={pos}
                 inline
                 label={item.nombreCategoria}
                 type="radio"
                 value={item.nombreCategoria}
-                defaultChecked={props.noticia.categoria === item.nombreCategoria}
+                defaultChecked={
+                  props.noticia.categoria === item.nombreCategoria
+                }
                 name="categoria"
                 onChange={seleccionarCategoria}
-              ></Form.Check>)
-            })
-          }
+              ></Form.Check>
+            );
+          })}
         </div>
 
         <Button className="w-100 mb-4 " variant="danger" type="submit">
