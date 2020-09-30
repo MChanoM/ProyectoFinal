@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
 import {
   BrowserRouter as Router,
@@ -10,10 +10,36 @@ import {
 import Spinner from "../common/Spinner";
 import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
+import ListaUsuarios from "./abmUsuarios/ListaUsuarios";
 
 const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
   const [loader, setLoader] = useState(false);
+  const [recargarAdmin, setRecargarAdmin] = useState(true);
+  const authToken = sessionStorage.getItem("authtoken");
+
+  const consultaUsuarios = async () => {
+    try {
+      const cabecera = {
+        headers: {
+          ["x-access-token"]: authToken,
+        },
+      };
+      const consulta = await fetch(
+        "http://localhost:4000/api/users/",
+        cabecera
+      );
+      const usuarios = await consulta.json();
+
+      if (consulta.status === 403) {
+        return;
+      } else {
+        props.setListaUsuarios(usuarios);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleOpc = (opcion) => {
     setTimeout(() => {
@@ -33,7 +59,8 @@ const PaginaAdmin = (props) => {
             setRecargarPagina={props.setRecargarPagina}
           ></ListaCategorias>
         );
-      } else {
+      }
+      if (opc === "not") {
         return (
           <ListaNoticias
             noticias={props.listaNoticias}
@@ -42,8 +69,26 @@ const PaginaAdmin = (props) => {
           ></ListaNoticias>
         );
       }
+      if (opc === "users") {
+        return (
+          <ListaUsuarios
+            listaUsuarios={props.listaUsuarios}
+            setRecargarPagina={props.setRecargarPagina}
+            setRecargarAdmin={setRecargarAdmin}
+          ></ListaUsuarios>
+        );
+      }
     }
   };
+
+  const userData = () => {
+    return props.usuario.usuario;
+  };
+
+  useEffect(() => {
+    consultaUsuarios();
+    setRecargarAdmin(false);
+  }, [recargarAdmin]);
 
   return (
     <div>
@@ -59,7 +104,23 @@ const PaginaAdmin = (props) => {
       </Container>
       <Container>
         <Row className="my-3">
-          <h5 className="ml-1 lead">Bienvenidos NOMBRE DE USUARIO,</h5>
+          <h4 className="mr-2">
+            Bienvenidos <strong>{props.usuario.usuario}</strong>! - Roles
+            Activos:
+          </h4>
+          <h5>
+            {props.usuario.role.map((item, pos) => {
+              return (
+                <span
+                  key={pos}
+                  item={item}
+                  className="badge badge-primary mx-1"
+                >
+                  {item.name}
+                </span>
+              );
+            })}
+          </h5>
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
@@ -88,7 +149,13 @@ const PaginaAdmin = (props) => {
                 </Button>
               </Nav.Item>
               <Nav.Item>
-                <Button className="btn btn-info mr-1" disabled>
+                <Button
+                  className="btn btn-info mr-1"
+                  onClick={() => {
+                    handleOpc("users");
+                    setLoader(true);
+                  }}
+                >
                   Usuarios
                 </Button>
               </Nav.Item>
@@ -103,8 +170,11 @@ const PaginaAdmin = (props) => {
             <Link to={"/noticia/nueva"} className="btn btn-success ml-4">
               Agregar Noticia
             </Link>
-            <Link to={"/categoria/nueva"} className="btn btn-success mx-2">
+            <Link to={"/categoria/nueva"} className="btn btn-success ml-2">
               Agregar Categoria
+            </Link>
+            <Link to={"/usuario/nuevo"} className="btn btn-success ml-2">
+              Agregar Usuario
             </Link>
           </div>
         </Row>

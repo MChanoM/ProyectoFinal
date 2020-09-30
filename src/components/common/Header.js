@@ -10,11 +10,12 @@ import Swal from 'sweetalert2';
 
 const Header = (props) => {
   const [show, setShow] = useState(false);
-  const [btnIngresar, setBtnIngresar] = useState('Ingresar');
-
+  const authToken = sessionStorage.getItem('authtoken');
+  
 
   const handleShow = () => {
-    if (btnIngresar === 'Cerrar Sesion') {
+    
+    if (props.btnIngresar === 'Cerrar Sesion') {
       Swal.fire({
         title: '¿Seguro desea Cerrar Sesion?',
         icon: 'warning',
@@ -23,11 +24,27 @@ const Header = (props) => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si',
         cancelButtonText: "Cancelar"
-      }).then((result) => {
+      }).then(async(result) => {
         if (result.value) {
-          setBtnIngresar('Ingresar');
-          props.setLoginAdmin(false);
-          props.history.push('/');
+
+          const cabecera = {
+            method: "POST",
+            headers:{
+              "Content-Type": "application/json",
+              ["x-access-token"]: authToken,
+            },
+            body:JSON.stringify(props.usuario)
+          }
+          const consulta = await fetch('http://localhost:4000/api/auth/logout',cabecera);
+
+          if (consulta.status === 200){
+            props.setBtnIngresar('Ingresar');
+            props.setLoginAdmin(false);
+            props.setUsuario(null);
+            //elimino el authtoken
+            sessionStorage.removeItem('authtoken');
+            props.history.push('/');
+          }         
         }
       })
     } else {
@@ -37,7 +54,7 @@ const Header = (props) => {
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar collapseOnSelect bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">
           <img
             src={Logo}
@@ -47,8 +64,8 @@ const Header = (props) => {
             alt="logo news pro"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             {
                 props.listaCategorias.map((item, pos) => {
@@ -63,7 +80,7 @@ const Header = (props) => {
                 })
             }
             
-            <NavDropdown title="Otras" id="basic-navbar-nav">
+            <NavDropdown title="Otras" id="collasible-nav-dropdown">
               {
                 props.listaCategorias.map((item, pos) => {
                   if(item.nombreCategoria !== "Actualidad" || item.nombreCategoria !== "Política" ||
@@ -81,12 +98,14 @@ const Header = (props) => {
 
           {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
           <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
-          <Link onClick={handleShow} className="btn btn-outline-info">{btnIngresar}</Link>
+          <Link onClick={handleShow} className="btn btn-outline-info">{props.btnIngresar}</Link>
+          
+          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info">Administrar</Link>) : null}
 
         </Navbar.Collapse>
       </Navbar>
 
-      <ModalLogin setBtnIngresar={setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show}></ModalLogin>
+      <ModalLogin setUsuario={props.setUsuario} setBtnIngresar={props.setBtnIngresar} setLoginAdmin={props.setLoginAdmin} setShow={setShow} show={show} setRecargarPagina={props.setRecargarPagina}></ModalLogin>
       <div className="container">
         <h1 className="text-center my-4 py-2 titulo">NewsPro<span className="punto">.</span> </h1>
       </div>

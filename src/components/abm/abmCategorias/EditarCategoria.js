@@ -13,6 +13,7 @@ const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
   const [estado, setEstado] = useState("");
   const categoriaRef = useRef("");
+  const authToken = sessionStorage.getItem('authtoken');
 
   const cambiarEstado = (e) => {
     setEstado(e.target.value);
@@ -39,6 +40,7 @@ const EditarCategoria = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          ['x-access-token'] : authToken
         },
         body: JSON.stringify(categoriaEditada)
       };
@@ -54,8 +56,17 @@ const EditarCategoria = (props) => {
           "Categoria Editada!",
           "La categoria se actualizo correctamente",
           "success"
-        )}
+        )
         props.history.push('/admin');
+      }
+      if (resultado.status === 403) {
+        Swal.fire(
+          "No Autorizado!",
+          "No tiene autorizacion para editar",
+          "error"
+        );
+      }
+        
       
     }catch(bug) {
         console.log(bug);

@@ -6,19 +6,19 @@ import { faThumbsUp, faShare } from "@fortawesome/free-solid-svg-icons";
 const PaginaNoticia = (props) => {
   return (
     <Container>
-      <section className="borde mt-4">
+      <span class="badge badge-pill badge-success mt-4">
+        {props.noticia.categoria}
+      </span>
+      <section className="borde mt-2">
         <h1>{props.noticia.tituloNoticia}</h1>
         <p>{props.noticia.descripcionNoticia}</p>
       </section>
-      <div className="d-flex my-3">
+      <div className="d-flex justify-content-around">
         <p>Por {props.noticia.autorNoticia}</p>
-        <div className="d-flex mx-4">
+        <div className="d-flex flex-column">
           <p>{props.noticia.fechaNoticia}</p>
-          <span class="badge badge-pill badge-success h-50 mx-4">
-            {props.noticia.categoria}
-          </span>
         </div>
-        <div className="mx-1">
+        <div>
           <FontAwesomeIcon icon={faThumbsUp} size="1x" className="mx-2" />
           <FontAwesomeIcon icon={faShare} size="1x" />
         </div>

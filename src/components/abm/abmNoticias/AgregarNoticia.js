@@ -17,6 +17,8 @@ const AgregarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
 
+  const authToken = sessionStorage.getItem('authtoken');
+
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
@@ -50,12 +52,13 @@ const AgregarNoticia = (props) => {
       const cabecera = {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          ['x-access-token'] : authToken
         },
         body: JSON.stringify(datos)
       }
       const resultado = await fetch("https://newsprorc.herokuapp.com/api/noticias",cabecera);
-      console.log(resultado);
+      
 
       if (resultado.status === 201) {
         Swal.fire(

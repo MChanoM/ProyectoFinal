@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.css"
 import { Container, Carousel, Card, Button, CardImg } from "react-bootstrap";
 import Logo from "../../img/publicidad.png";
 import CardCategoria from "./CardCategoria";
@@ -34,12 +35,13 @@ const PaginaInicio = (props) => {
                 })}
               </Carousel>
             </div>
+            {/* Destacados */}
             <div className="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
               <div className="row">
                 {props.listaNoticias.map((item, pos) => {
                   if (pos < 2) {
                     return (
-                      <div className="col-6 pb-1 pt-0 pr-1">
+                      <div className="col-12 col-sm-6 pb-1 pt-0 pr-1">
                         <Card className="text-white">
                           <Card.Img
                             src={item.imagen}
@@ -91,6 +93,8 @@ const PaginaInicio = (props) => {
             </div>
           </div>
         </div>
+
+        {/* Publicidad */}
         <div className="col-sm-12 col-md-3 mb-5">
           <a href="">
             <img src="http://www.laprensa.com.ar/Multimedios/Ads/92.gif?v=1"></img>
@@ -108,16 +112,20 @@ const PaginaInicio = (props) => {
         </div>
       </div>
 
+      {/* Seccion de Categorias */}
       {props.listaCategorias.map((item, pos) => {
         return (
-          <CardCategoria
+          <Container>
+            <CardCategoria
             item={item}
             key={pos}
             listaNoticias={props.listaNoticias}
           ></CardCategoria>
+          </Container>
         );
       })}
 
+      {/* Publicidad */}
       <div className="col-sm-12 col-md-3 mb-3">
         <Card>
           <Button variant="link">
@@ -132,7 +140,7 @@ const PaginaInicio = (props) => {
         </Card>
       </div>
 
-      <hr className="mb-4" />
+      {/* <hr className="mb-4" />
       <div className="row justify-content-center">
         <div className="col-sm-12 col-md-3 mb-2">
           <Card>
@@ -186,7 +194,7 @@ const PaginaInicio = (props) => {
             </Card.Body>
           </Card>
         </div>
-      </div>
+      </div> */}
       <hr className="mb-4" />
       <div className="d-none d-md-block ">
         <div className="row justify-content-center">

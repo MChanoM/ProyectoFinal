@@ -13,6 +13,7 @@ const AgregarCategoria = (props) => {
   const [nombreCategoria, setCategoria] = useState("");
   const [estado, setEstado] = useState("");
   const [error, setError] = useState(false);
+  const authToken = sessionStorage.getItem('authtoken');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,7 +38,8 @@ const AgregarCategoria = (props) => {
       const cabecera = {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          ['x-access-token'] : authToken
         },
         body: JSON.stringify(categorias)
       }

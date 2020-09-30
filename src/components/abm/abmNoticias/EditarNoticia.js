@@ -14,7 +14,7 @@ const EditarNoticia = (props) => {
   const cuerpoNoticiaRef = useRef("");
   const autorNoticiaRef = useRef("");
   const fechaNoticiaRef = useRef("");
-
+  const authToken = sessionStorage.getItem('authtoken');
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
@@ -58,6 +58,7 @@ const EditarNoticia = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          ['x-access-token'] : authToken
         },
         body: JSON.stringify(noticiaEditada),
       };
@@ -65,7 +66,7 @@ const EditarNoticia = (props) => {
         `https://newsprorc.herokuapp.com/api/noticias/${props.noticia._id}`,
         cabecera
       );
-      console.log(resultado);
+      // console.log(resultado);
       if (resultado.status === 200) {
         //se modificaron correctamente los datos
         props.consultarNoticias();
@@ -75,6 +76,13 @@ const EditarNoticia = (props) => {
           "success"
         );
         props.history.push("/admin");
+      }
+      if (resultado.status === 403) {
+        Swal.fire(
+          "No Autorizado!",
+          "No tiene autorizacion para editar",
+          "error"
+        );
       }
     } catch (bug) {
       console.log(bug);
