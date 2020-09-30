@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
+import {DropdownButton, Dropdown, Button, ButtonGroup} from "react-bootstrap";
 import Logo from "../../img/logo-sbg.png";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
@@ -95,14 +96,20 @@ const Header = (props) => {
               }
             </NavDropdown>
           </Nav>
+          {props.loginAdmin ? ( <DropdownButton
+          as={ButtonGroup}
+          key='left'
+          id={'dropdown-button-drop-left'}
+          drop='left'
+          variant='primary'
+          title={props.usuario.usuario}
+          >
+          <Dropdown.Item href="/admin">{props.loginAdmin ? ('Administrar') : null}</Dropdown.Item>
+          <Dropdown.Item onClick={handleShow}>{props.btnIngresar}</Dropdown.Item>
+          </DropdownButton>) : <Button variant="primary" onClick={handleShow}>Ingresar</Button>}
 
-
-          {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
-          <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
-          <Link onClick={handleShow} className="btn btn-outline-info">{props.btnIngresar}</Link>
-          
-          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info">Administrar</Link>) : null}
-
+         
+          <Link to="/suscribirse" className="btn btn-success ml-2">Suscribirse</Link>
         </Navbar.Collapse>
       </Navbar>
 
