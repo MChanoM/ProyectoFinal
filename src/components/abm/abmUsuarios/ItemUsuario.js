@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit, faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import configs from '../../../urlconfig';
 
 const ItemUsuario = (props) => {
   const authtoken = sessionStorage.getItem("authtoken");
@@ -31,7 +32,7 @@ const ItemUsuario = (props) => {
         };
 
         const consulta = await fetch(
-          `http://localhost:4000/api/users/cambiar-estado/${props.item._id}`,cabecera
+          `${configs.urlBackend}/api/users/cambiar-estado/${props.item._id}`,cabecera
         );
 
         if (consulta.status === 200) {

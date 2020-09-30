@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Container, Alert, Form, Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
+import configs from '../../../urlconfig';
 
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
@@ -63,7 +64,7 @@ const EditarNoticia = (props) => {
         body: JSON.stringify(noticiaEditada),
       };
       const resultado = await fetch(
-        `https://newsprorc.herokuapp.com/api/noticias/${props.noticia._id}`,
+        `${configs.urlBackend}/api/noticias/${props.noticia._id}`,
         cabecera
       );
       // console.log(resultado);

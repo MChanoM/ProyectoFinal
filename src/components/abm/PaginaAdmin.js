@@ -11,6 +11,7 @@ import Spinner from "../common/Spinner";
 import ListaCategorias from "./abmCategorias/ListaCategorias";
 import ListaNoticias from "./abmNoticias/ListaNoticias";
 import ListaUsuarios from "./abmUsuarios/ListaUsuarios";
+import configs from '../../urlconfig';
 
 const PaginaAdmin = (props) => {
   const [opc, setOpc] = useState("cat");
@@ -26,7 +27,7 @@ const PaginaAdmin = (props) => {
         },
       };
       const consulta = await fetch(
-        "http://localhost:4000/api/users/",
+        `${configs.urlBackend}/api/users/`,
         cabecera
       );
       const usuarios = await consulta.json();

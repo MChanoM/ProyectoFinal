@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import configs from '../../../urlconfig';
 
 const ItemCategoria = (props) => {
   const authToken = sessionStorage.getItem('authtoken');
@@ -30,7 +31,7 @@ const ItemCategoria = (props) => {
             }
           };
           const consulta = await fetch(
-            `https://newsprorc.herokuapp.com/api/categorias/${idCategoria}`,
+            `${configs.urlBackend}/api/categorias/${idCategoria}`,
             cabecera
           );
 

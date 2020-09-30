@@ -20,6 +20,7 @@ import PaginaNoticia from "./components/principal/PaginaNoticia";
 import PaginaCategoria from "./components/principal/PaginaCategoria";
 import AltaUsuario from "./components/abm/abmUsuarios/AltaUsuario";
 import EditarUsuario from "./components/abm/abmUsuarios/EditarUsuario";
+import configs from './urlconfig';
 
 function App() {
   const [listaNoticias, setListaNoticias] = useState([]);
@@ -44,7 +45,7 @@ function App() {
   const consultarCat = async () => {
     try {
       const consulta = await fetch(
-        "https://newsprorc.herokuapp.com/api/categorias"
+        `${configs.urlBackend}/api/categorias`
       );
       const respuesta = await consulta.json();
       setListaCategorias(respuesta);

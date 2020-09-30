@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeaf, faTable } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router";
+import configs from '../../../urlconfig';
 
 const AltaUsuario = (props) => {
   const [error, setError] = useState(false);
@@ -53,7 +54,7 @@ const AltaUsuario = (props) => {
       };
 
       const consulta = await fetch(
-        "http://localhost:4000/api/users/nuevo",
+        `${configs.urlBackend}/api/users/nuevo`,
         cabecera
       );
 

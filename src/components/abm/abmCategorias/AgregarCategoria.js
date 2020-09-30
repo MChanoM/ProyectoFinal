@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 import { withRouter } from "react-router";
+import configs from '../../../urlconfig';
 
 const AgregarCategoria = (props) => {
   const [nombreCategoria, setCategoria] = useState("");
@@ -43,7 +44,7 @@ const AgregarCategoria = (props) => {
         },
         body: JSON.stringify(categorias)
       }
-      const consulta = await fetch("https://newsprorc.herokuapp.com/api/categorias", cabecera);
+      const consulta = await fetch(`${configs.urlBackend}/api/categorias`, cabecera);
 
         if (consulta.status === 201) {
           Swal.fire(

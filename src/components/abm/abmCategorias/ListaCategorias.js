@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import ItemCategoria from "./ItemCategoria";
 
+
 const ListaCategorias = (props) => {
   return (
     <div>

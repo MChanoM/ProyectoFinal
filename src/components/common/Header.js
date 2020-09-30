@@ -6,6 +6,7 @@ import Logo from "../../img/logo-sbg.png";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 import Swal from 'sweetalert2';
+import configs from '../../urlconfig';
 
 
 const Header = (props) => {
@@ -35,7 +36,7 @@ const Header = (props) => {
             },
             body:JSON.stringify(props.usuario)
           }
-          const consulta = await fetch('http://localhost:4000/api/auth/logout',cabecera);
+          const consulta = await fetch(`${configs.urlBackend}/api/auth/logout`,cabecera);
 
           if (consulta.status === 200){
             props.setBtnIngresar('Ingresar');

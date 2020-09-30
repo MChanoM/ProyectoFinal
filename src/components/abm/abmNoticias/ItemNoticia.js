@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+import configs from '../../../urlconfig';
 
 const ItemNoticia = (props) => {
 
@@ -35,7 +36,7 @@ const ItemNoticia = (props) => {
               ['x-access-token'] : authToken
             }
           };
-          const consulta = await fetch(`https://newsprorc.herokuapp.com/api/noticias/${idNoticia}`, cabecera)
+          const consulta = await fetch(`${configs.urlBackend}/api/noticias/${idNoticia}`, cabecera)
 
           console.log(consulta);
           if (consulta.status === 200) {

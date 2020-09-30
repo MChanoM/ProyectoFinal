@@ -5,6 +5,7 @@ import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Swal from 'sweetalert2';
 import { withRouter } from "react-router";
+import configs from '../../../urlconfig';
 
 const AgregarNoticia = (props) => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
@@ -57,7 +58,7 @@ const AgregarNoticia = (props) => {
         },
         body: JSON.stringify(datos)
       }
-      const resultado = await fetch("https://newsprorc.herokuapp.com/api/noticias",cabecera);
+      const resultado = await fetch(`${configs.urlBackend}/api/noticias`,cabecera);
       
 
       if (resultado.status === 201) {

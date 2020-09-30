@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
+import configs from '../../../urlconfig';
 
 const EditarUsuario = (props) => {
   const [error, setError] = useState(false);
@@ -46,7 +47,7 @@ const EditarUsuario = (props) => {
       };
 
       const consulta = await fetch(
-        `http://localhost:4000/api/users/editar/${props.usuarioSeleccionado._id}`,
+        `${configs.urlBackend}/api/users/editar/${props.usuarioSeleccionado._id}`,
         cabecera
       );
 

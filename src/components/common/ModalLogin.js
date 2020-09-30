@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
+import configs from '../../urlconfig';
 
 const ModalLogin = (props) => {
   //   const [show, setShow] = useState(false);
@@ -48,7 +49,8 @@ const ModalLogin = (props) => {
           body: JSON.stringify(datos),
         };
         const loguear = await fetch(
-          "http://localhost:4000/api/auth/login",
+          `${configs.urlBackend}/api/auth/login`,
+          
           cabecera
         );
         const data = await loguear.json();
@@ -62,7 +64,7 @@ const ModalLogin = (props) => {
             },
           };
           const consulta = await fetch(
-            "http://localhost:4000/api/users/me",
+            `${configs.urlBackend}/api/users/me`,
             cabecera
           );
           const usuarioLogueado = await consulta.json();
@@ -116,7 +118,7 @@ const ModalLogin = (props) => {
           body: JSON.stringify(mail),
         };
         const enviarMail = await fetch(
-          "http://localhost:4000/api/auth/admin",
+          `${configs.urlBackend}/api/auth/admin`,
           cabecera
         );
 

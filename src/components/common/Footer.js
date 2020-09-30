@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Button from "react-bootstrap/Button";
 
+
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons'
 
 const Footer = () => {

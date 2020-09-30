@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
+import configs from '../../../urlconfig';
 
 const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
@@ -45,7 +46,7 @@ const EditarCategoria = (props) => {
         body: JSON.stringify(categoriaEditada)
       };
       const resultado = await fetch(
-        `https://newsprorc.herokuapp.com/api/categorias/${props.categoria._id}`,
+        `${configs.urlBackend}/api/categorias/${props.categoria._id}`,
         cabecera
       );
       console.log(resultado);
