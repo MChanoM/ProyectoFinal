@@ -36,7 +36,7 @@ const Footer = () => {
             />
           </Col>
           <Col sm={12} md={4} className="text-center">
-            <h1 className="text-center my-4 py-2 tituloFooter">NewsPro</h1>
+            <h1 className="text-center my-4 py-2 tituloFooter">NewsPro<span className="punto">.</span></h1>
           </Col>
           <Col sm={12} md={4} className="text-center">
             <p className="text-white">
