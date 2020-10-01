@@ -5,11 +5,13 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
-  //aca creo los ref
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
+  //aca creo los ref
+  const noticiaDestacadaRef = useRef("");
   const tituloNoticiaRef = useRef("");
   const descripcionNoticiaRef = useRef("");
   const imagenRef = useRef("");
@@ -25,18 +27,15 @@ const EditarNoticia = (props) => {
     e.preventDefault();
     // validar datos
     let _categoria = categoria === "" ? props.noticia.categoria : categoria;
-    console.log(_categoria);
-    console.log(tituloNoticiaRef);
-    console.log(tituloNoticiaRef.current.value);
-    console.log(descripcionNoticiaRef.current.value);
+    console.log(cuerpoNoticiaRef);
     if (
       tituloNoticiaRef.current.value.trim() === "" ||
       descripcionNoticiaRef.current.value.trim() === "" ||
       _categoria === "" ||
       imagenRef.current.value.trim() === "" ||
       autorNoticiaRef.current.value.trim() === "" ||
-      fechaNoticiaRef.current.value.trim() === "" ||
-      cuerpoNoticiaRef.current.value.trim() === ""
+      fechaNoticiaRef.current.value.trim() === "" 
+      // cuerpoNoticiaRef.current.value.trim() === ""
     ) {
       setError(true);
       return;
@@ -46,6 +45,7 @@ const EditarNoticia = (props) => {
 
     // preparar el objeto con los nuevos datos
     const noticiaEditada = {
+      noticiaDestacada: noticiaDestacadaRef.current.value,
       tituloNoticia: tituloNoticiaRef.current.value,
       descripcionNoticia: descripcionNoticiaRef.current.value,
       imagen: imagenRef.current.value,
@@ -103,7 +103,7 @@ const EditarNoticia = (props) => {
         <Form.Group className="d-flex">
           <Form.Label>Noticia destacada</Form.Label>
           <p className="mr-1 ml-4">No</p>
-          <Form.Check type="switch" id="destaca" label="Si" />
+          <Form.Check type="switch" id="destaca" label="Si" defaultValue={props.noticia.noticiaDestacada}/>
         </Form.Group>
 
         <Form.Group>

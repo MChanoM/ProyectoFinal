@@ -100,7 +100,7 @@ const Header = (props) => {
           <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
           <Link onClick={handleShow} className="btn btn-outline-info">{props.btnIngresar}</Link>
           
-          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info">Administrar</Link>) : null}
+          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info ml-2">Administrar</Link>) : null}
 
         </Navbar.Collapse>
       </Navbar>

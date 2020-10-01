@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faShare } from "@fortawesome/free-solid-svg-icons";
+import ReactHtmlParser from 'react-html-parser';
 
 const PaginaNoticia = (props) => {
   return (
@@ -9,7 +10,7 @@ const PaginaNoticia = (props) => {
       <span class="badge badge-pill badge-success mt-4">
         {props.noticia.categoria}
       </span>
-      <section className="borde mt-2">
+      <section className="mt-2">
         <h1>{props.noticia.tituloNoticia}</h1>
         <p>{props.noticia.descripcionNoticia}</p>
       </section>
@@ -32,8 +33,8 @@ const PaginaNoticia = (props) => {
         />
       </section>
 
-      <section className="borde mb-4">
-        <p className="lead">{props.noticia.cuerpoNoticia}</p>
+      <section className="mb-4">
+        <p className="lead">{ReactHtmlParser(props.noticia.cuerpoNoticia)}</p>
       </section>
     </Container>
   );
