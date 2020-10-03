@@ -5,11 +5,11 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
-  const [noticiaDestacada, setNoticiaDestacada] = useState(false);
+  const [noticiaDestacada, setNoticiaDestacada] = useState("");
+  const [cuerpoNoticiaEdit, setCuerpoNoticia] = useState("");
   //aca creo los ref
   const noticiaDestacadaRef = useRef("");
   const tituloNoticiaRef = useRef("");
@@ -22,19 +22,27 @@ const EditarNoticia = (props) => {
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
+  const destacaNoticia = (e) => {
+    setNoticiaDestacada(e.target.value);
+  };
+  const edicionCuerpoNoticia = (data) => {
+    setCuerpoNoticia(data);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // validar datos
     let _categoria = categoria === "" ? props.noticia.categoria : categoria;
     console.log(cuerpoNoticiaRef);
+    let _destacada = noticiaDestacada === "" ? props.noticia.noticiaDestacada : noticiaDestacada;
     if (
+      _destacada === "" ||
       tituloNoticiaRef.current.value.trim() === "" ||
       descripcionNoticiaRef.current.value.trim() === "" ||
       _categoria === "" ||
       imagenRef.current.value.trim() === "" ||
       autorNoticiaRef.current.value.trim() === "" ||
-      fechaNoticiaRef.current.value.trim() === "" 
+      fechaNoticiaRef.current.value.trim() === ""
       // cuerpoNoticiaRef.current.value.trim() === ""
     ) {
       setError(true);
@@ -45,11 +53,10 @@ const EditarNoticia = (props) => {
 
     // preparar el objeto con los nuevos datos
     const noticiaEditada = {
-      noticiaDestacada: noticiaDestacadaRef.current.value,
       tituloNoticia: tituloNoticiaRef.current.value,
       descripcionNoticia: descripcionNoticiaRef.current.value,
       imagen: imagenRef.current.value,
-      cuerpoNoticia: cuerpoNoticiaRef.current.value,
+      cuerpoNoticia: cuerpoNoticiaEdit,
       autorNoticia: autorNoticiaRef.current.value,
       fechaNoticia: fechaNoticiaRef.current.value,
       categoria: _categoria,
@@ -103,7 +110,12 @@ const EditarNoticia = (props) => {
         <Form.Group className="d-flex">
           <Form.Label>Noticia destacada</Form.Label>
           <p className="mr-1 ml-4">No</p>
-          <Form.Check type="switch" id="destaca" label="Si" defaultValue={props.noticia.noticiaDestacada}/>
+          <Form.Check
+            type="switch"
+            id="destacaEdit"
+            label="Si"
+            defaultChecked={props.noticia.noticiaDestacada}
+          />
         </Form.Group>
 
         <Form.Group>
@@ -140,6 +152,7 @@ const EditarNoticia = (props) => {
             defaultValue={props.noticia.cuerpoNoticia}
           /> */}
           <CKEditor
+            // ref={cuerpoNoticiaRef}
             editor={ClassicEditor}
             data={props.noticia.cuerpoNoticia}
             onInit={(editor) => {
@@ -149,9 +162,9 @@ const EditarNoticia = (props) => {
             onChange={(event, editor) => {
               const data = editor.getData();
               console.log({ event, editor, data });
-              
+              edicionCuerpoNoticia(data);
             }}
-            ref={cuerpoNoticiaRef}
+            
           />
         </Form.Group>
         <Form.Group>

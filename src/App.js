@@ -232,7 +232,6 @@ function App() {
             const noticiaSeleccionada = listaNoticias.find(
               (noticia) => noticia._id === idNoticia
             );
-            // console.log(noticiaSeleccionada);
             //Renderizo EditarNotica
             return (
               <EditarNoticia
