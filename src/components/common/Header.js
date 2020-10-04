@@ -108,8 +108,13 @@ const Header = (props) => {
           <Dropdown.Item onClick={handleShow}>{props.btnIngresar}</Dropdown.Item>
           </DropdownButton>) : <Button variant="primary" onClick={handleShow}>Ingresar</Button>}
 
-         
-          <Link to="/suscribirse" className="btn btn-success ml-2">Suscribirse</Link>
+
+          {/* <Button className="btn btn-success mx-2">Suscribite</Button> */}
+          <Link to="/suscribirse" className="btn btn-success mr-2">Suscribirse</Link>
+          <Link onClick={handleShow} className="btn btn-outline-info">{props.btnIngresar}</Link>
+          
+          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info ml-2">Administrar</Link>) : null}
+
         </Navbar.Collapse>
       </Navbar>
 

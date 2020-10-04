@@ -3,7 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import CKEditor from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { withRouter } from "react-router";
 import configs from '../../../urlconfig';
 
@@ -18,7 +20,7 @@ const AgregarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
 
-  const authToken = sessionStorage.getItem('authtoken');
+  const authToken = sessionStorage.getItem("authtoken");
 
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
@@ -29,7 +31,15 @@ const AgregarNoticia = (props) => {
     e.target.reset();
     console.log("en funcion submit");
     //valido datos
-    if (tituloNoticia.trim() === "" || descripcionNoticia.trim() === "" || descripcionNoticia.trim() === "" || imagen.trim() === "" || cuerpoNoticia.trim() === "" || autorNoticia.trim() === "" || fechaNoticia.trim() === "") {
+    if (
+      tituloNoticia.trim() === "" ||
+      descripcionNoticia.trim() === "" ||
+      descripcionNoticia.trim() === "" ||
+      imagen.trim() === "" ||
+      cuerpoNoticia.trim() === "" ||
+      autorNoticia.trim() === "" ||
+      fechaNoticia.trim() === ""
+    ) {
       //mostrar error
       setError(true);
       return;
@@ -45,8 +55,8 @@ const AgregarNoticia = (props) => {
       cuerpoNoticia,
       autorNoticia,
       fechaNoticia,
-      categoria
-    }
+      categoria,
+    };
 
     //agregamos estructura para manejar errores
     try {
@@ -54,48 +64,44 @@ const AgregarNoticia = (props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          ['x-access-token'] : authToken
+          ["x-access-token"]: authToken,
         },
-        body: JSON.stringify(datos)
-      }
-      const resultado = await fetch(`${configs.urlBackend}/api/noticias`,cabecera);
-      
+        body: JSON.stringify(datos),
+      };
+      const resultado = await fetch(
+        "https://newsprorc.herokuapp.com/api/noticias",
+        cabecera
+      );
 
       if (resultado.status === 201) {
         Swal.fire(
-          'Noticia Creada',
-          'La noticia se agregó correctamente',
-          'success'
-        )
+          "Noticia Creada",
+          "La noticia se agregó correctamente",
+          "success"
+        );
         props.consultarNoticias();
-        props.history.push('/admin');
+        props.history.push("/admin");
       } else {
         Swal.fire(
-          'Oopss...',
-          'Ocurrió un error, intentelo nuevamente',
-          'error'
-        )
+          "Oopss...",
+          "Ocurrió un error, intentelo nuevamente",
+          "error"
+        );
       }
-
     } catch (excepcion) {
       console.log(excepcion);
-      Swal.fire(
-        'Oopss...',
-        'Ocurrió un error, intentelo nuevamente',
-        'error'
-      )
+      Swal.fire("Oopss...", "Ocurrió un error, intentelo nuevamente", "error");
     }
-
-  }
+  };
 
   return (
     <Container>
       <h2 className="w-100 text-center my-4">Agregar una Noticia</h2>
       <hr></hr>
       <Form onSubmit={handleSubmit}>
-        {
-          (error) ? <Alert variant={"danger"}>Todos los campos son obligatorios</Alert> : null
-        }
+        {error ? (
+          <Alert variant={"danger"}>Todos los campos son obligatorios</Alert>
+        ) : null}
         <Form.Group className="d-flex">
           <Form.Label>Noticia destacada</Form.Label>
           <p className="mr-1 ml-4">No</p>
@@ -134,10 +140,19 @@ const AgregarNoticia = (props) => {
         </Form.Group>
         <Form.Group controlId="cuerpoNoticia">
           <Form.Label>Cuerpo de la noticia *</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows="10"
-            onChange={(e) => setCuerpoNoticia(e.target.value)}
+
+          <CKEditor
+            editor={ClassicEditor}
+            data=""
+            onInit={(editor) => {
+              // You can store the "editor" and use when it is needed.
+              console.log("Editor is ready to use!", editor);
+            }}
+            onChange={(event, editor) => {
+              const data = editor.getData();
+              console.log({ event, editor, data });
+              setCuerpoNoticia(data);
+            }}
           />
         </Form.Group>
         <Form.Group>
@@ -162,9 +177,9 @@ const AgregarNoticia = (props) => {
           </Form.Label>
         </Form.Group>
         <div className="text-center mb-4">
-          {
-            props.listaCategorias.map((item, pos) => {
-              return (<Form.Check
+          {props.listaCategorias.map((item, pos) => {
+            return (
+              <Form.Check
                 key={pos}
                 inline
                 label={item.nombreCategoria}
@@ -172,9 +187,9 @@ const AgregarNoticia = (props) => {
                 value={item.nombreCategoria}
                 name="categoria"
                 onChange={seleccionarCategoria}
-              ></Form.Check>)
-            })
-          }
+              ></Form.Check>
+            );
+          })}
         </div>
 
         <Button className="w-100 mb-4 " variant="danger" type="submit">

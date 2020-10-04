@@ -18,7 +18,7 @@ const ListaNoticias = (props) => {
       >
         <thead>
           <tr>
-            <th>Id</th>
+            
             <th>Título</th>
             <th>Autor</th>
             <th>Descripcin</th>

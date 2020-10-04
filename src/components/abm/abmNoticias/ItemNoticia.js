@@ -64,7 +64,7 @@ const ItemNoticia = (props) => {
 
   return (
     <tr>
-      <td>{props.item._id}</td>
+      
       <td>{props.item.tituloNoticia}</td>
       <td>{props.item.autorNoticia}</td>
       <td>{props.item.descripcionNoticia}</td>

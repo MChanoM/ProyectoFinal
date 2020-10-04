@@ -19,7 +19,7 @@ const ListaCategorias = (props) => {
       >
         <thead>
           <tr>
-            <th>Id</th>
+            
             <th>Nombre</th>
             <th>Estado</th>
             <th>Acciones</th>

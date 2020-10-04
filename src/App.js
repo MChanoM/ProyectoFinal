@@ -161,12 +161,17 @@ function App() {
             const categoriaSeleccionada = listaCategorias.find(
               (categoria) => categoria._id === idCategoria
             );
+            const idNoticia = props.match.params.id;
+            const noticiaSeleccionada = listaNoticias.find(
+              (noticia) => noticia._id === idNoticia
+            );
             return (
               <PaginaCategoria
                 listaNoticias={listaNoticias}
                 categoria={categoriaSeleccionada}
                 listaCategorias={listaCategorias}
                 consultarCat={consultarCat}
+                noticia={noticiaSeleccionada}
               ></PaginaCategoria>
             );
           }}
@@ -224,18 +229,17 @@ function App() {
           render={(props) => {
             //Obtengo el id de la ruta
             const idNoticia = props.match.params.id;
-            // console.log(idNoticia);
             //Filtro el arreglo de noticias y agarro el que coincide con el id
             const noticiaSeleccionada = listaNoticias.find(
               (noticia) => noticia._id === idNoticia
             );
-            // console.log(noticiaSeleccionada);
             //Renderizo EditarNotica
             return (
               <EditarNoticia
                 noticia={noticiaSeleccionada}
                 consultarNoticias={consultarNoticias}
                 listaCategorias={listaCategorias}
+                listaNoticias={listaNoticias}
               ></EditarNoticia>
             );
           }}
