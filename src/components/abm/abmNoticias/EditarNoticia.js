@@ -8,10 +8,10 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
-  // const [noticiaDestacada, setNoticiaDestacada] = useState("");
+  const [noticiaDestacada, setNoticiaDestacada] = useState("");
   const [cuerpoNoticiaEdit, setCuerpoNoticia] = useState("");
   //aca creo los ref
-  // const noticiaDestacadaRef = useRef("");
+  const noticiaDestacadaRef = useRef("");
   const tituloNoticiaRef = useRef("");
   const descripcionNoticiaRef = useRef("");
   const imagenRef = useRef("");
@@ -22,9 +22,9 @@ const EditarNoticia = (props) => {
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
-  // const destacaNoticia = (e) => {
-  //   setNoticiaDestacada(e.target.value);
-  // };
+  const destacaNoticia = (e) => {
+    setNoticiaDestacada(e.target.value);
+  };
   const edicionCuerpoNoticia = (data) => {
     setCuerpoNoticia(data);
   }
