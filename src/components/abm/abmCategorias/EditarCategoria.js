@@ -9,6 +9,7 @@ import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 
+
 const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
   const [estado, setEstado] = useState("");

@@ -8,6 +8,7 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { withRouter } from "react-router";
 
+
 const AgregarNoticia = (props) => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
   const [tituloNoticia, setTituloNoticia] = useState("");
@@ -165,7 +166,7 @@ const AgregarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
           <Form.Control
-            placeholder="DD/MM/AAAA"
+            // placeholder="DD/MM/AAAA"
             type="date"
             onChange={(e) => setFechaNoticia(e.target.value)}
           ></Form.Control>

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
+
 const EditarNoticia = (props) => {
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
@@ -33,10 +34,7 @@ const EditarNoticia = (props) => {
     e.preventDefault();
     // validar datos
     let _categoria = categoria === "" ? props.noticia.categoria : categoria;
-    console.log(cuerpoNoticiaRef);
-    let _destacada = noticiaDestacada === "" ? props.noticia.noticiaDestacada : noticiaDestacada;
     if (
-      _destacada === "" ||
       tituloNoticiaRef.current.value.trim() === "" ||
       descripcionNoticiaRef.current.value.trim() === "" ||
       _categoria === "" ||
@@ -145,19 +143,12 @@ const EditarNoticia = (props) => {
         </Form.Group>
         <Form.Group controlId="cuerpoNoticia">
           <Form.Label>Cuerpo de la noticia *</Form.Label>
-          {/* <Form.Control
-            as="textarea"
-            rows="10"
-            ref={cuerpoNoticiaRef}
-            defaultValue={props.noticia.cuerpoNoticia}
-          /> */}
           <CKEditor
-            // ref={cuerpoNoticiaRef}
             editor={ClassicEditor}
             data={props.noticia.cuerpoNoticia}
             onInit={(editor) => {
-              // You can store the "editor" and use when it is needed.
-              console.log("Editor is ready to use!", editor);
+
+              console.log("CKEditor vive!", editor);
             }}
             onChange={(event, editor) => {
               const data = editor.getData();
