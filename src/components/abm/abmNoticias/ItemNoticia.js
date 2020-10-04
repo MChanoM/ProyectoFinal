@@ -8,12 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
-<<<<<<< HEAD
 import configs from '../../../urlconfig';
-=======
 import moment from 'moment';
 import 'moment/locale/es-do';
->>>>>>> dev-leo
 
 const ItemNoticia = (props) => {
 
