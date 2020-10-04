@@ -8,11 +8,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
+<<<<<<< HEAD
 import configs from '../../../urlconfig';
+=======
+import moment from 'moment';
+import 'moment/locale/es-do';
+>>>>>>> dev-leo
 
 const ItemNoticia = (props) => {
 
   const authToken = sessionStorage.getItem('authtoken');
+  moment.locale('es');
 
   const eliminarNoticia = (idNoticia) => {
     console.log(idNoticia);
@@ -69,7 +75,7 @@ const ItemNoticia = (props) => {
       <td>{props.item.autorNoticia}</td>
       <td>{props.item.descripcionNoticia}</td>
       <td>{props.item.categoria}</td>
-      <td>{props.item.fechaNoticia}</td>
+      <td>{moment(props.item.fechaNoticia).add(1,'d').format('L')}</td>
       <td>
         <Link to={"/"} className="mr-2 text-success">
           <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>

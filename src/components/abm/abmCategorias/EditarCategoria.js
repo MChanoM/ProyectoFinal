@@ -10,6 +10,7 @@ import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 import configs from '../../../urlconfig';
 
+
 const EditarCategoria = (props) => {
   const [error, setError] = useState(false);
   const [estado, setEstado] = useState("");

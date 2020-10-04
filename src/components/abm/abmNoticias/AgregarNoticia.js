@@ -7,7 +7,13 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { withRouter } from "react-router";
+<<<<<<< HEAD
 import configs from '../../../urlconfig';
+=======
+import moment from 'moment';
+import 'moment/locale/es-do';
+
+>>>>>>> dev-leo
 
 const AgregarNoticia = (props) => {
   const [noticiaDestacada, setNoticiaDestacada] = useState(false);
@@ -166,7 +172,7 @@ const AgregarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
           <Form.Control
-            placeholder="DD/MM/AAAA"
+            // placeholder="DD/MM/AAAA"
             type="date"
             onChange={(e) => setFechaNoticia(e.target.value)}
           ></Form.Control>
