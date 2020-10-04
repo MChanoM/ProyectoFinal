@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import moment from 'moment';
-import 'moment/locale/es';
+import 'moment/locale/es-do';
 
 const ItemNoticia = (props) => {
 
