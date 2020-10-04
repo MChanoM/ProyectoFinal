@@ -20,7 +20,7 @@ const PaginaNoticia = (props) => {
       <div className="d-flex justify-content-around">
         <p>Por {props.noticia.autorNoticia}</p>
         <div className="d-flex flex-column">
-          <p>{moment(props.noticia.fechaNoticia).format('LL')}</p>
+          <p>{moment(props.noticia.fechaNoticia).add(1,'d').format('LL')}</p>
         </div>
         <div>
           <FontAwesomeIcon icon={faThumbsUp} size="1x" className="mx-2" />
