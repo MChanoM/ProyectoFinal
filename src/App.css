@@ -131,14 +131,14 @@
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
-  padding: 6px 0px;
+  padding: 2px 0px;
 }
 .cuadroGoogle {
   background-color: rgb(66, 133, 244);
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
-  padding: 6px 0px;
+  padding: 2px 0px;
 }
 .cuadroGoogle:hover {
   background-color: rgb(66, 133, 244, 0.93);
@@ -218,6 +218,8 @@ No media query for `xs` since this is the default in Bootstrap */
   /* Pagina Inicio */
   .anchoCard{
     width: 45%;}}
+
+
 /* NOTICIAS DESTACADAS SLIDER */
 .slides .slick-prev,
 .slides .slick-next {
@@ -275,4 +277,29 @@ No media query for `xs` since this is the default in Bootstrap */
   .tituloNoticia{
    font-size: smaller!important;
   }
+}
+
+/* categorias */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+.tituloCategoria{
+  background: darkblue;
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+  position:relative;
+	/* display: inline-block; */
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 45px;
+	font-size:25px;
+	color:#FFF;
+	background-color:#222;
+  padding:0px 15px;
+}
+
+.tituloCategoria:hover{
+  background: #EF233C;
+}
+
+.tituloNoticiaCard{
+  text-transform: uppercase;
 }

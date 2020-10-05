@@ -1,5 +1,5 @@
 import React from "react";
-import "../../App.css"
+import "../../App.css";
 import { Container, Card, CardImg } from "react-bootstrap";
 import Logo from "../../img/publicidad.png";
 import CardCategoria from "./CardCategoria";
@@ -8,7 +8,7 @@ import NoticiasDestacadas from "../principal/NoticiasDestacadas";
 const PaginaInicio = (props) => {
   return (
     <section className="text-center my-4">
-        <h2 className="text-left mt-4 display-4">Último Momento</h2>
+      <h2 className="text-left mt-4 display-4">Último Momento</h2>
       <NoticiasDestacadas
         listaNoticias={props.listaNoticias}
       ></NoticiasDestacadas>
@@ -115,28 +115,50 @@ const PaginaInicio = (props) => {
         </div> */}
 
         {/* Seccion de Categorias */}
-        {props.listaCategorias.map((item, pos) => {
-          return (
-            <CardCategoria
-            item={item}
-            key={pos}
-            listaNoticias={props.listaNoticias}
-          ></CardCategoria>
-          );
-        })}
-
-        {/* Publicidad */}
-        <div className="col-sm-12 col-md-3 mb-3">
-          <Card>
-          <CardImg
+        <div className="row">
+          <div className="col-sm-12 col-md-8">
+            <div className="row">
+              <div className="col-sm-12 col-md-6">
+                {props.listaCategorias.map((item, pos) => {
+                  if (pos >= 0 && pos <= 3) {
+                    return (
+                      <CardCategoria
+                        item={item}
+                        key={pos}
+                        listaNoticias={props.listaNoticias}
+                      ></CardCategoria>
+                    );
+                  }
+                })}
+              </div>
+              <div className="col-sm-12 col-md-6">
+                {props.listaCategorias.map((item, pos) => {
+                  if (pos >= 5 && pos <= 9) {
+                    return (
+                      <CardCategoria
+                        item={item}
+                        key={pos}
+                        listaNoticias={props.listaNoticias}
+                      ></CardCategoria>
+                    );
+                  }
+                })}
+              </div>
+            </div>
+          </div>
+          {/* Publicidad */}
+          <div className="col-md-4 d-none d-md-block">
+            <Card>
+              <CardImg
                 src={Logo}
                 className="d-inline-block align-top"
                 alt="Anuncio"
               />
-          </Card>
+            </Card>
+            <hr/>
+          </div>
         </div>
 
-     
         <hr className="mb-4" />
         <div className="d-none d-md-block ">
           <div className="row justify-content-center">

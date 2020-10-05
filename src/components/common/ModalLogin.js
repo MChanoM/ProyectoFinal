@@ -143,36 +143,36 @@ const ModalLogin = (props) => {
             </h1>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="text-center">
+        <Modal.Body className="text-center container">
           <h4>Ingresá con tu cuenta de Facebook o Google</h4>
           <Link to={"/*"} onClick={handleClose} className="linkModal">
             <div className="d-flex justify-content-center cuadroFacebook">
               <FontAwesomeIcon
                 icon={faFacebook}
-                size="3x"
+                size="2x"
                 className="facebook mx-2 ml-4"
               />
-              <p className="my-2">Ingresá con facebook.</p>
+              <p className="my-2">Ingresá con Facebook</p>
             </div>
           </Link>
           <Link to={"/*"} onClick={handleClose} className="linkModal">
             <div className="d-flex justify-content-center cuadroGoogle">
               <FontAwesomeIcon
                 icon={faGoogle}
-                size="3x"
+                size="2x"
                 className="google mx-2 ml-4"
               />
-              <p className="my-2">Ingresá con Google.</p>
+              <p className="my-2">Ingresá con Google</p>
             </div>
           </Link>
           <hr />
           {forgetPass ? null : (
             <Form onSubmit={handleSubmit}>
-              <h4>Ingresá tus datos de acceso</h4>
-              <div className="row mt-4 text-left">
+              <h4>Ingresá con tu usuario y contraseña</h4>
+              <div className="mt-4 text-left">
                 <Form.Group
                   controlId="formBasicEmail"
-                  className="col-sm-12 col-md-6"
+                  className="col-12"
                 >
                   <Form.Label>Usuario</Form.Label>
                   <Form.Control
@@ -186,7 +186,7 @@ const ModalLogin = (props) => {
 
                 <Form.Group
                   controlId="formBasicPassword"
-                  className="col-sm-12 col-md-6"
+                  className="col-12"
                 >
                   <Form.Label>Contraseña</Form.Label>
                   <Form.Control
@@ -196,19 +196,31 @@ const ModalLogin = (props) => {
                       setPass(e.target.value);
                     }}
                   />
+                  <div className="small text-right">
+                  <a
+                    onClick={() => {
+                      setError(false);
+                      setForgetPass(true);
+                    }}
+                    className="mt-0 text-info"
+                  >
+                    Recuperar mi contraseña
+                  </a>
+                </div>
                 </Form.Group>
+                
               </div>
-              <div className="container">
-                <div className="row">
-                  <div className="w-100 mt-3 text-right">
-                    <Button className="mr-2" variant="primary" type="submit">
+              
+                {/* <div className="row"> */}
+                  <div className="mt-3">
+                    <Button className="btn btn-block my-2" variant="primary" type="submit">
                       Iniciar sesión
                     </Button>
-                    <Button variant="danger" onClick={handleClose}>
+                    <Button className="btn btn-block my-2" variant="danger" onClick={handleClose}>
                       Cerrar
                     </Button>
                   </div>
-                </div>
+                {/* </div> */}
                 {errorTres ? (
                   <Alert className="mt-3" variant={"primary"}>
                     Ingresa tus credenciales antes de continuar!
@@ -219,18 +231,7 @@ const ModalLogin = (props) => {
                     Las Credenciales son incorrectas!
                   </Alert>
                 ) : null}
-                <div className="row justify-content-end">
-                  <a
-                    onClick={() => {
-                      setError(false);
-                      setForgetPass(true);
-                    }}
-                    className="mt-3"
-                  >
-                    Recuperar mi contraseña
-                  </a>
-                </div>
-              </div>
+              
             </Form>
           )}
           {forgetPass ? (
@@ -269,7 +270,6 @@ const ModalLogin = (props) => {
             </Form>
           ) : null}
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );

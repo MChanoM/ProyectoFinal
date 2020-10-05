@@ -9,6 +9,8 @@ import {
   faTwitter
 } from "@fortawesome/free-brands-svg-icons";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+
 
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,21 +21,30 @@ const Footer = () => {
         <Row className="justify-content-center align-items-center">
           <Col sm={12} md={4} className="text-center">
             <p className="text-white">Seguinos en nuestras redes sociales:</p>
+            <a target="_blank" href="https://www.facebook.com">
             <FontAwesomeIcon
               icon={faFacebook}
               size="3x"
               className="facebook mx-2"
             />
+            </a>
+            
+            <a href="http://www.instagram.com" target="_blank">
             <FontAwesomeIcon
               icon={faInstagram}
               size="3x"
               className="instagram mx-2"
             />
+            </a>
+            
+            <a href="http://www.twitter.com" target="_blank">
             <FontAwesomeIcon
               icon={faTwitter}
               size="3x"
               className="twitter mx-2"
             />
+            </a>
+            
           </Col>
           <Col sm={12} md={4} className="text-center">
             <h1 className="text-center my-4 py-2 tituloFooter">NewsPro<span className="punto">.</span></h1>
@@ -42,15 +53,16 @@ const Footer = () => {
             <p className="text-white">
               Enterate de las noticias mas importantes primero!
             </p>
-            <a className="mx-2 text-white h5">Suscribite</a>
+            {/* <a className="">Suscribite</a> */}
+            <Link to="/suscribirse" className="mx-2 text-white h5">Suscribirse</Link>
           </Col>
         </Row>
         <hr />
         <Row className="d-flex justify-content-around">
-          <Button variant="outline-secondary">Mapa del sitio</Button>
-          <Button variant="outline-secondary">Ayuda</Button>
-          <Button variant="outline-secondary">Columnistas</Button>
-          <Button variant="outline-secondary">¿Como anunciar?</Button>
+          <Button variant="outline-secondary" href="/*">Mapa del sitio</Button>
+          <Button variant="outline-secondary" href="/*">Ayuda</Button>
+          <Button variant="outline-secondary" href="/*">Columnistas</Button>
+          <Button variant="outline-secondary" href="/*">¿Como anunciar?</Button>
         </Row>
         <hr />
         <div className="">
