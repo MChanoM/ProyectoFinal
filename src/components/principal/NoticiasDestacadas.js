@@ -46,7 +46,7 @@ class NoticiasDestacadas extends Component {
           {listaNoticia.map((item, pos) => {
             if (item.noticiaDestacada === "on") {
               return (
-                <div>
+                <div key={pos}>
                   <img
                     className="w-100 imagen"
                     src={item.imagen}

@@ -42,17 +42,19 @@ const ApiMoneda = (props) => {
 
   return (
     <Row className="d-flex justify-content-start align-items-center mt-3">
+      <div className="p-2 mb-3 bg-danger text-white text-center d-none d-md-block"><span className="font-weight-bold">Monedas hoy</span>
+      </div>
       <div className="d-flex align-items-center euro">
-        <p className="desc">EURO</p>
-        <p className="moneda"> {dataMoneda.EUR_ARS}</p>
+        <p className="desc">EURO:</p>
+        <p className="moneda">${dataMoneda.EUR_ARS}</p>
       </div>
       <div className="d-flex align-items-center dolar">
-        <p className="desc">DOLAR</p>
-        <p className="moneda">{dataMoneda.USD_ARS}</p>
+        <p className="desc">DOLAR:</p>
+        <p className="moneda">${dataMoneda.USD_ARS}</p>
       </div>
       <div className="d-flex align-items-center dolar">
-        <p className="descBtc">BTC</p>
-        <p className="moneda btc">{dataMoneda.BTC_ARS}</p>
+        <p className="descBtc">BITCOIN:</p>
+        <p className="moneda btc">${dataMoneda.BTC_ARS}</p>
       </div>
     </Row>
   );

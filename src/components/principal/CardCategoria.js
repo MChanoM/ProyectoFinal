@@ -7,10 +7,10 @@ const CardCategoria = (props) => {
 
   return (
     <div className="mb-2">
-      <Link to={`/pagcategoria/${props.item._id}`}><h4 className="text-left">{props.item.nombreCategoria}</h4></Link>
+      <Link to={`/pagcategoria/${props.item._id}`}><h5 className="text-left tituloCategoria">{props.item.nombreCategoria}</h5></Link>
       <hr></hr>
       <div className="row justify-content-around my-2">
-        {props.listaNoticias.map((item, pos) => {
+      {props.listaNoticias.map((item, pos) => {
           if (item.categoria === props.item.nombreCategoria && item.noticiaDestacada === "on") {
             return (
               <CardNoticia
@@ -26,6 +26,7 @@ const CardCategoria = (props) => {
             );
           }
         })}
+        
       </div>
     </div>
   );

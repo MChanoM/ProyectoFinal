@@ -6,7 +6,7 @@
   font-size: 75px;
 }
 
-.fuente{
+.fuente {
   font-family: "Noto Serif", serif;
 }
 
@@ -96,8 +96,6 @@
   }
 }
 
-
-
 /* PAGINA SUSCRIPCION */
 .cardsSuscripcion {
   background-color: #e6e6e6;
@@ -131,14 +129,14 @@
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
-  padding: 6px 0px;
+  padding: 2px 0px;
 }
 .cuadroGoogle {
   background-color: rgb(66, 133, 244);
   margin: 5% 13%;
   border-radius: 4px;
   color: white;
-  padding: 6px 0px;
+  padding: 2px 0px;
 }
 .cuadroGoogle:hover {
   background-color: rgb(66, 133, 244, 0.93);
@@ -162,8 +160,7 @@
   font-family: "Noto Serif", serif;
 }
 
-
-.btnAcciones:hover{
+.btnAcciones:hover {
   cursor: pointer;
   opacity: 70%;
 }
@@ -174,12 +171,12 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Extra Small devices (576px and up) */
 @media (max-width: 575px) {
   /* Pagina Inicio */
-  .anchoCard{
+  .anchoCard {
     width: 90%;
   }
 
   /* Pagina Categoria */
-  .publicidadNone{
+  .publicidadNone {
     display: none;
   }
 }
@@ -187,12 +184,12 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767px) {
   /* Pagina Inicio */
-  .anchoCard{
+  .anchoCard {
     width: 45%;
   }
 
   /* Pagina Categoria */
-  .publicidadNone{
+  .publicidadNone {
     display: none;
   }
 }
@@ -200,7 +197,7 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
   /* Pagina Inicio */
-  .anchoCard{
+  .anchoCard {
     width: 45%;
   }
 }
@@ -208,7 +205,7 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Pagina Inicio */
-  .anchoCard{
+  .anchoCard {
     width: 45%;
   }
 }
@@ -216,8 +213,11 @@ No media query for `xs` since this is the default in Bootstrap */
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   /* Pagina Inicio */
-  .anchoCard{
-    width: 45%;}}
+  .anchoCard {
+    width: 45%;
+  }
+}
+
 /* NOTICIAS DESTACADAS SLIDER */
 .slides .slick-prev,
 .slides .slick-next {
@@ -242,7 +242,7 @@ No media query for `xs` since this is the default in Bootstrap */
   position: relative;
 }
 
-.imagen{
+.imagen {
   position: relative;
   /* height:75vh; */
   height: 450px;
@@ -260,19 +260,166 @@ No media query for `xs` since this is the default in Bootstrap */
   color: #000;
 }
 @media (max-width: 768px) {
-  .imagen{
-    height: 350px!important;
+  .imagen {
+    height: 350px !important;
   }
-  .tituloNoticia{
-    font-size: small!important;
+  .tituloNoticia {
+    font-size: small !important;
   }
 }
 
 @media (max-width: 576px) {
-  .imagen{
-    height:250px!important;
+  .imagen {
+    height: 250px !important;
   }
-  .tituloNoticia{
-   font-size: smaller!important;
+  .tituloNoticia {
+    font-size: smaller !important;
   }
+}
+
+/* categorias */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+.tituloCategoria {
+  background: darkblue;
+  text-transform: uppercase;
+  font-family: "Anton", sans-serif;
+  position: relative;
+  /* display: inline-block; */
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 45px;
+  font-size: 25px;
+  color: #fff;
+  background-color: #222;
+  padding: 0px 15px;
+}
+
+.tituloCategoria:hover {
+  background: #ef233c;
+}
+
+.tituloNoticiaCard {
+  text-transform: uppercase;
+}
+
+/* sidebar caserito */
+
+body {
+  overflow-x: hidden;
+}
+
+.nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  /* opacity: .9; */
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.7s;
+}
+
+.nav a {
+  display: block;
+  padding: 10px 30px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #fff;
+  margin: 0;
+  border-bottom: 1px solid #aaa;
+}
+
+.nav a:first-child {
+  border: none;
+}
+
+.nav a:hover {
+  color: #fff;
+  transition: 0.4s;
+}
+
+.nav .close {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  margin-left: 50px;
+  font-size: 30px;
+}
+
+.slide a {
+  color: #fff;
+  font-size: 36px;
+}
+
+.slide a:hover {
+  color: #fff;
+}
+
+#content {
+  padding: 10px;
+  transition: margin-left 0.7s;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .slide a {
+    display: none !important;
+  }
+}
+
+/* redes sociales widget */
+.widget .widget-title {
+	margin-bottom:15px;
+	text-align:center;
+}
+
+.widget .widget-title {
+	font-size:15px;
+	text-transform: uppercase;
+	margin-top:0px;
+}
+
+.social-widget ul li {
+  display: inline-block;
+}
+
+.social-widget ul li a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.widget.social-widget ul li {
+  width: 50%;
+  padding: 3px;
+}
+
+.social-widget ul li a.facebookw {
+  color: #fff !important;
+  background-color: #3b5999;
+}
+
+.social-widget ul li a.twitterw {
+  color: #fff !important;
+  background-color: #00aced;
+}
+
+.social-widget ul li a.instagramw {
+  color: #fff !important;
+  background-color: #8a3ab9;
+}
+
+.social-widget ul li a.youtubew {
+  color: #fff !important;
+  background-color: #e31010;
+}
+
+.social-widget ul li a:hover {
+  opacity: 0.8;
 }
