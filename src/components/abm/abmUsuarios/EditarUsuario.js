@@ -4,9 +4,9 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-import InputGroup from "react-bootstrap/InputGroup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable } from "@fortawesome/free-solid-svg-icons";
+// import InputGroup from "react-bootstrap/InputGroup";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faTable } from "@fortawesome/free-solid-svg-icons";
 import { withRouter } from "react-router";
 import Swal from "sweetalert2";
 

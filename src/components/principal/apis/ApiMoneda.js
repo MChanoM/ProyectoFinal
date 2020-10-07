@@ -42,7 +42,7 @@ const ApiMoneda = (props) => {
 
   return (
     <Row className="d-flex justify-content-start align-items-center mt-3">
-      <div className="p-2 mb-3 bg-danger text-white text-center breaking-caret d-none d-md-block"><span class="font-weight-bold">Monedas hoy</span>
+      <div className="p-2 mb-3 bg-danger text-white text-center d-none d-md-block"><span className="font-weight-bold">Monedas hoy</span>
       </div>
       <div className="d-flex align-items-center euro">
         <p className="desc">EURO:</p>
