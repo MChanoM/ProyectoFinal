@@ -62,7 +62,7 @@ const Header = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto h5">
-            {/* navbar que se mostrara en dispositivos medianos y lg */}
+            {/* navbar que se mostrara en dispositivos lg y xl*/}
             {
               props.listaCategorias.map((item, pos) => {
                 if (item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||

@@ -370,3 +370,56 @@ body {
     display: none !important;
   }
 }
+
+/* redes sociales widget */
+.widget .widget-title {
+	margin-bottom:15px;
+	text-align:center;
+}
+
+.widget .widget-title {
+	font-size:15px;
+	text-transform: uppercase;
+	margin-top:0px;
+}
+
+.social-widget ul li {
+  display: inline-block;
+}
+
+.social-widget ul li a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.widget.social-widget ul li {
+  width: 50%;
+  padding: 3px;
+}
+
+.social-widget ul li a.facebookw {
+  color: #fff !important;
+  background-color: #3b5999;
+}
+
+.social-widget ul li a.twitterw {
+  color: #fff !important;
+  background-color: #00aced;
+}
+
+.social-widget ul li a.instagramw {
+  color: #fff !important;
+  background-color: #8a3ab9;
+}
+
+.social-widget ul li a.youtubew {
+  color: #fff !important;
+  background-color: #e31010;
+}
+
+.social-widget ul li a:hover {
+  opacity: 0.8;
+}
