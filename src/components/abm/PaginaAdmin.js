@@ -131,7 +131,7 @@ const PaginaAdmin = (props) => {
         <Row className="d-flex justify-content-between">
           <div className=" ">
             <Nav variant="pills" defaultActiveKey="/admin">
-              <Link>
+              <Nav.Item>
                 <Button
                   className="btn btn-info mr-1 mb-2"
                   onClick={() => {
@@ -141,8 +141,8 @@ const PaginaAdmin = (props) => {
                 >
                   Categorias
                 </Button>
-              </Link>
-              <Link>
+              </Nav.Item>
+              <Nav.Item>
                 <Button
                   className="btn btn-info mr-1"
                   onClick={() => {
@@ -152,8 +152,8 @@ const PaginaAdmin = (props) => {
                 >
                   Noticias
                 </Button>
-              </Link>
-              <Link>
+              </Nav.Item>
+              <Nav.Item>
                 <Button
                   className={`btn btn-info mr-1`}
                   onClick={() => {
@@ -165,12 +165,12 @@ const PaginaAdmin = (props) => {
                 >
                   Usuarios
                 </Button>
-              </Link>
-              <Link>
+              </Nav.Item>
+              <Nav.Item>
                 <Button className="btn btn-info " disabled>
                   Metricas
                 </Button>
-              </Link>
+              </Nav.Item>
             </Nav>
           </div>
           <div>
