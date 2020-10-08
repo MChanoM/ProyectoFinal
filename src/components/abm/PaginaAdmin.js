@@ -129,11 +129,11 @@ const PaginaAdmin = (props) => {
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
-          <div className="my-2 mr-auto">
+          <div className="mr-auto my-2 col-6">
             <div variant="pills" defaultActiveKey="/admin">
               <Link>
                 <Button
-                  className="btn btn-info mr-1"
+                  className="btn btn-info m-2"
                   onClick={() => {
                     handleOpc("cat");
                     setLoader(true);
@@ -144,7 +144,7 @@ const PaginaAdmin = (props) => {
               </Link>
               <Link>
                 <Button
-                  className="btn btn-info mr-1"
+                  className="btn btn-info m-2"
                   onClick={() => {
                     handleOpc("not");
                     setLoader(true);
@@ -155,7 +155,7 @@ const PaginaAdmin = (props) => {
               </Link>
               <Link>
                 <Button
-                  className={`btn btn-info mr-1`}
+                  className={`btn btn-info m-2`}
                   onClick={() => {
                     handleOpc("users");
                     setLoader(true);
@@ -167,20 +167,20 @@ const PaginaAdmin = (props) => {
                 </Button>
               </Link>
               <Link>
-                <Button className="btn btn-info " disabled>
+                <Button className="btn btn-info m-2" disabled>
                   Metricas
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="ml-auto">
-            <Link to={"/noticia/nueva"} className="btn btn-success ml-4">
+          <div className="ml-auto my-2 col-6">
+            <Link to={"/noticia/nueva"} className="btn btn-success m-2">
               Agregar Noticia
             </Link>
-            <Link to={"/categoria/nueva"} className="btn btn-success ml-2">
+            <Link to={"/categoria/nueva"} className="btn btn-success m-2">
               Agregar Categoria
             </Link>
-            <Link to={"/usuario/nuevo"} className={`btn btn-success ml-2 ${agregarUsuariosBtn}`}>
+            <Link to={"/usuario/nuevo"} className={`btn btn-success m-2 ${agregarUsuariosBtn}`}>
               Agregar Usuario
             </Link>
           </div>

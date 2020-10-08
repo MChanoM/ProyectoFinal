@@ -37,7 +37,7 @@ return (
                             item.nombreCategoria !== "Tecnología" && item.nombreCategoria !== "Deportes") {
                             return (<Link
                                 key={pos}
-                                href={`/pagcategoria/${item._id}`}
+                                to={`/pagcategoria/${item._id}`}
                             >{item.nombreCategoria}</Link>)
                         }
                     })
