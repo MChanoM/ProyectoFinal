@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 
 class NoticiasDestacadas extends Component {
   render(props) {
@@ -47,13 +48,14 @@ class NoticiasDestacadas extends Component {
             if (item.noticiaDestacada === "on") {
               return (
                 <div key={pos}>
+                  
                   <img
                     className="w-100 imagen"
                     src={item.imagen}
                     alt="imagen noticia"
-                    key={pos}
                   />
-                  <p className="tituloNoticia text-left fuente">{item.tituloNoticia}</p>
+                  <Link to={`/pagnoticia/${item._id}`}><p className="tituloNoticia text-left fuente">{item.tituloNoticia}</p></Link>
+                  {/* <p className="tituloNoticia text-left fuente">{item.tituloNoticia}</p> */}
                 </div>
               );
             }
