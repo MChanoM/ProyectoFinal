@@ -129,11 +129,11 @@ const PaginaAdmin = (props) => {
         </Row>
         <hr></hr>
         <Row className="d-flex justify-content-between">
-          <div className=" ">
-            <Nav variant="pills" defaultActiveKey="/admin">
-              <Nav.Item>
+          <div className="my-2 mr-auto">
+            <div variant="pills" defaultActiveKey="/admin">
+              <Link>
                 <Button
-                  className="btn btn-info mr-1 mb-2"
+                  className="btn btn-info mr-1"
                   onClick={() => {
                     handleOpc("cat");
                     setLoader(true);
@@ -141,8 +141,8 @@ const PaginaAdmin = (props) => {
                 >
                   Categorias
                 </Button>
-              </Nav.Item>
-              <Nav.Item>
+              </Link>
+              <Link>
                 <Button
                   className="btn btn-info mr-1"
                   onClick={() => {
@@ -152,8 +152,8 @@ const PaginaAdmin = (props) => {
                 >
                   Noticias
                 </Button>
-              </Nav.Item>
-              <Nav.Item>
+              </Link>
+              <Link>
                 <Button
                   className={`btn btn-info mr-1`}
                   onClick={() => {
@@ -165,15 +165,15 @@ const PaginaAdmin = (props) => {
                 >
                   Usuarios
                 </Button>
-              </Nav.Item>
-              <Nav.Item>
+              </Link>
+              <Link>
                 <Button className="btn btn-info " disabled>
                   Metricas
                 </Button>
-              </Nav.Item>
-            </Nav>
+              </Link>
+            </div>
           </div>
-          <div>
+          <div className="ml-auto">
             <Link to={"/noticia/nueva"} className="btn btn-success ml-4">
               Agregar Noticia
             </Link>

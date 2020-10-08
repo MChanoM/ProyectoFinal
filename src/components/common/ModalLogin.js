@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
-import configs from '../../urlconfig';
+import configs from "../../urlconfig";
 
 const ModalLogin = (props) => {
   //   const [show, setShow] = useState(false);
@@ -39,7 +39,7 @@ const ModalLogin = (props) => {
           usuario: user,
           password: pass,
         };
-     
+
         const cabecera = {
           method: "POST",
           headers: {
@@ -49,7 +49,7 @@ const ModalLogin = (props) => {
         };
         const loguear = await fetch(
           `${configs.urlBackend}/api/auth/login`,
-          
+
           cabecera
         );
         const data = await loguear.json();
@@ -80,7 +80,7 @@ const ModalLogin = (props) => {
               handleClose();
               props.setLoginAdmin(true);
               props.setBtnIngresar("Cerrar Sesion");
-              props.history.push('/admin')
+              props.history.push("/admin");
             }
           } else {
             setError(true);
@@ -130,6 +130,8 @@ const ModalLogin = (props) => {
     }
   };
 
+ 
+
   return (
     <>
       <Modal show={props.show} onHide={handleClose}>
@@ -142,8 +144,8 @@ const ModalLogin = (props) => {
         </Modal.Header>
         <Modal.Body className="text-center container">
           <h4>Ingresá con tu cuenta de Facebook o Google</h4>
-          <Link to={"/*"} onClick={handleClose} className="linkModal">
-            <div className="d-flex justify-content-center cuadroFacebook">
+          <Link to={"/"} onClick={handleClose} className="linkModal">
+          <div className="d-flex justify-content-center cuadroFacebook">
               <FontAwesomeIcon
                 icon={faFacebook}
                 size="2x"
@@ -167,10 +169,7 @@ const ModalLogin = (props) => {
             <Form onSubmit={handleSubmit}>
               <h4>Ingresá con tu usuario y contraseña</h4>
               <div className="mt-4 text-left">
-                <Form.Group
-                  controlId="formBasicEmail"
-                  className="col-12"
-                >
+                <Form.Group controlId="formBasicEmail" className="col-12">
                   <Form.Label>Usuario</Form.Label>
                   <Form.Control
                     type="text"
@@ -181,10 +180,7 @@ const ModalLogin = (props) => {
                   />
                 </Form.Group>
 
-                <Form.Group
-                  controlId="formBasicPassword"
-                  className="col-12"
-                >
+                <Form.Group controlId="formBasicPassword" className="col-12">
                   <Form.Label>Contraseña</Form.Label>
                   <Form.Control
                     type="password"
@@ -194,41 +190,47 @@ const ModalLogin = (props) => {
                     }}
                   />
                   <div className="small text-right">
-                  <a
-                    onClick={() => {
-                      setError(false);
-                      setForgetPass(true);
-                    }}
-                    className="mt-0 text-info"
-                  >
-                    Recuperar mi contraseña
-                  </a>
-                </div>
-                </Form.Group>
-                
-              </div>
-              
-                {/* <div className="row"> */}
-                  <div className="mt-3">
-                    <Button className="btn btn-block my-2" variant="primary" type="submit">
-                      Iniciar sesión
-                    </Button>
-                    <Button className="btn btn-block my-2" variant="danger" onClick={handleClose}>
-                      Cerrar
-                    </Button>
+                    <a
+                      onClick={() => {
+                        setError(false);
+                        setForgetPass(true);
+                      }}
+                      className="mt-0 text-info"
+                    >
+                      Recuperar mi contraseña
+                    </a>
                   </div>
-                {/* </div> */}
-                {errorTres ? (
-                  <Alert className="mt-3" variant={"primary"}>
-                    Ingresa tus credenciales antes de continuar!
-                  </Alert>
-                ) : null}
-                {error ? (
-                  <Alert className="mt-3" variant={"primary"}>
-                    Las Credenciales son incorrectas!
-                  </Alert>
-                ) : null}
-              
+                </Form.Group>
+              </div>
+
+              {/* <div className="row"> */}
+              <div className="mt-3">
+                <Button
+                  className="btn btn-block my-2"
+                  variant="primary"
+                  type="submit"
+                >
+                  Iniciar sesión
+                </Button>
+                <Button
+                  className="btn btn-block my-2"
+                  variant="danger"
+                  onClick={handleClose}
+                >
+                  Cerrar
+                </Button>
+              </div>
+              {/* </div> */}
+              {errorTres ? (
+                <Alert className="mt-3" variant={"primary"}>
+                  Ingresa tus credenciales antes de continuar!
+                </Alert>
+              ) : null}
+              {error ? (
+                <Alert className="mt-3" variant={"primary"}>
+                  Las Credenciales son incorrectas!
+                </Alert>
+              ) : null}
             </Form>
           )}
           {forgetPass ? (

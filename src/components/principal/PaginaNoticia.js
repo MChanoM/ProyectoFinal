@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component} from "react";
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faShare } from "@fortawesome/free-solid-svg-icons";
 import ReactHtmlParser from 'react-html-parser';
 import moment from 'moment';
 import 'moment/locale/es-do';
+import { FacebookProvider, Comments } from 'react-facebook';
 
 const PaginaNoticia = (props) => {
 
@@ -37,8 +38,12 @@ const PaginaNoticia = (props) => {
       </section>
 
       <section className="mb-4">
-        <p className="lead">{ReactHtmlParser(props.noticia.cuerpoNoticia)}</p>
+        <p className="lead text-justify">{ReactHtmlParser(props.noticia.cuerpoNoticia)}</p>
       </section>
+
+      <FacebookProvider appId="614813115854604">
+        <Comments href={props.noticia.id} />
+      </FacebookProvider>
     </Container>
   );
 };
