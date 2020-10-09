@@ -52,6 +52,13 @@ const ItemNoticia = (props) => {
               'success'
             )
           }
+          if(consulta.status === 403){
+              Swal.fire(
+                'Oopss...',
+                'No tienes los permisos para realizar esta acción...',
+                'error'
+              )
+          }
 
         } catch (error) {
           console.log(error);

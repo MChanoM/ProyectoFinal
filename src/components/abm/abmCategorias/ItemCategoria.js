@@ -3,16 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import configs from '../../../urlconfig';
+import configs from "../../../urlconfig";
 
 const ItemCategoria = (props) => {
-  const authToken = sessionStorage.getItem('authtoken');
+  const authToken = sessionStorage.getItem("authtoken");
 
   const eliminarCategoria = (idCategoria) => {
     console.log(idCategoria);
     Swal.fire({
       title: "¿Estas seguro?",
-      text: "Una vez que elimines esta categoria, no podés volver atras y se puede perder el acceso a las noticias dentro de esta categoria",
+      text:
+        "Una vez que elimines esta categoria, no podés volver atras y se puede perder el acceso a las noticias dentro de esta categoria",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -27,8 +28,8 @@ const ItemCategoria = (props) => {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
-              ['x-access-token'] : authToken
-            }
+              ["x-access-token"]: authToken,
+            },
           };
           const consulta = await fetch(
             `${configs.urlBackend}/api/categorias/${idCategoria}`,
@@ -47,13 +48,20 @@ const ItemCategoria = (props) => {
               "success"
             );
           }
+          if (consulta.status === 403) {
+            Swal.fire(
+              "Oopss...",
+              "No tienes los permisos para realizar esta acción...",
+              "error"
+            );
+          }
         } catch (error) {
           console.log(error);
           Swal.fire(
-            'Oopss...',
-            'Ocurrió un error, intentelo nuevamente',
-            'error'
-          )
+            "Oopss...",
+            "No tienes los permisos para realizar esta acción...",
+            "error"
+          );
         }
       }
     });
@@ -61,7 +69,6 @@ const ItemCategoria = (props) => {
 
   return (
     <tr>
-      
       <td>{props.item.nombreCategoria}</td>
       <td>{props.item.estado}</td>
       <td>
