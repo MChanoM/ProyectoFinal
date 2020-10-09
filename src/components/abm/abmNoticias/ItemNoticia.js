@@ -74,15 +74,7 @@ const ItemNoticia = (props) => {
       <td>{props.item.categoria}</td>
       <td>{moment(props.item.fechaNoticia).add(1,'d').format('L')}</td>
       <td>
-        <Link to={"/"} className="mr-2 text-success">
-          <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
-        </Link>
-        <Link to={"/"} className="mr-2 text-dark">
-          <FontAwesomeIcon
-            className="text-warning"
-            icon={faStar}
-          ></FontAwesomeIcon>
-        </Link>
+      
         <Link to={`/noticia/editar/${props.item._id}`} className="mr-2 text-dark">
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
         </Link>
