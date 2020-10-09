@@ -110,7 +110,7 @@ const PaginaAdmin = (props) => {
       <Container>
         <Row className="my-3">
           <h4 className="mr-2">
-            Bienvenidos <strong>{props.usuario.usuario}</strong>! - Roles
+            Bienvenido <strong>{props.usuario.usuario}</strong>! - Roles
             Activos:
           </h4>
           <h5>
