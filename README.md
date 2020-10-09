@@ -22,6 +22,9 @@ npm start
 * Javier Salas
 * Guillermo Apaza
 
+#### La podes probar en:
+[https://newspro.netlify.app/](https://newspro.netlify.app/)
+
 **Gracias! Feliz vida!** 
 
 -------
@@ -49,5 +52,8 @@ npm start
 * Mariano Mendoza
 * Javier Salas
 * Guillermo Apaza
+
+#### You could test the app on:
+[https://newspro.netlify.app/](https://newspro.netlify.app/)
 
 **Thank you! See you!** 
