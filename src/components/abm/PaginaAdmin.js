@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Col, Row, Nav, Badge, Button } from "react-bootstrap";
+import { Container, Row, Badge, Button } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   withRouter,
   Link,
 } from "react-router-dom";

@@ -7,8 +7,6 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { withRouter } from "react-router";
-import configs from '../../../urlconfig';
-import moment from 'moment';
 import 'moment/locale/es-do';
 
 

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import {DropdownButton, Dropdown, Button, ButtonGroup} from "react-bootstrap";
-import Logo from "../../img/logo-sbg.png";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 import Swal from 'sweetalert2';

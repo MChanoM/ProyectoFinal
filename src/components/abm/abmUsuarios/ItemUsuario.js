@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTrash,
   faEdit,
   faCheckCircle,
   faTimesCircle,
