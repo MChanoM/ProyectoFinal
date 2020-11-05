@@ -82,10 +82,11 @@ const AgregarNoticia = (props) => {
         );
         props.consultarNoticias();
         props.history.push("/admin");
-      } else {
+      } 
+      if (resultado.status === 403) {
         Swal.fire(
           "Oopss...",
-          "Ocurrió un error, intentelo nuevamente",
+          "No tienes los permisos para realizar esta acción...",
           "error"
         );
       }

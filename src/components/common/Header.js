@@ -98,13 +98,13 @@ const Header = (props) => {
           variant='primary'
           title={props.usuario.usuario}
           >
-          <Dropdown.Item href="/admin">{props.loginAdmin ? ('Administrar') : null}</Dropdown.Item>
+          <Dropdown.Item><Link to={"/admin"}>{props.loginAdmin ? ('Administrar') : null}</Link></Dropdown.Item>
           <Dropdown.Item onClick={handleShow}>{props.btnIngresar}</Dropdown.Item>
           </DropdownButton>) : <Button variant="primary" onClick={handleShow}>Ingresar</Button>}
           <Link to="/suscribirse" className="btn btn-success mx-2">Suscribirse</Link>
           {/* <Link onClick={handleShow} className="btn btn-outline-info">{props.btnIngresar}</Link> */}
           
-          {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info mr-2">Administrar</Link>) : null}
+          {/* {props.loginAdmin ? (<Link to={"/admin"} className="btn btn-outline-info mr-2">Administrar</Link>) : null} */}
 
         </Navbar.Collapse>
       </Navbar>

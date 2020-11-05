@@ -54,10 +54,11 @@ const AgregarCategoria = (props) => {
           )
           props.consultarCat();
           props.history.push('/admin');
-        } else {
+        } 
+        if (consulta.status === 403) {
           Swal.fire(
             "Oopss...",
-            "Ocurrió un error, intentelo nuevamente",
+            "No tienes los permisos para realizar esta acción...",
             "error"
           );
         }

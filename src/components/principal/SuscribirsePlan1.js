@@ -30,8 +30,8 @@ const SuscribirsePlan1 = (props) => {
       dia.trim() === "--Dia--" ||
       mes.trim() === "--Mes--" ||
       anio.trim() === "--Anio--" ||
-      correoElectronico.trim() === "" ||
-      contrasenia.trim() === "" 
+      correoElectronico.trim() === ""
+      
     ){
       //mostrar cartel de error
       setError(true);
@@ -212,16 +212,7 @@ const SuscribirsePlan1 = (props) => {
             </Form.Text>
           </Form.Group>
         </div>
-        <div className="col-sm-12 col-md-6">
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password" placeholder="Password" 
-          onChange={(e) => setContrasenia(e.target.value)}/>
-          <Form.Text className="text-muted">
-              Debe contener entre 8 y 16 caractéres.
-            </Form.Text>
-        </Form.Group>
-        </div>
+     
         {
               (error===true) ? <Alert className="text-center w-100" variant={'warning'}>
               Todos los campos son obligatorios
