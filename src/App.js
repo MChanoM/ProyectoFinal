@@ -20,6 +20,7 @@ import PaginaNoticia from "./components/principal/PaginaNoticia";
 import PaginaCategoria from "./components/principal/PaginaCategoria";
 import AltaUsuario from "./components/abm/abmUsuarios/AltaUsuario";
 import EditarUsuario from "./components/abm/abmUsuarios/EditarUsuario";
+import Modal from "react-bootstrap/Modal";
 import configs from './urlconfig';
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
   const [usuario, setUsuario] = useState(null);
   const [btnIngresar, setBtnIngresar] = useState("Ingresar");
   const authToken = sessionStorage.getItem("authtoken");
+  const [show, setShow] = useState(true);
+  const handleClose = () => setShow(false);
 
   useEffect(() => {
     if (recargarPagina) {
@@ -103,17 +106,20 @@ function App() {
 
   return (
     <Router>
-      <div className="d-none d-md-block ">
-        <div className="text-center ">
-          <a href="">
-            <img
-              src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
-              alt="Publicidad"
-              // className="w-100"
-            ></img>
-          </a>
-        </div>
-      </div>
+      <Modal show={show}
+        onHide={() => handleClose()}
+        backdrop="static"
+        keyboard={false}>
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <img
+            src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
+            alt="Publicidad"
+            // className="w-100"
+          ></img>
+        </Modal.Body>
+
+      </Modal>
 
       <Header
         btnIngresar={btnIngresar}
@@ -189,8 +195,8 @@ function App() {
                   setListaUsuarios={setListaUsuarios}
                   listaUsuarios={listaUsuarios}
                   usuario={usuario}
-                  // consultarCat={consultarCat}
-                  // consultarNoticias={consultarNoticias}
+                // consultarCat={consultarCat}
+                // consultarNoticias={consultarNoticias}
                 ></PaginaAdmin>
               );
             } else {
