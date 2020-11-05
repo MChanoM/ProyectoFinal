@@ -3,11 +3,9 @@ import { Button, Form, Modal, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, withRouter } from "react-router-dom";
-import Swal from "sweetalert2";
 import configs from "../../urlconfig";
 
 const ModalLogin = (props) => {
-  //   const [show, setShow] = useState(false);
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./ApiStyle.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import "./bootstrap.min.css"; //este el el boostrap de bootwatch
+import "./bootstrap.min.css";
 import PaginaInicio from "./components/principal/PaginaInicio";
 import AgregarNoticia from "./components/abm/abmNoticias/AgregarNoticia";
 import AgregarCategoria from "./components/abm/abmCategorias/AgregarCategoria";
