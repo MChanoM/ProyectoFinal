@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import {DropdownButton, Dropdown, Button, ButtonGroup} from "react-bootstrap";
-import { Link, withRouter, NavLink } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import ModalLogin from "./ModalLogin";
 import Swal from 'sweetalert2';
 import configs from '../../urlconfig';
 import Sidebar from './Sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faHome, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = (props) => {
@@ -67,11 +67,10 @@ const Header = (props) => {
               props.listaCategorias.map((item, pos) => {
                 if (item.nombreCategoria === "Actualidad" || item.nombreCategoria === "Política" ||
                   item.nombreCategoria === "Tecnología" || item.nombreCategoria === "Deportes") {
-                  return (<Nav.Link
+                  return (<Link className="text-white mx-2 d-none d-lg-block"
                     key={pos}
-                    href={`/pagcategoria/${item._id}`}
-                    className="text-white mx-2 d-none d-lg-block"
-                  >{item.nombreCategoria}</Nav.Link>)
+                    to={`/pagcategoria/${item._id}`}
+                  >{item.nombreCategoria}</Link>)
                 }
               })
             }
@@ -80,11 +79,11 @@ const Header = (props) => {
             <Nav.Link href="/"><FontAwesomeIcon icon={faHome} className="mr-2" />NewsPro<span className="text-primary">.</span></Nav.Link>
             {
               props.listaCategorias.map((item, pos) => {
-                  return (<Nav.Link
+                  return (<Link
                     key={pos}
-                    href={`/pagcategoria/${item._id}`}
-                    className="text-white mx-2"
-                  >{item.nombreCategoria}</Nav.Link>)
+                    to={`/pagcategoria/${item._id}`}
+                    className="text-white my-3 d-flex flex-column"
+                  >{item.nombreCategoria}</Link>)
               })
             }
             </div>
