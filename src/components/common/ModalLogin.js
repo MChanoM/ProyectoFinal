@@ -3,6 +3,7 @@ import { Button, Form, Modal, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, withRouter } from "react-router-dom";
+import Swal from 'sweetalert2';
 import configs from "../../urlconfig";
 
 const ModalLogin = (props) => {
@@ -111,14 +112,24 @@ const ModalLogin = (props) => {
           body: JSON.stringify(mail),
         };
         const enviarMail = await fetch(
-          `${configs.urlBackend}/api/auth/admin`,
+          `${configs.urlBackend}/api/auth/recuperar`,
           cabecera
         );
 
         if (enviarMail.status === 201) {
           setErrorDos(false);
+          Swal.fire(
+            'Bien Hecho!',
+            'Te enviamos un correo con tus credenciales!',
+            'success'
+          )
         } else {
           setErrorDos(true);
+          Swal.fire(
+            'Error!',
+            'Por favor ingresa un email valido!',
+            'error'
+          )
         }
       } catch (error) {
         console.log(error);
@@ -255,15 +266,6 @@ const ModalLogin = (props) => {
               >
                 Volver
               </Button>
-              {errorDos ? (
-                <Alert className="mt-3" variant={"primary"}>
-                  Por favor ingresa un email valido!
-                </Alert>
-              ) : (
-                <Alert className="mt-3" variant={"success"}>
-                  Te enviamos un correo con tus credenciales!
-                </Alert>
-              )}
             </Form>
           ) : null}
         </Modal.Body>
