@@ -114,7 +114,7 @@ function App() {
           <img
             src="https://media.giphy.com/media/8cd2qGwahcx6haeXsu/giphy.gif"
             alt="Publicidad"
-            // className="w-100"
+            className="w-100 text-center"
           ></img>
         </Modal.Body>
 
