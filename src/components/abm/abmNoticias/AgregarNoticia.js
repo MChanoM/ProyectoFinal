@@ -8,6 +8,7 @@ import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { withRouter } from "react-router";
 import 'moment/locale/es-do';
+import moment from "moment";
 
 
 const AgregarNoticia = (props) => {
@@ -26,6 +27,14 @@ const AgregarNoticia = (props) => {
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
+
+  const validarFecha = (e) =>{
+    let fecha = e.target.value;
+    console.log(e.target.value);
+    if(isNaN(fecha)){
+      console.log("no se puede modificar la fecha");
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +64,7 @@ const AgregarNoticia = (props) => {
       imagen,
       cuerpoNoticia,
       autorNoticia,
-      fechaNoticia,
+      fechaNoticia:moment().format('YYYY/MM/DD'),
       categoria,
     };
 
@@ -167,7 +176,6 @@ const AgregarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
           <Form.Control
-            // placeholder="DD/MM/AAAA"
             type="date"
             onChange={(e) => setFechaNoticia(e.target.value)}
           ></Form.Control>

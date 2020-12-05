@@ -66,7 +66,6 @@ function App() {
       );
       const respuesta = await consulta.json();
       setListaNoticias(respuesta);
-      // console.log(respuesta);
     } catch (error) {
       console.log(error);
     }
@@ -92,10 +91,6 @@ function App() {
           setUsuario(usuarioLogueado);
           setLoginAdmin(true);
           setBtnIngresar("Cerrar Sesion");
-
-          // consulta = await fetch("http://localhost:4000/api/users/me/roles",cabecera);
-          // const rolesUsuario = consulta.json();
-          // console.log(rolesUsuario);
         }
       }
     } catch (error) {
