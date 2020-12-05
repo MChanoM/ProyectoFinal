@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import configs from '../../../urlconfig';
+import moment from "moment";
 
 
 const EditarNoticia = (props) => {
@@ -170,9 +171,10 @@ const EditarNoticia = (props) => {
         <Form.Group>
           <Form.Label>Fecha *</Form.Label>
           <Form.Control
-            type="date"
+            type="text"
             ref={fechaNoticiaRef}
             defaultValue={props.noticia.fechaNoticia}
+            disabled
           ></Form.Control>
         </Form.Group>
         <Form.Group className="text-center">
