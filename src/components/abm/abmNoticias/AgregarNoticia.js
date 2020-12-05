@@ -18,7 +18,6 @@ const AgregarNoticia = (props) => {
   const [imagen, setImagen] = useState("");
   const [cuerpoNoticia, setCuerpoNoticia] = useState("");
   const [autorNoticia, setAutorNoticia] = useState("");
-  const [fechaNoticia, setFechaNoticia] = useState("");
   const [categoria, setCategoria] = useState("");
   const [error, setError] = useState(false);
 
@@ -27,14 +26,6 @@ const AgregarNoticia = (props) => {
   const seleccionarCategoria = (e) => {
     setCategoria(e.target.value);
   };
-
-  const validarFecha = (e) =>{
-    let fecha = e.target.value;
-    console.log(e.target.value);
-    if(isNaN(fecha)){
-      console.log("no se puede modificar la fecha");
-    }
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,8 +38,7 @@ const AgregarNoticia = (props) => {
       descripcionNoticia.trim() === "" ||
       imagen.trim() === "" ||
       cuerpoNoticia.trim() === "" ||
-      autorNoticia.trim() === "" ||
-      fechaNoticia.trim() === ""
+      autorNoticia.trim() === "" 
     ) {
       //mostrar error
       setError(true);
@@ -171,13 +161,6 @@ const AgregarNoticia = (props) => {
             placeholder="Nombre del autor de la noticia"
             type="text"
             onChange={(e) => setAutorNoticia(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Fecha *</Form.Label>
-          <Form.Control
-            type="date"
-            onChange={(e) => setFechaNoticia(e.target.value)}
           ></Form.Control>
         </Form.Group>
         <Form.Group className="text-center">
