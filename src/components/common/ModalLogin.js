@@ -101,22 +101,26 @@ const ModalLogin = (props) => {
     let exp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     if (mail !== "" && exp.test(mail)) {
       console.log("validado");
+      console.log(mail);
       setErrorDos(false);
       // envio mail al backend para q le envie las credenciales al usuario
       try {
+        const datos = {
+          email:mail
+        }
         const cabecera = {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "content-type": "application/json",
           },
-          body: JSON.stringify(mail),
+          body: JSON.stringify(datos)
         };
         const enviarMail = await fetch(
           `${configs.urlBackend}/api/auth/recuperar`,
           cabecera
         );
 
-        if (enviarMail.status === 201) {
+        if (enviarMail.status === 200) {
           setErrorDos(false);
           Swal.fire(
             'Bien Hecho!',
