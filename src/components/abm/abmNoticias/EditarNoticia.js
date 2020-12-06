@@ -50,6 +50,7 @@ const EditarNoticia = (props) => {
     }
 
     setError(false);
+    console.log("paso la validacion")
 
     // preparar el objeto con los nuevos datos
     const noticiaEditada = {
@@ -173,7 +174,7 @@ const EditarNoticia = (props) => {
           <Form.Control
             type="text"
             ref={fechaNoticiaRef}
-            defaultValue={props.noticia.fechaNoticia}
+            defaultValue={moment(props.noticia.fechaNoticia).add(1,'d').format('L')}
             disabled
           ></Form.Control>
         </Form.Group>
