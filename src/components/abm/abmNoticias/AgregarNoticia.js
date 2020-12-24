@@ -55,7 +55,7 @@ const AgregarNoticia = (props) => {
       imagen,
       cuerpoNoticia,
       autorNoticia,
-      fechaNoticia:moment().format('L'),
+      fechaNoticia:moment().format('YYYY/MM/DD'),
       categoria,
     };
 
